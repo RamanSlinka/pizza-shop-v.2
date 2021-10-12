@@ -1,26 +1,39 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, {FC, useEffect} from 'react';
+import './scss/app.scss';
+import Header from "./components/Header";
+import Home from "./pages/Home";
+import Cart from "./pages/Cart";
+import {Route} from "react-router-dom";
+import axios from "axios";
+import {useDispatch} from "react-redux";
+import {setPizzas} from "./store/actions/pizzas";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const App:FC = () => {
+
+    const dispatch = useDispatch();
+
+
+    useEffect(() => {
+        axios.get('http://localhost:3000/db.json')
+               .then(({data}) => {
+               dispatch(setPizzas(data.pizzas))
+            })
+    }, []);
+
+
+    return (
+
+        <div className="wrapper">
+            <Header/>
+            <div className="content">
+                <Route path={'/'} component={Home} exact/>
+                <Route path={'/cart'} component={Cart} exact/>
+
+            </div>
+        </div>
+
+
+    );
 }
 
 export default App;
