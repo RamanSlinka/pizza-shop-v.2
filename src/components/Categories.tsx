@@ -8,9 +8,9 @@ type CategoriesPropsType = {
 }
 
 
-const Categories: FC<CategoriesPropsType> = ({items,
-                                                 activeItem, setActiveItem
-                                                 , onClickItem}) => {
+const Categories: FC<CategoriesPropsType> = React.memo(({items,
+                                                            activeItem, setActiveItem
+                                                            , onClickItem}) => {
 
 
     const onSelectItem = (id: number) => {
@@ -29,6 +29,6 @@ const Categories: FC<CategoriesPropsType> = ({items,
             </ul>
         </div>
     );
-};
+});
 
 export default Categories;
