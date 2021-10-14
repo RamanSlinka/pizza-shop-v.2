@@ -9,13 +9,17 @@ type PizzaBlockPropsType = {
     sizes:Array<number>
 }
 
-const PizzaBlock: FC<PizzaBlockPropsType> = ({name, imageUrl, price,types, sizes}) => {
+const PizzaBlock: FC<PizzaBlockPropsType> = ({name, imageUrl,
+                                                 price,
+                                                 types,
+                                                 sizes}) => {
 
     const [activeType, setActiveType] = useState(types[0]);
     const [activeSize, setActiveSize] = useState(sizes[0]);
 
     const availableTypes = ["тонкое", "традиционное" ];
     const availableSizes = [26, 30, 40];
+
 
     const onSelectType = (index: number) => {
         setActiveType(index)
@@ -24,7 +28,11 @@ const PizzaBlock: FC<PizzaBlockPropsType> = ({name, imageUrl, price,types, sizes
         setActiveSize(index)
     }
 
+
+
     return (
+
+
         <div className="pizza-block">
             <img
                 className="pizza-block__image"

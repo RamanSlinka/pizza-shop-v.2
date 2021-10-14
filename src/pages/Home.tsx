@@ -1,10 +1,11 @@
 import React, {FC, useCallback, useEffect, useState} from 'react';
 import Categories from "../components/Categories";
 import SortPopup from "../components/SortPopup";
-import PizzaBlock from "../components/PizzaBlock";
+import PizzaBlock from "../components/pizzaBlock/PizzaBlock";
 import {useDispatch, useSelector} from "react-redux";
 import {setCategory} from "../store/actions/filters";
 import {fetchPizzas, itemType} from "../store/actions/pizzas";
+import PizzaLoadingBlock from "../components/pizzaBlock/PizzaLoadingBlock";
 
 
 
@@ -23,11 +24,12 @@ const Home: FC = () => {
 
     const [activeItem, setActiveItem] = useState(1)
     const items = useSelector((store: any) => store.pizzas.items)
+    const isLoaded = useSelector((store: any) => store.pizzas.isLoaded)
 
     const dispatch = useDispatch();
 
     useEffect(() => {
-        dispatch(fetchPizzas())
+       // dispatch(fetchPizzas())
 
 
     }, []);
@@ -61,12 +63,13 @@ const Home: FC = () => {
             </div>
             <h2 className="content__title">Все пиццы</h2>
             <div className="content__items">
-                {items && items.map((item: itemType) =>
+                {isLoaded ? items.map((item: itemType) =>
                     <PizzaBlock
                         key={item.id}
                         {...item}
                     />
-                )}
+                ) : Array(12).fill(<PizzaLoadingBlock/>)}
+
 
 
             </div>
