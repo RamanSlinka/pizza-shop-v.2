@@ -15,10 +15,16 @@ export type itemType = {
 export type itemsType = {
     items: Array<itemType>
 }
+
 export type SetPizzasActionType = ReturnType<typeof setPizzasAC>
+export type SetLoadedActionType = ReturnType<typeof setLoaded>
 
+export type PizzasActionsType = SetPizzasActionType | SetLoadedActionType
 
-
+export const setLoaded = (payload: boolean) => ({
+    type: 'SET_LOADED',
+    payload
+} as const);
 
 export const setPizzasAC = (items: itemsType) => ({
     type: 'SET_PIZZAS',
@@ -26,10 +32,15 @@ export const setPizzasAC = (items: itemsType) => ({
 } as const);
 
 
-
-export const fetchPizzas = (): AppThunkType=> (dispatch)=> {
-    axios.get('http://localhost:3001/pizzas')
+export const fetchPizzas = (sortBy: string, category: any ): AppThunkType => (dispatch) => {
+    dispatch(setLoaded(false));
+    axios.get(`http://localhost:3001/pizzas?${
+        category !== null ? `category=${category}` : ""
+    }&_sort=${sortBy}&_order=desc`,
+        )
         .then(({data}) => {
-          dispatch(setPizzasAC(data))
+            dispatch(setPizzasAC(data));
+            dispatch(setLoaded(true));
         })
+
 }

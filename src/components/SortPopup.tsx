@@ -1,13 +1,14 @@
 import React, {FC, useEffect, useRef, useState} from 'react';
 
 type SortPopupPropsType = {
-    itemsSort: Array<{ name: string, type: string }>
+    itemsSort: Array<{ name: string, type: string, order: string }>
+    onClickSortPopup: (type: any) => void
+    activeSortType: string
 }
 
-const SortPopup: FC<SortPopupPropsType> = React.memo(({itemsSort}) => {
+const SortPopup: FC<SortPopupPropsType> = React.memo(({itemsSort, activeSortType, onClickSortPopup,}) => {
 
     const [visiblePopup, setVisiblePopup] = useState(false);
-    const [activeItem, setActiveItem] = useState(0);
 
     const sortRef = useRef() as React.MutableRefObject<HTMLInputElement>;
 
@@ -15,11 +16,14 @@ const SortPopup: FC<SortPopupPropsType> = React.memo(({itemsSort}) => {
         setVisiblePopup(!visiblePopup)
     }
 
-    const onSelectItem = (index: number) => {
-        setActiveItem(index);
+    const onSelectItem = (type: any) => {
+        if (onClickSortPopup) {
+            onClickSortPopup(type);
+        }
+
         setVisiblePopup(false);
     }
-    const activeLabel = itemsSort[activeItem].name;
+    const activeLabel = itemsSort?.find(obj => obj.type === activeSortType)?.name;
 
     const handleOutsideClick = (e: any) => {
         if (!e.path.includes(sortRef.current)) {
@@ -53,12 +57,12 @@ const SortPopup: FC<SortPopupPropsType> = React.memo(({itemsSort}) => {
             {visiblePopup &&
             <div className="sort__popup">
                 <ul>
-                    {itemsSort && itemsSort.map((item, index) =>
+                    {itemsSort && itemsSort.map((obj, index) =>
                         <li
-                            className={activeItem === index  ? "active" : ""}
+                            className={activeSortType === obj.type ? "active" : ""}
                             key={index}
-                            onClick={() => onSelectItem(index)}
-                        >{item.name}</li>   )}
+                            onClick={() => onSelectItem(obj.type)}
+                        >{obj.name}</li>)}
 
                 </ul>
             </div>

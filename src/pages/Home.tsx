@@ -1,9 +1,9 @@
-import React, {FC, useCallback, useEffect, useState} from 'react';
+import React, {FC, useCallback, useEffect} from 'react';
 import Categories from "../components/Categories";
 import SortPopup from "../components/SortPopup";
 import PizzaBlock from "../components/pizzaBlock/PizzaBlock";
 import {useDispatch, useSelector} from "react-redux";
-import {setCategory} from "../store/actions/filters";
+import {setCategory, setSortBy} from "../store/actions/filters";
 import {fetchPizzas, itemType} from "../store/actions/pizzas";
 import PizzaLoadingBlock from "../components/pizzaBlock/PizzaLoadingBlock";
 
@@ -11,32 +11,40 @@ import PizzaLoadingBlock from "../components/pizzaBlock/PizzaLoadingBlock";
 
 
 
-const itemsCategories = [
-    {id: 1, value: 'Все'},
-    {id: 2, value: 'Мясные'},
-    {id: 3, value: 'Вегетарианская'},
-    {id: 4, value: 'Гриль'},
-    {id: 5, value: 'Острые'},
-    {id: 6, value: 'Закрытые'},
-]
+const itemsCategories = [ 'Мясные', 'Вегетарианская', 'Гриль', 'Острые', 'Закрытые', 'Смесь']
 
-const Home: FC = () => {
+    // {id: 6, value: 'Все'},
+    // {id: 0, value: 'Мясные'},
+    // {id: 1, value: 'Вегетарианская'},
+    // {id: 2, value: 'Гриль'},
+    // {id: 3, value: 'Острые'},
+    // {id: 5, value: 'Смесь'},
+    // {id: 4, value: 'Закрытые'},
 
-    const [activeItem, setActiveItem] = useState(1)
+
+
+const Home: FC = React.memo(() => {
+
+
     const items = useSelector((store: any) => store.pizzas.items)
     const isLoaded = useSelector((store: any) => store.pizzas.isLoaded)
+    const {category, sortBy} = useSelector((store: any) => store.filters)
+
 
     const dispatch = useDispatch();
 
     useEffect(() => {
-       // dispatch(fetchPizzas())
+
+        dispatch(fetchPizzas(sortBy, category ))
+    }, [category, sortBy]);
 
 
+    const onSelectCategory = useCallback((index: number  | null ) => {
+        dispatch(setCategory(index))
     }, []);
 
-
-    const onSelectCategory = useCallback((index: number) => {
-        dispatch(setCategory(index))
+    const onSelectSortType = useCallback((type: any) => {
+        dispatch(setSortBy(type))
     }, [])
 
     return (
@@ -45,17 +53,18 @@ const Home: FC = () => {
             <div className="content__top">
 
                 <Categories
-                    activeItem={activeItem}
-                    setActiveItem={setActiveItem}
+                    activeCategory={category}
                     items={itemsCategories}
                     onClickItem={onSelectCategory}
                 />
 
                 <SortPopup
+                    onClickSortPopup={onSelectSortType}
+                    activeSortType={sortBy}
                     itemsSort={[
-                        {name: 'популярности', type: 'popular'},
-                        {name: 'цене', type: 'price'},
-                        {name: 'алфавиту', type: 'alphabet'}
+                        {name: 'популярности', type: 'popular', order: 'desc'},
+                        {name: 'цене', type: 'price', order: 'desc'},
+                        {name: 'алфавиту', type: 'name', order: 'asc'}
                     ]}
                 />
 
@@ -63,12 +72,13 @@ const Home: FC = () => {
             </div>
             <h2 className="content__title">Все пиццы</h2>
             <div className="content__items">
-                {isLoaded ? items.map((item: itemType) =>
-                    <PizzaBlock
-                        key={item.id}
-                        {...item}
-                    />
-                ) : Array(12).fill(<PizzaLoadingBlock/>)}
+                {isLoaded
+                    ? items.map((item: itemType) =>
+                        <PizzaBlock
+                            key={item.id}
+                            {...item}  />)
+                    : Array(12).fill(0).map((_, index: number)=>
+                        <PizzaLoadingBlock key={index}/>)}
 
 
 
@@ -77,6 +87,6 @@ const Home: FC = () => {
 
 
     )
-};
+});
 
 export default Home;

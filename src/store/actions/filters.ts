@@ -1,11 +1,19 @@
 
 
+
+export type SetSortByActionType = ReturnType<typeof setSortBy>
+export type SetCategoryActionType = ReturnType<typeof setCategory>
+
+export type SetFiltersActionsType = SetSortByActionType
+    // | SetCategoryActionType;
+
+
 export const setSortBy = (name: string) => ({
     type: 'SET_SORT_BY',
     payload: name
 });
 
-export const setCategory = (catIndex: number) => ({
+export const setCategory = (category: number | null ) => ({
     type: 'SET_CATEGORY',
-    payload: catIndex
+    payload: category
 });

@@ -1,15 +1,25 @@
+import { SetFiltersActionsType} from "../actions/filters";
 
 
-const initialState = {
-    category: 0,
+export type initialStateType ={
+    category: string | number | null
+    sortBy: string
+}
+
+const initialState: initialStateType = {
+    category: null,
     sortBy: 'popular'
 }
 
-export default function  filters (state = initialState, action: any)  {
+export default function  filters (state: initialStateType = initialState, action: SetFiltersActionsType): initialStateType  {
     switch (action.type){
         case  'SET_SORT_BY':
         return {
             ...state, sortBy: action.payload
+        };
+        case   'SET_CATEGORY':
+        return {
+            ...state, category: action.payload
         };
     }
 
