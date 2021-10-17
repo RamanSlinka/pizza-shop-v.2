@@ -4,7 +4,7 @@
 export type SetSortByActionType = ReturnType<typeof setSortBy>
 export type SetCategoryActionType = ReturnType<typeof setCategory>
 
-export type SetFiltersActionsType = SetSortByActionType
+export type FiltersActionsType = SetSortByActionType
     // | SetCategoryActionType;
 
 

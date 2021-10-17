@@ -1,21 +1,27 @@
 import React, {FC, useState} from 'react';
 import classNames from "classnames";
+import Button from "../Button";
 
 type PizzaBlockPropsType = {
+    id: number
     name: string
     imageUrl: string
     price:number
     types:Array<number>
     sizes:Array<number>
+    onClickAddPizza: (obj: any) => void
+    addedCount:any
 }
 
-const PizzaBlock: FC<PizzaBlockPropsType> = ({name, imageUrl,
+const PizzaBlock: FC<PizzaBlockPropsType> = ({id, name, imageUrl,
                                                  price,
                                                  types,
-                                                 sizes}) => {
+                                                 sizes,
+                                             onClickAddPizza,
+                                                 addedCount}) => {
 
     const [activeType, setActiveType] = useState(types[0]);
-    const [activeSize, setActiveSize] = useState(sizes[0]);
+    const [activeSize, setActiveSize] = useState(0);
 
     const availableTypes = ["тонкое", "традиционное" ];
     const availableSizes = [26, 30, 40];
@@ -28,7 +34,15 @@ const PizzaBlock: FC<PizzaBlockPropsType> = ({name, imageUrl,
         setActiveSize(index)
     }
 
+const onAddPizza = () => {
+        const obj = {
+            id, name, imageUrl, price,
+            size: availableSizes[activeSize],
+            type: availableTypes[activeType]
+        }
 
+        onClickAddPizza({obj})
+    }
 
     return (
 
@@ -71,7 +85,9 @@ const PizzaBlock: FC<PizzaBlockPropsType> = ({name, imageUrl,
             </div>
             <div className="pizza-block__bottom">
                 <div className="pizza-block__price">от {price} ₽</div>
-                <div className="button button--outline button--add">
+                <Button
+                    onClick={onAddPizza}
+                    className="button--add" outline>
                     <svg
                         width="12"
                         height="12"
@@ -85,8 +101,10 @@ const PizzaBlock: FC<PizzaBlockPropsType> = ({name, imageUrl,
                         />
                     </svg>
                     <span>Добавить</span>
-                    <i>2</i>
-                </div>
+                    {console.log(addedCount)}
+                    {addedCount &&   <i>{ addedCount}</i>}
+
+                </Button>
             </div>
         </div>
     );
