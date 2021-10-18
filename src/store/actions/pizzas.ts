@@ -1,6 +1,7 @@
 import axios from "axios";
 import {AppThunkType} from "../index";
 
+
 export type itemType = {
     id: number
     imageUrl: string
@@ -10,6 +11,7 @@ export type itemType = {
     price: number
     category: number
     rating: number
+
 }
 
 export type itemsType = {
@@ -34,8 +36,7 @@ export const setPizzasAC = (items: itemsType) => ({
 
 export const fetchPizzas = (sortBy: string, category: any ): AppThunkType => (dispatch) => {
     dispatch(setLoaded(false));
-    axios.get(`http://localhost:3001/pizzas?${
-        category !== null ? `category=${category}` : ""
+    axios.get(`http://localhost:3001/pizzas?${category !== null ? `category=${category}` : ""
     }&_sort=${sortBy}&_order=desc`,
         )
         .then(({data}) => {

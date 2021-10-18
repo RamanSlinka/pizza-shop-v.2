@@ -1,29 +1,32 @@
 import React, {FC, useState} from 'react';
 import classNames from "classnames";
 import Button from "../Button";
+import {itemType} from "../../store/actions/pizzas";
 
 type PizzaBlockPropsType = {
     id: number
     name: string
     imageUrl: string
-    price:number
-    types:Array<number>
-    sizes:Array<number>
+    price: number
+    types: Array<number>
+    sizes: Array<number>
     onClickAddPizza: (obj: any) => void
-    addedCount:any
+    addedCount: any
 }
 
-const PizzaBlock: FC<PizzaBlockPropsType> = ({id, name, imageUrl,
+const PizzaBlock: FC<PizzaBlockPropsType> = ({
+                                                 id, name, imageUrl,
                                                  price,
                                                  types,
                                                  sizes,
-                                             onClickAddPizza,
-                                                 addedCount}) => {
+                                                 onClickAddPizza,
+                                                 addedCount
+                                             }) => {
 
     const [activeType, setActiveType] = useState(types[0]);
     const [activeSize, setActiveSize] = useState(0);
 
-    const availableTypes = ["тонкое", "традиционное" ];
+    const availableTypes = ["тонкое", "традиционное"];
     const availableSizes = [26, 30, 40];
 
 
@@ -34,7 +37,7 @@ const PizzaBlock: FC<PizzaBlockPropsType> = ({id, name, imageUrl,
         setActiveSize(index)
     }
 
-const onAddPizza = () => {
+    const onAddPizza = () => {
         const obj = {
             id, name, imageUrl, price,
             size: availableSizes[activeSize],
@@ -56,7 +59,7 @@ const onAddPizza = () => {
             <h4 className="pizza-block__title">{name}</h4>
             <div className="pizza-block__selector">
                 <ul>
-                    {availableTypes.map((type: string, index) =>(
+                    {availableTypes.map((type: string, index) => (
                         <li
                             key={type}
                             className={classNames({
@@ -64,13 +67,13 @@ const onAddPizza = () => {
                                 disabled: !types.includes(index)
 
                             })}
-                            onClick={() =>onSelectType(index)}
+                            onClick={() => onSelectType(index)}
                         >{type}</li>
-                    ) )}
+                    ))}
 
                 </ul>
                 <ul>
-                    {availableSizes.map((size: number, index) =>(
+                    {availableSizes.map((size: number, index) => (
                         <li
                             key={size}
                             className={classNames({
@@ -78,9 +81,9 @@ const onAddPizza = () => {
                                 disabled: !sizes.includes(size)
 
                             })}
-                            onClick={() =>onSelectSize(index)}
+                            onClick={() => onSelectSize(index)}
                         >{size} cm.</li>
-                    ) )}
+                    ))}
                 </ul>
             </div>
             <div className="pizza-block__bottom">
@@ -102,7 +105,7 @@ const onAddPizza = () => {
                     </svg>
                     <span>Добавить</span>
                     {console.log(addedCount)}
-                    {addedCount &&   <i>{ addedCount}</i>}
+                    {addedCount && <i>{addedCount}</i>}
 
                 </Button>
             </div>

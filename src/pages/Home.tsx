@@ -8,17 +8,11 @@ import {fetchPizzas, itemType} from "../store/actions/pizzas";
 import PizzaLoadingBlock from "../components/pizzaBlock/PizzaLoadingBlock";
 import {AppRootStateType} from "../store";
 import {addPizzaToCart} from "../store/actions/cart";
+import {newItemsType} from "../store/reducers/cart";
 
 
 const itemsCategories = ['Мясные', 'Вегетарианская', 'Гриль', 'Острые', 'Закрытые', 'Смесь']
 
-// {id: 6, value: 'Все'},
-// {id: 0, value: 'Мясные'},
-// {id: 1, value: 'Вегетарианская'},
-// {id: 2, value: 'Гриль'},
-// {id: 3, value: 'Острые'},
-// {id: 5, value: 'Смесь'},
-// {id: 4, value: 'Закрытые'},
 
 
 const Home: FC = React.memo(() => {
@@ -26,18 +20,20 @@ const Home: FC = React.memo(() => {
 
     const items = useSelector((store: any) =>
         store.pizzas.items)
-    const cartItems = useSelector((store: any) =>
-        store.cart.items)
+
     const isLoaded = useSelector<AppRootStateType>((store) =>
         store.pizzas.isLoaded)
     const {category, sortBy} = useSelector((store: any) =>
         store.filters)
 
+    const cartItems = useSelector((store: any) =>
+        store.cart.items)
+
+    console.log(cartItems)
 
     const dispatch = useDispatch();
 
     useEffect(() => {
-
         dispatch(fetchPizzas(sortBy, category))
     }, [category, sortBy,]);
 
@@ -46,11 +42,11 @@ const Home: FC = React.memo(() => {
         dispatch(setCategory(index))
     }, []);
 
-    const onSelectSortType = useCallback((type: any) => {
+    const onSelectSortType = useCallback((type: string) => {
         dispatch(setSortBy(type))
     }, [])
 
-    const handleAddPizzaToCart = (obj: any) => {
+    const handleAddPizzaToCart = (obj: newItemsType) => {
        dispatch(addPizzaToCart(obj))
     }
 
@@ -87,6 +83,7 @@ const Home: FC = React.memo(() => {
                             addedCount={ cartItems[item.id] && cartItems[item.id].length}
                             key={item.id}
                             {...item}  />)
+
                     : Array(12).fill(0).map((_, index: number) =>
                         <PizzaLoadingBlock key={index}/>)}
 
