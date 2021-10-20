@@ -1,23 +1,20 @@
 import React, {FC} from 'react';
 import CartItem from "./CartItem";
 import {useSelector} from "react-redux";
-import {itemType} from "../store/actions/pizzas";
 
 const Cart:FC = () => {
 
     const {totalPrice, totalCount, items} = useSelector((store:any) => ({
-        items: store.cart.items,
+        items: store.cart.itemsCart,
         totalPrice: store.cart.totalPrice,
         totalCount: store.cart.totalCount
     }))
-
     console.log(items)
-    console.log(totalCount)
-    console.log(totalPrice)
+   // console.log(items[0][0].name)
 
-    // const addedPizzas = Object.keys(items).map(key => {
-    //     return items.key[0];
-    // })
+    const addedPizzas = Object.keys(items).map(key => {
+        return items[key];
+    })
 
     return (
         <div className="content">
@@ -58,21 +55,21 @@ const Cart:FC = () => {
                     </div>
                     <div className="content__items">
 
-                        {/*{addedPizzas.map((obj: itemType) => (*/}
-                        {/*    <CartItem*/}
-                        {/*        // imageUrl={}*/}
-                        {/*        name={obj.name} type={obj.types} size={obj.sizes}/>*/}
-                        {/*))}*/}
+                        {addedPizzas.map((obj: any) => (
+                            <CartItem
+                                 imageUrl={obj.imageUrl}
+                                name={obj.name} type={obj.type} size={obj.size}/>
+                        ))}
 
-                        <CartItem
-                           // imageUrl={}
-                            name={'name'} type={'type'} size={46}/>
+                        {/*<CartItem*/}
+                        {/*   // imageUrl={}*/}
+                        {/*    name={'name'} type={'type'} size={46}/>*/}
 
                     </div>
                     <div className="cart__bottom">
                         <div className="cart__bottom-details">
                             <span> Всего пицц: <b>{totalCount} шт.</b> </span>
-                            <span> Сумма заказа: <b>123 ₽</b> </span>
+                            <span> Сумма заказа: <b>{totalPrice} ₽</b> </span>
                         </div>
                         <div className="cart__bottom-buttons">
                             <a href="/" className="button button--outline button--add go-back-btn">

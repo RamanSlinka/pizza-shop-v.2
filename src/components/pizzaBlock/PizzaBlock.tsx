@@ -20,7 +20,7 @@ const PizzaBlock: FC<PizzaBlockPropsType> = ({
                                                  types,
                                                  sizes,
                                                  onClickAddPizza,
-                                                 addedCount
+                                                addedCount
                                              }) => {
 
     const [activeType, setActiveType] = useState(types[0]);
@@ -44,7 +44,7 @@ const PizzaBlock: FC<PizzaBlockPropsType> = ({
             type: availableTypes[activeType]
         }
 
-        onClickAddPizza({obj})
+        onClickAddPizza(obj)
     }
 
     return (
@@ -104,7 +104,6 @@ const PizzaBlock: FC<PizzaBlockPropsType> = ({
                         />
                     </svg>
                     <span>Добавить</span>
-                    {console.log(addedCount)}
                     {addedCount && <i>{addedCount}</i>}
 
                 </Button>

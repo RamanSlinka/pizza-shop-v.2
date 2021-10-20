@@ -2,7 +2,7 @@ import React, {FC, useCallback, useEffect} from 'react';
 import Categories from "../components/Categories";
 import SortPopup from "../components/SortPopup";
 import PizzaBlock from "../components/pizzaBlock/PizzaBlock";
-import {useDispatch, useSelector} from "react-redux";
+import {TypedUseSelectorHook, useDispatch, useSelector} from "react-redux";
 import {setCategory, setSortBy} from "../store/actions/filters";
 import {fetchPizzas, itemType} from "../store/actions/pizzas";
 import PizzaLoadingBlock from "../components/pizzaBlock/PizzaLoadingBlock";
@@ -27,7 +27,7 @@ const Home: FC = React.memo(() => {
         store.filters)
 
     const cartItems = useSelector((store: any) =>
-        store.cart.items)
+        store.cart.itemsCart)
 
     console.log(cartItems)
 
@@ -80,7 +80,7 @@ const Home: FC = React.memo(() => {
 
                         <PizzaBlock
                             onClickAddPizza={handleAddPizzaToCart}
-                            addedCount={ cartItems[item.id] && cartItems[item.id].length}
+                           addedCount={ cartItems[item.id] && cartItems[item.id].length}
                             key={item.id}
                             {...item}  />)
 
