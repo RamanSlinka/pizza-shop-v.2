@@ -1,4 +1,4 @@
-import {itemType} from "./pizzas";
+
 import {newItemsType} from "../reducers/cart";
 
 export type AddPizzaToCartActionType = ReturnType<typeof addPizzaToCart>
