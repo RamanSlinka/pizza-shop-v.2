@@ -2,18 +2,18 @@ import React, {FC} from 'react';
 import CartItem from "./CartItem";
 import {useSelector} from "react-redux";
 
-const Cart:FC = () => {
+const Cart: FC = () => {
 
-    const {totalPrice, totalCount, items} = useSelector((store:any) => ({
+    const {totalPrice, totalCount, items} = useSelector((store: any) => ({
         items: store.cart.itemsCart,
         totalPrice: store.cart.totalPrice,
         totalCount: store.cart.totalCount
     }))
     console.log(items)
-   // console.log(items[0][0].name)
+    // console.log(items[0][0].name)
 
     const addedPizzas = Object.keys(items).map(key => {
-        return items[key];
+        return items[key][0];
     })
 
     return (
@@ -56,14 +56,14 @@ const Cart:FC = () => {
                     <div className="content__items">
 
                         {addedPizzas.map((obj: any) => (
+
                             <CartItem
-                                 imageUrl={obj.imageUrl}
-                                name={obj.name} type={obj.type} size={obj.size}/>
+                                imageUrl={obj.imageUrl}
+                                name={obj.name} type={obj.type}
+                                size={obj.size}/>
                         ))}
 
-                        {/*<CartItem*/}
-                        {/*   // imageUrl={}*/}
-                        {/*    name={'name'} type={'type'} size={46}/>*/}
+
 
                     </div>
                     <div className="cart__bottom">
