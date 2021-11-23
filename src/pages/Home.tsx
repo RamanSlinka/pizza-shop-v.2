@@ -29,7 +29,7 @@ const Home: FC = React.memo(() => {
     const cartItems = useSelector((store: any) =>
         store.cart.itemsCart)
 
-    console.log(cartItems)
+  //  console.log(cartItems)
 
     const dispatch = useDispatch();
 
