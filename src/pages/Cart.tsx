@@ -15,7 +15,12 @@ const Cart: FC = () => {
     const addedPizzas = Object.keys(items).map(key => {
         return items[key][0];
     })
+    // const totalAddedPizzas = Object.keys(items).map(key => {
+    //     return items[key].length;
+    // })
 
+    //const totalAddedPizzas2 = items.length
+   // console.log(totalAddedPizzas)
     return (
         <div className="content">
             <div className="container container--cart">
@@ -58,9 +63,12 @@ const Cart: FC = () => {
                         {addedPizzas.map((obj: any) => (
 
                             <CartItem
+                                totalAddedPizzas={addedPizzas.length}
                                 imageUrl={obj.imageUrl}
-                                name={obj.name} type={obj.type}
-                                size={obj.size}/>
+                                name={obj.name}
+                                type={obj.type}
+                                size={obj.size}
+                                price={obj.price}/>
                         ))}
 
 
