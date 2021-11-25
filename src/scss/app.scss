@@ -1,11 +1,12 @@
 @import 'fonts';
 @import 'variables';
-
 @import 'libs/normalize';
-
 @import 'components/all';
+@import "~bootstrap/scss/bootstrap.scss";
 
-
+a {
+  text-decoration: none;
+}
 
 body {
   //background-color: $background;
@@ -23,6 +24,7 @@ body {
 }
 
 .content {
+  margin: auto;
   padding: 40px 0;
 
   &__title {

@@ -4,6 +4,7 @@ import Header from "./components/Header";
 import Home from "./pages/Home";
 import Cart from "./pages/Cart";
 import {Route} from "react-router-dom";
+import CarouselPage from "./components/CarouselPage";
 
 const App:FC = () => {
 
@@ -11,6 +12,7 @@ const App:FC = () => {
 
         <div className="wrapper">
             <Header/>
+            <CarouselPage/>
             <div className="content">
                 <Route path={'/'} component={Home} exact/>
                 <Route path={'/cart'} component={Cart} exact/>
