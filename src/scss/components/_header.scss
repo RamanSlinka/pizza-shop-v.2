@@ -30,3 +30,19 @@
     }
   }
 }
+
+.navbar_wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  margin-left: 55px;
+
+  .navbar_item {
+    margin-right: 30px;
+    .NavLink {
+      font-style: italic;
+      font-size: 20px;
+
+    }
+  }
+}

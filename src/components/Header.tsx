@@ -4,6 +4,7 @@ import Button from './Button';
 import * as path from "path";
 import {NavLink} from "react-router-dom";
 import {useSelector} from "react-redux";
+import Navbar from "./Navbar";
 
 const Header: FC = () => {
 
@@ -66,6 +67,9 @@ const Header: FC = () => {
                     </NavLink>
 
                 </div>
+            </div>
+            <div>
+           <Navbar/>
             </div>
         </div>
     );

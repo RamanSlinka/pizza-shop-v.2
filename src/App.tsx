@@ -3,10 +3,10 @@ import './scss/app.scss';
 import Header from "./components/Header";
 import Home from "./pages/Home";
 import Cart from "./pages/Cart";
-import {Route} from "react-router-dom";
+import {Route, Routes} from "react-router-dom";
 import CarouselPage from "./components/CarouselPage";
 
-const App:FC = () => {
+const App: FC = () => {
 
     return (
 
@@ -14,9 +14,10 @@ const App:FC = () => {
             <Header/>
             <CarouselPage/>
             <div className="content">
-                <Route path={'/'} component={Home} exact/>
-                <Route path={'/cart'} component={Cart} exact/>
-
+                <Routes>
+                    <Route path={'/'} element={<Home/>}/>
+                    <Route path={'/cart'} element={<Cart/>}/>
+                </Routes>
             </div>
         </div>
 
