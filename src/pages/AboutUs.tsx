@@ -2,16 +2,17 @@ import React from 'react';
 
 const AboutUs = () => {
     return (
-        <div>
+        <div className="container">
             <section>
                 <h2>We</h2>
                 <p>
-                    Usually people come to Dodo Pizza just to eat. Our promoters distribute leaflets about a slice of
+                    Usually people come to Pizza just to eat. Our promoters distribute leaflets about a slice of
                     pizza
-                    for twenty rubles or something else profitable. We do this as the first step to get to know each
+                    for one dollar or something else profitable. We do this as the first step to get to know each
                     other.
 
-                    But for us, Dodo is not only pizza. This is pizza too, but first of all it is a big business that
+                    But for us, Pizza Shop is not only pizza. This is pizza too, but first of all it is a big business
+                    that
                     inspires us, makes us wake up every morning and continue to work with interest.
 
                     What is our interest? Let's tell you now.
@@ -28,23 +29,23 @@ const AboutUs = () => {
                     correct dough. This is a constructor, if the parts are of high quality, then the result will be
                     fine. Here are our details:
                 </p>
-                <div>
-                    <div>
-                        <h2>Dough</h2>
+                <div className="ingredients__table">
+                    <div className="ingredient__item">
+                        <h2 className="ingredient__title">Dough</h2>
                         <p>The most subtle thing. The main thing is to make it "alive".
                             This is a whole quest of grams, degrees, percentages and hours and minutes.
                             The process is not easy, but we succeed!</p>
                     </div>
-                    <div>
-                        <h2>Mozzarella</h2>
+                    <div className="ingredient__item">
+                        <h2 className="ingredient__title">Mozzarella</h2>
                         <p>
                             Pizza cheese is a key ingredient.
-                            We use real mozzarella from Russian suppliers.
+                            We use real mozzarella from better suppliers.
                             The cheese should stretch like in the picture.
                         </p>
                     </div>
-                    <div>
-                        <h2>Filling</h2>
+                    <div className="ingredient__item">
+                        <h2 className="ingredient__title">Filling</h2>
                         <p>
                             There are two main rules for a tasty filling:
                             do not skimp on the filling;
@@ -52,8 +53,8 @@ const AboutUs = () => {
                             This is the whole secret.
                         </p>
                     </div>
-                    <div>
-                        <h2>Tomato sauce</h2>
+                    <div className="ingredient__item">
+                        <h2 className="ingredient__title">Tomato sauce</h2>
                         <p>
                             The main thing to know about a good tomato sauce is that
                             it must be made from tomatoes.
@@ -61,6 +62,30 @@ const AboutUs = () => {
                         </p>
                     </div>
                 </div>
+            </section>
+            <section style={{marginTop: "20px"}}>
+                <h2>Uniform standards</h2>
+                <p>
+                    Digital technology helps us to notice in time when something goes wrong.
+                    But how do you know what is right and what is wrong?
+                    We have standards for this.
+                </p>
+                <p>
+                    Our standards are not some abstruse schemes and formulas, but super-understandable rules.
+                    We have hundreds of them, literally about everything.
+                    This is how we manage to do everything well and grow quickly at the same time.
+                </p>
+            </section>
+            <section>
+                <h2> Openness in everything</h2>
+                <p> Anyone can write a hundred rules, but it doesn't work by itself.
+                    It takes strength to keep standards upheld. For us, this force has become openness.
+                    We have made everything so transparent that it is simply impossible to deviate from the standards.
+                </p>
+                <p>It is openness that drives us to deliver on promises,
+                    adhere to standards and operate strictly within the framework of the law.
+                    But openness for us is not just a fashion trend. This is our deep conviction,
+                    philosophy and value that we want to bring to the world.</p>
             </section>
         </div>
     );
