@@ -12,7 +12,7 @@ const Navbar = () => {
                              style={(params) => {
                                  return {color: params.isActive ? "orange" : "black"}
                              }}
-                    >Pizzas</NavLink>
+                    >Pizza</NavLink>
                 </Nav.Item>
 
                 <Nav.Item className="navbar_item">
@@ -22,6 +22,14 @@ const Navbar = () => {
                                  return {color: params.isActive ? "orange" : "black"}
                              }}
                     >About us</NavLink>
+                </Nav.Item>
+                <Nav.Item className="navbar_item">
+                    <NavLink to={'/*'}
+                             className="NavLink"
+                             style={(params) => {
+                                 return {color: params.isActive ? "orange" : "black"}
+                             }}
+                    >Contacts</NavLink>
                 </Nav.Item>
 
                 <Nav.Item className="navbar_item">

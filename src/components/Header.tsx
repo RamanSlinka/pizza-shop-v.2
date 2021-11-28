@@ -1,5 +1,5 @@
 import React, {FC} from 'react';
-import logo from "../assets/img/pizza-logo.svg";
+import logo from "../assets/img/pizza_logo.png";
 import Button from './Button';
 import * as path from "path";
 import {NavLink} from "react-router-dom";
@@ -19,7 +19,7 @@ const Header: FC = () => {
             <div className="container">
                 <div className="header__logo">
                     <NavLink to={'/'}>
-                    <img width="38" src={logo} alt="Pizza logo"/>
+                    <img width="70" src={logo} alt="Pizza logo"/>
                     </NavLink>
                     <div>
                         <h1> Pizza Shop</h1>
