@@ -323,9 +323,37 @@ body {
   }
 }
 
+.promotional__table {
+  display: grid;
+  grid-template-columns: 50% 4fr;
+  grid-gap: 15px;
+  justify-content: center;
+
+  .promotional__item {
+    grid-column: auto;
+
+    background: rgb(253, 242, 232);
+    border-radius: 5px;
+    padding: 15px;
+
+    .promotional__image {
+      color: $orange;
+      font-size: 45px;
+    }
+
+    .promotional__title {
+      color: $orange;
+      font-size: 15px;
+    }
+    p{
+      font-size: 10px;
+    }
+  }
+}
+
 .ingredients__table {
   display: grid;
-  grid-template-columns: 45% 4fr;
+  grid-template-columns: 50% 4fr;
   grid-gap: 15px;
 
   .ingredient__item {

@@ -1,8 +1,56 @@
 import React from 'react';
+import {BiTimer, FaCarSide, FaPhotoVideo, IoFastFoodOutline} from "react-icons/all";
+import {Fade} from "react-awesome-reveal";
 
 const AboutUs = () => {
     return (
         <div className="container">
+            <section>
+                <div className="promotional__table">
+                    <div className="promotional__item">
+                        <Fade direction={"left"}>
+                        <div className="promotional__image">
+                            <FaCarSide/>
+                        </div>
+                        <h3 className="promotional__title">Delivery to the customer</h3>
+                        <p>Delivery to the customer above  40$. One-time fee for each delivery 5$. Delivery up to
+                            3km - no additional kilometers charged, delivery up to 10km for min.
+                             80$ - no fee for additional kilometers. The fee for additional kilometers is  1$ /
+                            1km.</p>
+                            </Fade>
+                    </div>
+                    <div className="promotional__item">
+                        <Fade direction={"right"}>
+                        <div className="promotional__image">
+                            <BiTimer/>
+                        </div>
+                        <h3 className="promotional__title">Lead time</h3>
+                        <p>There are delays in deliveries, because we serve the area within a radius of 20 km, but we
+                            deliver where others are softening</p>
+                           </Fade>
+                    </div>
+                    <div className="promotional__item">
+                        <Fade direction={"left"}>
+                        <div className="promotional__image">
+
+                            <IoFastFoodOutline/>
+                        </div>
+                        <h3 className="promotional__title">Only delicacies</h3>
+                        <p>That is Pizza, Kebab, Burgers, Casseroles, French fries with various additions, Dinner sets,
+                            Salads, and CATERING</p>
+                        </Fade>
+                    </div>
+                    <div className="promotional__item">
+                        <Fade direction={"right"}>
+                        <div className="promotional__image">
+                            <FaPhotoVideo/>
+                        </div>
+                        <h3 className="promotional__title">You can watch TV TRANSMISSIONS here</h3>
+                        <p>All sports broadcasts - always LIVE on the big screen</p>
+                        </Fade>
+                    </div>
+                </div>
+            </section>
             <section>
                 <h2>We</h2>
                 <p>
