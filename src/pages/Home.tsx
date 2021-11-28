@@ -14,7 +14,6 @@ import {newItemsType} from "../store/reducers/cart";
 const itemsCategories = ['Мясные', 'Вегетарианская', 'Гриль', 'Острые', 'Закрытые', 'Смесь']
 
 
-
 const Home: FC = React.memo(() => {
 
 
@@ -29,7 +28,7 @@ const Home: FC = React.memo(() => {
     const cartItems = useSelector((store: any) =>
         store.cart.itemsCart)
 
-  //  console.log(cartItems)
+    //  console.log(cartItems)
 
     const dispatch = useDispatch();
 
@@ -47,7 +46,7 @@ const Home: FC = React.memo(() => {
     }, [])
 
     const handleAddPizzaToCart = (obj: newItemsType) => {
-       dispatch(addPizzaToCart(obj))
+        dispatch(addPizzaToCart(obj))
     }
 
     return (
@@ -80,7 +79,7 @@ const Home: FC = React.memo(() => {
 
                         <PizzaBlock
                             onClickAddPizza={handleAddPizzaToCart}
-                           addedCount={ cartItems[item.id] && cartItems[item.id].length}
+                            addedCount={cartItems[item.id] && cartItems[item.id].length}
                             key={item.id}
                             {...item}  />)
 

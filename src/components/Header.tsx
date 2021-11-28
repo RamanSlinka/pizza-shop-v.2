@@ -19,7 +19,7 @@ const Header: FC = () => {
             <div className="container">
                 <div className="header__logo">
                     <NavLink to={'/'}>
-                    <img width="70" src={logo} alt="Pizza logo"/>
+                    <img width="100" src={logo} alt="Pizza logo"/>
                     </NavLink>
                     <div>
                         <h1> Pizza Shop</h1>

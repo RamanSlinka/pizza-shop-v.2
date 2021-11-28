@@ -1,7 +1,6 @@
 import React, {FC, useState} from 'react';
 import classNames from "classnames";
 import Button from "../Button";
-import {itemType} from "../../store/actions/pizzas";
 
 type PizzaBlockPropsType = {
     id: number
