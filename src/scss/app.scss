@@ -367,3 +367,36 @@ body {
     }
   }
 }
+
+.contacts__wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  .contacts__addresses {
+    display: flex;
+    flex-direction: row;
+
+    .contacts__address {
+      padding: 20px;
+      flex-direction: column;
+      .address__title{
+        color: $orange;
+      }
+    }
+  }
+
+  .contacts__phone {
+    display: flex;
+    flex-direction: column;
+    border: 1px $orange solid;
+    border-radius: 5px;
+    background: rgb(253, 242, 232);
+    padding: 10px;
+    max-height: 150px;
+    a{
+      color: $orange;
+      font-size: 20px;
+    }
+  }
+}

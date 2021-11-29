@@ -2,40 +2,40 @@ import React from 'react';
 
 const Contacts = () => {
     return (
-        <div>
-        <div>
-            <div>
-                Komsomolskaya
-                23 minutes
-                4.78
-                st. Komsomolskaya, 248
-                Delivery and pickup
-                09:00 - 23:00
-                A restaurant
-                09:00 - 23:00
+        <div className="container contacts__wrapper">
+            <div className="contacts__addresses">
+                <div className="contacts__address">
+                    <h3 className="address__title"> Nyhavn</h3>
+                    23 minutes
+
+                    <p> st. Nyhavn, 8</p>
+                    <p> Delivery and pickup</p>
+                    09:00 - 23:00
+                    <p> A restaurant</p>
+                    09:00 - 23:00
+                </div>
+                <div className="contacts__address">
+                    <h3 className="address__title"> Victoria Street</h3>
+                    30 minutes
+
+                    <p> st. Victoria, 19/2</p>
+                    <p> Delivery and pickup</p>
+                    09:00 - 23:00
+                   <p> A restaurant</p>
+                    09:00 - 23:00
+                </div>
+                <div className="contacts__address">
+                   <h3 className="address__title"> Grinn Shopping Center</h3>
+                    <p>NS. Kromsk, 4</p>
+                    <p>A restaurant</p>
+                    10:00 - 22:00
+                </div>
             </div>
-            <div>
-                Lenin
-                30 minutes
-                4.91
-                st. Lenin, 19/2
-                Delivery and pickup
-                09:00 - 23:00
-                A restaurant
-                09:00 - 23:00
-            </div>
-            <div>
-                Grinn Shopping Center
-                NS. Kromskoe, 4
-                A restaurant
-                10:00 - 22:00
-            </div>
-        </div>
-            <div>
+            <div className="contacts__phone">
                 Phone :
-                +18 90 321-00-01
-                Questions, feedback and suggestions:
-                feedback@pizza.com
+                <a href="tel:+18 90 321-00-01"> +18 90 321-00-01</a>
+                 Questions, feedback and suggestions:
+                <a href="feedback@pizza.com" target="_blank">feedback@pizza.com</a>
             </div>
         </div>
     );
