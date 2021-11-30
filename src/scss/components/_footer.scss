@@ -1,0 +1,69 @@
+@import '../variables';
+
+.footer__wrapper {
+  background-color: black;
+  color: white;
+  padding: 20px;
+
+  .upper__row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    .mini_title {
+      display: flex;
+      flex-direction: row;
+      .mini_title_item {
+        display: flex;
+        flex-direction: column;
+        margin: 25px;
+        h4 {
+          color: white;
+        }
+        p{
+          color: grey;
+        }
+      }
+    }
+
+    .contacts__links {
+      display: flex;
+      flex-direction: column;
+
+      .store__logo {
+        width: 150px;
+      }
+      a{
+        color: $orange
+      }
+    }
+  }
+
+  .medium__row {
+    display: flex;
+    flex-direction: row;
+
+    .medium__row__item {
+      h2 {
+        color: white;
+      }
+      p{
+        color: grey;
+      }
+
+      padding: 20px;
+    }
+  }
+  .down__row{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    .name__shop{
+      color: $orange;
+      font-size: 20px;
+      font-weight: bold;
+    }
+   p{
+     color: grey;
+   }
+  }
+}
