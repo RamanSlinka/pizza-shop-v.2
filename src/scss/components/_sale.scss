@@ -1,0 +1,21 @@
+@import '../variables';
+.sale{
+  margin: 20px;
+}
+
+.sale__wrapper {
+  margin: 20px;
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+  box-shadow: 10px 10px 15px 7px rgba(128, 128, 128, 0.45);
+.app__img{
+  width: 100%;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+  .sale__description{
+    margin: 10px;
+  }
+}
