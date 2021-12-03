@@ -32,6 +32,14 @@ const Navbar = () => {
                              }}
                     >Contacts</NavLink>
                 </Nav.Item>
+                <Nav.Item className="navbar_item">
+                    <NavLink to={PATH.SALE}
+                             className="NavLink"
+                             style={(params) => {
+                                 return {color: params.isActive ? "orange" : "black"}
+                             }}
+                    >Sale</NavLink>
+                </Nav.Item>
 
                 <Nav.Item className="navbar_item">
                     <NavLink to={PATH.CART}
