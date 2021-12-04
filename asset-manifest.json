@@ -1,19 +1,20 @@
 {
   "files": {
-    "main.css": "/pizza-shop-v.2/static/css/main.bcfce3f3.chunk.css",
-    "main.js": "/pizza-shop-v.2/static/js/main.bcb8d2b1.chunk.js",
-    "main.js.map": "/pizza-shop-v.2/static/js/main.bcb8d2b1.chunk.js.map",
-    "runtime-main.js": "/pizza-shop-v.2/static/js/runtime-main.538f058d.js",
-    "runtime-main.js.map": "/pizza-shop-v.2/static/js/runtime-main.538f058d.js.map",
-    "static/js/2.ab956f8f.chunk.js": "/pizza-shop-v.2/static/js/2.ab956f8f.chunk.js",
-    "static/js/2.ab956f8f.chunk.js.map": "/pizza-shop-v.2/static/js/2.ab956f8f.chunk.js.map",
-    "static/js/3.f3f21783.chunk.js": "/pizza-shop-v.2/static/js/3.f3f21783.chunk.js",
-    "static/js/3.f3f21783.chunk.js.map": "/pizza-shop-v.2/static/js/3.f3f21783.chunk.js.map",
+    "main.css": "/pizza-shop-v.2/static/css/main.0736a10e.chunk.css",
+    "main.js": "/pizza-shop-v.2/static/js/main.9941fbb5.chunk.js",
+    "main.js.map": "/pizza-shop-v.2/static/js/main.9941fbb5.chunk.js.map",
+    "runtime-main.js": "/pizza-shop-v.2/static/js/runtime-main.f8a80723.js",
+    "runtime-main.js.map": "/pizza-shop-v.2/static/js/runtime-main.f8a80723.js.map",
+    "static/js/2.8b4c6922.chunk.js": "/pizza-shop-v.2/static/js/2.8b4c6922.chunk.js",
+    "static/js/2.8b4c6922.chunk.js.map": "/pizza-shop-v.2/static/js/2.8b4c6922.chunk.js.map",
+    "static/js/3.defe30b2.chunk.js": "/pizza-shop-v.2/static/js/3.defe30b2.chunk.js",
+    "static/js/3.defe30b2.chunk.js.map": "/pizza-shop-v.2/static/js/3.defe30b2.chunk.js.map",
     "index.html": "/pizza-shop-v.2/index.html",
-    "static/css/main.bcfce3f3.chunk.css.map": "/pizza-shop-v.2/static/css/main.bcfce3f3.chunk.css.map",
-    "static/js/2.ab956f8f.chunk.js.LICENSE.txt": "/pizza-shop-v.2/static/js/2.ab956f8f.chunk.js.LICENSE.txt",
+    "static/css/main.0736a10e.chunk.css.map": "/pizza-shop-v.2/static/css/main.0736a10e.chunk.css.map",
+    "static/js/2.8b4c6922.chunk.js.LICENSE.txt": "/pizza-shop-v.2/static/js/2.8b4c6922.chunk.js.LICENSE.txt",
     "static/media/app.scss": "/pizza-shop-v.2/static/media/ProximaNova-Regular.d97f8f32.eot",
     "static/media/app-store.1b07240d.svg": "/pizza-shop-v.2/static/media/app-store.1b07240d.svg",
+    "static/media/app_mobile.c1bfaf37.png": "/pizza-shop-v.2/static/media/app_mobile.c1bfaf37.png",
     "static/media/googlePlay.c667d848.png": "/pizza-shop-v.2/static/media/googlePlay.c667d848.png",
     "static/media/pizza2.31867c99.jpg": "/pizza-shop-v.2/static/media/pizza2.31867c99.jpg",
     "static/media/pizza3.599db518.jpg": "/pizza-shop-v.2/static/media/pizza3.599db518.jpg",
@@ -21,9 +22,9 @@
     "static/media/pizza_logo.12d898e9.png": "/pizza-shop-v.2/static/media/pizza_logo.12d898e9.png"
   },
   "entrypoints": [
-    "static/js/runtime-main.538f058d.js",
-    "static/js/2.ab956f8f.chunk.js",
-    "static/css/main.bcfce3f3.chunk.css",
-    "static/js/main.bcb8d2b1.chunk.js"
+    "static/js/runtime-main.f8a80723.js",
+    "static/js/2.8b4c6922.chunk.js",
+    "static/css/main.0736a10e.chunk.css",
+    "static/js/main.9941fbb5.chunk.js"
   ]
 }
