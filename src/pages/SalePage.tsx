@@ -1,6 +1,7 @@
 import React from 'react';
-import app_mobile from './../assets/img/app_mobile.png'
-import friend_sale from './../assets/img/frend_sale.jpg'
+import app_mobile from './../assets/img/app_mobile.png';
+import friend_sale from './../assets/img/frend_sale.jpg';
+import pizza_birthday from './../assets/img/pizza_birthday.jpeg';
 import {BsArrowRightCircle} from "react-icons/all";
 
 const SalePage = () => {
@@ -55,14 +56,35 @@ const SalePage = () => {
                 <div className="sale__wrapper">
                     <div>
                         <img className="style__img"
+                             src={pizza_birthday} alt=""/>
+                    </div>
+                    <div className="sale__description">
+                        <h3>Birthday present!</h3>
+                        <p><BsArrowRightCircle className="sale__icon"/>
+                            &ensp;Indicate your birthday in your personal account, collect a basket for the minimum
+                            delivery amount and apply the promo code D120.</p>
+                            <p><BsArrowRightCircle className="sale__icon"/>
+                                &ensp;You can receive "Pizza-Pie" at least every
+                            day 3 days before your birthday, on your birthday and 10 days after. </p>
+                                <p>The promotion is not
+                            valid when ordering a combo and with other promotions using a promotional code.</p>
+
+                    </div>
+                </div>
+                <div className="sale__wrapper">
+                    <div>
+                        <img className="style__img"
                              src={friend_sale} alt=""/>
                     </div>
                     <div className="sale__description">
                         <h3>Get three free slices when you order at the PIZZA SHOP!</h3>
-                        <p><BsArrowRightCircle className="sale__icon"/>&ensp;Bring three friends and get three free slices!</p>
-                        <p><BsArrowRightCircle className="sale__icon"/>&ensp;Each participant of the promotion must place
+                        <p><BsArrowRightCircle className="sale__icon"/>&ensp;Bring three friends and get three free
+                            slices!</p>
+                        <p><BsArrowRightCircle className="sale__icon"/>&ensp;Each participant of the promotion must
+                            place
                             an order in the amount of $ 5 or more;</p>
-                        <p><BsArrowRightCircle className="sale__icon"/>&ensp;If everyone orders pizza, three extra slices for
+                        <p><BsArrowRightCircle className="sale__icon"/>&ensp;If everyone orders pizza, three extra
+                            slices for
                             each.</p>
                     </div>
                 </div>
