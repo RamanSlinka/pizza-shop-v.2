@@ -9,6 +9,7 @@ import PizzaLoadingBlock from "../components/pizzaBlock/PizzaLoadingBlock";
 import {AppRootStateType} from "../store";
 import {addPizzaToCart} from "../store/actions/cart";
 import {newItemsType} from "../store/reducers/cart";
+import CarouselPage from '../components/CarouselPage';
 
 
 const itemsCategories = ['Мясные', 'Вегетарианская', 'Гриль', 'Острые', 'Закрытые', 'Смесь']
@@ -50,7 +51,8 @@ const Home: FC = React.memo(() => {
     }
 
     return (
-
+<div>
+    <CarouselPage/>
         <div className="container">
             <div className="content__top">
 
@@ -90,7 +92,7 @@ const Home: FC = React.memo(() => {
             </div>
         </div>
 
-
+</div>
     )
 });
 

@@ -5,6 +5,7 @@ import appStore from './../assets/img/app-store.svg';
 const Footer = () => {
     return (
         <div className="footer__wrapper">
+            <hr style={{color: "grey"}}/>
             <div className="upper__row">
                 <div className="mini_title">
                     <div className="mini_title_item">

@@ -1,9 +1,12 @@
 import React from 'react';
 import {BiTimer, FaCarSide, FaPhotoVideo, IoFastFoodOutline} from "react-icons/all";
 import {Fade} from "react-awesome-reveal";
+import CarouselPage from "../components/CarouselPage";
 
 const AboutUs = () => {
     return (
+        <div>
+            <CarouselPage/>
         <div className="container">
             <section>
                 <div className="promotional__table">
@@ -145,6 +148,7 @@ const AboutUs = () => {
                     But openness for us is not just a fashion trend. This is our deep conviction,
                     philosophy and value that we want to bring to the world.</p>
             </section>
+        </div>
         </div>
     );
 };

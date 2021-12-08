@@ -11,7 +11,7 @@ import {Carousel} from "react-bootstrap";
 
 const CarouselPage = () => {
     return (
-        <div>
+        <div style={{marginBottom: "30px"}}>
             <Carousel
               // className={style.carouselStyle}
                 indicators={false}
