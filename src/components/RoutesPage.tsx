@@ -5,13 +5,15 @@ import Home from "../pages/Home";
 import Cart from "../pages/Cart";
 import Contacts from "../pages/Contacts";
 import SalePage from "../pages/SalePage";
+import WelcomePage from "../pages/WelcomePage";
 
 export const PATH = {
     HOME: '/',
     ABOUT_US: '/about_us',
     CART: '/cart',
     CONTACTS: '/contacts',
-    SALE: '/sale'
+    SALE: '/sale',
+    WELCOME: '/pizza-shop-v.2'
 }
 
 
@@ -23,6 +25,7 @@ const RoutesPage = () => {
             <Route path={PATH.CONTACTS} element={<Contacts/>}/>
             <Route path={PATH.CART} element={<Cart/>}/>
             <Route path={PATH.SALE} element={<SalePage/>}/>
+            <Route path={PATH.WELCOME} element={<WelcomePage/>}/>
         </Routes>
     );
 }
