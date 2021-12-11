@@ -1,94 +1,60 @@
-import React, {useEffect, useRef} from 'react';
-import gsap from "gsap"
+import React from 'react';
+import {NavLink} from "react-router-dom";
+import {IoHome} from 'react-icons/io5';
+import {BsInfoSquare} from 'react-icons/bs';
+import {AiOutlineFacebook} from 'react-icons/ai';
+import {FiInstagram} from 'react-icons/fi';
 
 const WelcomePage = () => {
 
-
-    // const wrapper = useRef<any>(null);
-    //
-    // useEffect(() => {
-    //     const [element] = wrapper.current.children;
-    //
-    //     document.body.addEventListener("mousemove", evt => {
-    //         const mouseX = evt.clientX;
-    //         const mouseY = evt.clientY;
-    //     })
-    //
-    //
-    //     const text = element.getElementById('text');
-    //     const mousemove = element.addEventListener('mousemove')
-    //     const cursor = element.addEventListener('cursor')
-    //
-    //     gsap.set([text, mousemove, cursor],({autoAlpha: 0}));
-    //     gsap.set([cursor],({
-    //         x: mouseX,
-    //         y: mouseY
-    //     }));
-    //
-    //
-    //
-    //
-    //
-    //     // document.body.addEventListener("mousemove", evt => {
-    //     //     const mouseX = evt.clientX;
-    //     //     const mouseY = evt.clientY;
-    //     //
-    //     //
-    //     //     gsap.set(".cursor", {
-    //     //         x: mouseX,
-    //     //         y: mouseY
-    //     //     })
-    //     //
-    //     //     gsap.to(".shape", {
-    //     //         x: mouseX,
-    //     //         y: mouseY,
-    //     //         stagger: -0.1
-    //     //     })
-    //     // });
-    //
-    //
-    // }, [])
     return (
-        <div className="welcome__wrapper ">
-            <div   style={{color: "white"}}>
-                <h1 id="text">Hello there</h1>
-            </div>
+        <div className=" welcome__wrapper ">
+
 
 
             <div className="welcome__container">
                 <div className="card card0">
                     <div className="border">
-                        <h2>Pizza</h2>
-                        <div className="icons">
-                            <i className="fa fa-codepen" aria-hidden="true"></i>
-                            <i className="fa fa-instagram" aria-hidden="true"></i>
-                            <i className="fa fa-dribbble" aria-hidden="true"></i>
-                            <i className="fa fa-twitter" aria-hidden="true"></i>
-                            <i className="fa fa-facebook" aria-hidden="true"></i>
-                        </div>
+
+
+                        <NavLink to={'/'}>
+                            <h2>Home</h2>
+                            <div className="icons">
+                                <i className="fa" aria-hidden="true">
+                                    <IoHome/>
+                                </i>
+                            </div>
+                        </NavLink>
                     </div>
+
                 </div>
                 <div className="card card1">
                     <div className="border">
-                        <h2>Pizza</h2>
-                        <div className="icons">
-                            <i className="fa fa-codepen" aria-hidden="true"></i>
-                            <i className="fa fa-instagram" aria-hidden="true"></i>
-                            <i className="fa fa-dribbble" aria-hidden="true"></i>
-                            <i className="fa fa-twitter" aria-hidden="true"></i>
-                            <i className="fa fa-facebook" aria-hidden="true"></i>
-                        </div>
+                        <NavLink to={'/about_app'}>
+                            <h2>About APP</h2>
+                            <div className="icons">
+                                <i className="fa" aria-hidden="true">
+                                    <BsInfoSquare/>
+                                </i>
+                            </div>
+                        </NavLink>
                     </div>
                 </div>
                 <div className="card card2">
                     <div className="border">
-                        <h2>Pizza</h2>
+                        <h2>Find us </h2>
                         <div className="icons">
-                            <i className="fa fa-codepen" aria-hidden="true"></i>
-                            <i className="fa fa-instagram" aria-hidden="true"></i>
-                            <i className="fa fa-dribbble" aria-hidden="true"></i>
-                            <i className="fa fa-twitter" aria-hidden="true"></i>
-                            <i className="fa fa-facebook" aria-hidden="true"></i>
+                            <i  aria-hidden="true">
+                                <a className="fa" href="https://www.facebook.com/" target="_blank">
+                                    <AiOutlineFacebook/>
+                                </a>
+                            </i>
+                            <i  aria-hidden="true">
+                                <a className="fa"  href="https://www.instagram.com/" target="_blank">
+                                    <FiInstagram/>
+                                </a>
+                            </i>
+
                         </div>
                     </div>
                 </div>
