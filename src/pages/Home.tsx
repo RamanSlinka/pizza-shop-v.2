@@ -53,7 +53,7 @@ const Home: FC = React.memo(() => {
     return (
 <div>
     <CarouselPage/>
-        <div className="container">
+        <div className="container_1">
             <div className="content__top">
 
                 <Categories

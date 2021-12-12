@@ -42,12 +42,23 @@ const AboutApp = () => {
                 <ul>
                     <li>Hooks: useState, useEffect, useContext. Custom hook</li>
                     <li>React router. Page navigation. BrowserRouter, Route.</li>
+                    <li>Typescript.</li>
+                    <li>Redux, react-redux, redux-thunk.</li>
                     <li>Search. Filtration.</li>
                     <li>Working with the server. Axios. Indication of loading data from the server.</li>
                     <li>Using "Mock API" as BackEnd</li>
-                    <li>Loader component.React Skeleton.</li>
+                    <li>Loader component.React Skeleton, react-content-loader.</li>
                     <li>SCSS. CSS Animations.Library React icons.</li>
+                    <li>  CSS Animations.React-awesome-reveal, Library React icons.</li>
                     <li>React Bootstrap. Slider.</li>
+                    <li>Gsap.</li>
+                    <li>Classnames.</li>
+
+
+
+
+
+
                 </ul>
             </div>
 
