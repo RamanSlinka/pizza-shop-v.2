@@ -1,0 +1,66 @@
+.about__app__wrapper {
+  .shapes {
+    position: relative;
+    height: 60vh;
+    background: #2128bd;
+    overflow: hidden;
+
+    .shape {
+      will-change: transform;
+      position: absolute;
+      border-radius: 50%;
+
+      $shapes: (#005ffe: 650px, #02af02: 440px, #f16b0c: 270px);
+
+      @each $color, $size in $shapes {
+        &.shape-#{index($shapes, ($color $size))} {
+          background: $color;
+          width: $size;
+          height: $size;
+          margin: (-$size/2) 0 0 (-$size/2);
+        }
+      }
+    }
+  }
+
+  .content__about {
+    top: 286px;
+    left: auto;
+    right: auto;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+     align-items: center;
+    height: 60vh;
+    width: 73.57%;
+    background: #ffffff;
+    mix-blend-mode: screen;
+
+    h1 {
+      font-family: Montserrat-Bold, sans-serif;
+      font-weight: bold;
+      font-size: 150px;
+      width: 100%;
+      text-align: center;
+    }
+  }
+
+  //.cursor {
+  //  position: fixed;
+  //  background: #f16b0c;
+  //  width: 20px;
+  //  height: 20px;
+  //  margin: -10px 0 0 -10px;
+  //  border-radius: 50%;
+  //  will-change: transform;
+  //  user-select: none;
+  //  pointer-events: none;
+  //  z-index: 10000;
+  //}
+
+  //::selection {
+  //  color: #fff;
+  //  background: #2128bd;
+  //}
+}
