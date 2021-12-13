@@ -35,6 +35,9 @@ const AboutApp = () => {
             <div className="content__about ">
 
                 <h1 id="text" ref={Ref}>Hello there !</h1>
+                <div>
+                    <ButtonAnimation/>
+                </div>
                 <h3>Pizza Shop</h3>
                 <span>ver.2.0.42</span>
                 <h3>This application is made using technologies such as:</h3>
@@ -53,9 +56,7 @@ const AboutApp = () => {
                     <li>Gsap.</li>
                     <li>Classnames.</li>
                 </ul>
-                <div>
-                    <ButtonAnimation/>
-                </div>
+
             </div>
 
         </div>
