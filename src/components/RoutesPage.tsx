@@ -7,6 +7,7 @@ import Contacts from "../pages/Contacts";
 import SalePage from "../pages/SalePage";
 import WelcomePage from "../pages/WelcomePage";
 import AboutApp from "./AboutApp";
+import FeedbackPage from "./FeedbackPage";
 
 export const PATH = {
     HOME: '/',
@@ -15,7 +16,8 @@ export const PATH = {
     CART: '/cart',
     CONTACTS: '/contacts',
     SALE: '/sale',
-    WELCOME: '/pizza-shop-v.2'
+    WELCOME: '/pizza-shop-v.2',
+    FEEDBACK: '/feedback'
 }
 
 
@@ -29,7 +31,7 @@ const RoutesPage = () => {
             <Route path={PATH.CART} element={<Cart/>}/>
             <Route path={PATH.SALE} element={<SalePage/>}/>
             <Route path={PATH.WELCOME} element={<WelcomePage/>}/>
-            <Route path={PATH.WELCOME} element={<WelcomePage/>}/>
+            <Route path={PATH.FEEDBACK} element={<FeedbackPage/>}/>
         </Routes>
     );
 }
