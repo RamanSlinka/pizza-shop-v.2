@@ -49,7 +49,7 @@ const FeedbackPage = () => {
         },
         validate: (values) => {
 
-            const errors: FormikErrorType  = {};
+            const errors: FormikErrorType = {};
             if (!values.email) {
                 errors.email = 'Required';
             } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)) {
@@ -60,7 +60,8 @@ const FeedbackPage = () => {
             } else if (values.userName.length < 3) {
                 errors.userName = 'Your name must be 3 characters or more'
 
-            } else if (values.textarea.length < 3) {
+            }
+            if (values.textarea.length < 3) {
                 errors.textarea = 'Required';
             }
             return errors;
@@ -75,53 +76,55 @@ const FeedbackPage = () => {
     })
 
 
-
-
     return (
 
-        <div >
+        <div className="content">
 
-            <div >
+            <div className="feedback--wrapper">
+                <div>
+                    <h3>Hi ! Glad to see you :) </h3>
+                    <p> If you got here  I ask you to leave a review about the site. Fill in the fields and write
+                        a review. I will definitely answer your message.</p>
+                </div>
 
+                <form className="form" ref={formRef} onSubmit={formik.handleSubmit}>
+                    <input type="text"
+                           placeholder={'Name'}
+                        //  name='to_name'
+                           {...formik.getFieldProps('userName')}
+                    />
+                    {formik.touched.userName && formik.errors.userName &&
+                        <div style={{'color': 'red'}}>{formik.errors.userName}</div>}
 
-                    <form ref={formRef} onSubmit={formik.handleSubmit} >
-                        <input type="text"
-                               placeholder={'Name'}
-                             //  name='to_name'
-                               {...formik.getFieldProps('userName')}
-                        />
-                        {formik.touched.userName && formik.errors.userName &&
-                            <div style={{'color': 'red'}}>{formik.errors.userName}</div>}
+                    <input type="email"
+                           placeholder={'E-mail'}
+                        // name='from_name'
 
-                        <input type="email"
-                               placeholder={'E-mail'}
-                              // name='from_name'
+                           {...formik.getFieldProps('email')}
+                    />
+                    <div>
 
-                               {...formik.getFieldProps('email')}
-                        />
-                        <div>
+                    </div>
+                    {formik.touched.email && formik.errors.email &&
+                        <div style={{'color': 'red'}}>{formik.errors.email}</div>}
 
-                        </div>
-                        {formik.touched.email && formik.errors.email &&
-                            <div style={{'color': 'red'}}>{formik.errors.email}</div>}
+                    <textarea
 
-                        <textarea
+                        placeholder={'Enter your question'}
+                        //  name='message'
+                        {...formik.getFieldProps('textarea')}
+                    />
+                    {formik.touched.textarea && formik.errors.textarea &&
+                        <div style={{'color': 'red'}}>{formik.errors.textarea}</div>}
+                    <div>
+                        {success ? <p>Your message is submit </p> : ''}
+                        {error ? <p style={{'color': 'red'}}>Sorry, there was an error sending</p> : ''}
+                    </div>
+                    <button type="submit"
 
-                            placeholder={'Enter your question'}
-                          //  name='message'
-                            {...formik.getFieldProps('textarea')}
-                        />
-                        {formik.touched.textarea && formik.errors.textarea &&
-                            <div style={{'color': 'red'}}>{formik.errors.textarea}</div>}
-                        <div>
-                            {success ? <p >Your message is submit </p> : ''}
-                            {error ? <p style={{'color': 'red'}}>Sorry, there was an error sending</p> : ''}
-                        </div>
-                        <button type="submit"
-
-                        ><span>Send message</span>
-                        </button>
-                    </form>
+                    ><span>Send message</span>
+                    </button>
+                </form>
 
             </div>
         </div>

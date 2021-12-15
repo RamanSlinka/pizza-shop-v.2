@@ -15,6 +15,14 @@ const Navbar = () => {
                              }}
                     >Pizza</NavLink>
                 </Nav.Item>
+                <Nav.Item className="navbar_item">
+                    <NavLink to={PATH.WELCOME}
+                             className="NavLink"
+                             style={(params) => {
+                                 return {color: params.isActive ? "orange" : "black"}
+                             }}
+                    >Start Page</NavLink>
+                </Nav.Item>
 
                 <Nav.Item className="navbar_item">
                     <NavLink to={PATH.ABOUT_US}
