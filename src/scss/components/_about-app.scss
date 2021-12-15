@@ -31,7 +31,7 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-     align-items: center;
+    align-items: center;
     height: 100vh;
     width: 73.57%;
     background: #ffffff;
@@ -74,6 +74,7 @@
     height: 10vh;
     flex-wrap: wrap;
     margin-bottom: 20px;
+
     &:not(.footer) {
       padding-top: 1rem;
     }
@@ -100,10 +101,12 @@
     font: 500 14px 'Rubik', sans-serif;
     letter-spacing: .5px;
     text-transform: uppercase;
-    text-shadow: 0 1px 1px rgba(0,0,0,0.4);
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.4);
   }
+
   .button-jittery button {
     animation: jittery 4s infinite;
+
     &:hover {
       animation: heartbeat 0.2s infinite;
     }

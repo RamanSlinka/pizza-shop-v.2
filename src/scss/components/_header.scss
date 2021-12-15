@@ -42,6 +42,9 @@
     .NavLink {
       font-style: italic;
       font-size: 20px;
+      &:hover{
+        color: #f16b0c;
+      }
     }
   }
 }
