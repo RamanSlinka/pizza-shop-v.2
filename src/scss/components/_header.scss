@@ -2,7 +2,13 @@
 
 .header {
   border-bottom: 1px solid $gray-line;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
   padding: 40px 0;
+  position: sticky;
+  z-index: 999;
+  top: 0;
+  background: white;
 
   .container {
     display: flex;
@@ -35,14 +41,16 @@
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
-  margin:20px 55px 5px;
+  margin: 20px 55px 5px;
 
   .navbar_item {
     margin-right: 30px;
+
     .NavLink {
       font-style: italic;
       font-size: 20px;
-      &:hover{
+
+      &:hover {
         color: #f16b0c;
       }
     }
