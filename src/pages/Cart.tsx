@@ -55,7 +55,7 @@ const Cart: FC = () => {
                                       strokeLinecap="round" strokeLinejoin="round"/>
                             </svg>
 
-                            <span>Очистить корзину</span>
+                            <span>Clear cart</span>
                         </div>
                     </div>
                     <div className="content__items">
@@ -76,8 +76,8 @@ const Cart: FC = () => {
                     </div>
                     <div className="cart__bottom">
                         <div className="cart__bottom-details">
-                            <span> Всего пицц: <b>{totalCount} шт.</b> </span>
-                            <span> Сумма заказа: <b>{totalPrice} ₽</b> </span>
+                            <span> Total pizzas: <b>{totalCount} pc.</b> </span>
+                            <span> Order price: <b>{totalPrice} $</b> </span>
                         </div>
                         <div className="cart__bottom-buttons">
                             <a href="/" className="button button--outline button--add go-back-btn">
@@ -87,10 +87,10 @@ const Cart: FC = () => {
                                           strokeLinecap="round" strokeLinejoin="round"/>
                                 </svg>
 
-                                <span>Вернуться назад</span>
+                                <span>Come back</span>
                             </a>
                             <div className="button pay-btn">
-                                <span>Оплатить сейчас</span>
+                                <span>Pay now</span>
                             </div>
                         </div>
                     </div>

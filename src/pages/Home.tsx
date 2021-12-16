@@ -12,7 +12,7 @@ import {newItemsType} from "../store/reducers/cart";
 import CarouselPage from '../components/CarouselPage';
 
 
-const itemsCategories = ['Мясные', 'Вегетарианская', 'Гриль', 'Острые', 'Закрытые', 'Смесь']
+const itemsCategories = ['Meat', 'Vegetarian', 'Grill', 'spicy', 'Closed(sorry)', 'Mix']
 
 
 const Home: FC = React.memo(() => {
@@ -66,15 +66,15 @@ const Home: FC = React.memo(() => {
                     onClickSortPopup={onSelectSortType}
                     activeSortType={sortBy}
                     itemsSort={[
-                        {name: 'популярности', type: 'popular', order: 'desc'},
-                        {name: 'цене', type: 'price', order: 'desc'},
-                        {name: 'алфавиту', type: 'name', order: 'asc'}
+                        {name: 'popular', type: 'popular', order: 'desc'},
+                        {name: 'price', type: 'price', order: 'desc'},
+                        {name: 'name', type: 'name', order: 'asc'}
                     ]}
                 />
 
 
             </div>
-            <h2 className="content__title">Все пиццы</h2>
+            <h2 className="content__title">All pizzas</h2>
             <div className="content__items">
                 {isLoaded
                     ? items.map((item: itemType) =>

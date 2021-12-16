@@ -51,21 +51,21 @@ const SortPopup: FC<SortPopupPropsType> = React.memo(({itemsSort, activeSortType
                         fill="#2C2C2C"
                     />
                 </svg>
-                <b>Сортировка по:</b>
+                <b>Sort by:</b>
                 <span onClick={toggleVisiblePopup}>{activeLabel}</span>
             </div>
             {visiblePopup &&
-            <div className="sort__popup">
-                <ul>
-                    {itemsSort && itemsSort.map((obj, index) =>
-                        <li
-                            className={activeSortType === obj.type ? "active" : ""}
-                            key={index}
-                            onClick={() => onSelectItem(obj.type)}
-                        >{obj.name}</li>)}
+                <div className="sort__popup">
+                    <ul>
+                        {itemsSort && itemsSort.map((obj, index) =>
+                            <li
+                                className={activeSortType === obj.type ? "active" : ""}
+                                key={index}
+                                onClick={() => onSelectItem(obj.type)}
+                            >{obj.name}</li>)}
 
-                </ul>
-            </div>
+                    </ul>
+                </div>
             }
 
         </div>

@@ -25,7 +25,7 @@ const PizzaBlock: FC<PizzaBlockPropsType> = ({
     const [activeType, setActiveType] = useState(types[0]);
     const [activeSize, setActiveSize] = useState(0);
 
-    const availableTypes = ["тонкое", "традиционное"];
+    const availableTypes = ["thin dough", "traditional dough"];
     const availableSizes = [26, 30, 40];
 
 
@@ -86,7 +86,7 @@ const PizzaBlock: FC<PizzaBlockPropsType> = ({
                 </ul>
             </div>
             <div className="pizza-block__bottom">
-                <div className="pizza-block__price">от {price} ₽</div>
+                <div className="pizza-block__price"> {price} $</div>
                 <Button
                     onClick={onAddPizza}
                     className="button--add" outline>
@@ -102,7 +102,7 @@ const PizzaBlock: FC<PizzaBlockPropsType> = ({
                             fill="white"
                         />
                     </svg>
-                    <span>Добавить</span>
+                    <span>Add to cart</span>
                     {addedCount && <i>{addedCount}</i>}
 
                 </Button>

@@ -23,14 +23,14 @@ const Header: FC = () => {
                     </NavLink>
                     <div>
                         <h1> Pizza Shop</h1>
-                        <p>самая вкусная пицца во вселенной</p>
+                        <p>we have the most delicious pizza in the universe :)</p>
                     </div>
                 </div>
                 <div className="header__cart">
                     <NavLink to={'/cart'}>
                     <Button className="button--cart" >
 
-                            <span>{totalPrice} ₽</span>
+                            <span>{totalPrice} $</span>
                             <div className="button__delimiter"></div>
                             <svg
                                 width="18"
