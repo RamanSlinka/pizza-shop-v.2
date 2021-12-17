@@ -12,6 +12,11 @@ type FormikErrorType = {
 
 const FeedbackPage = () => {
 
+//added from codePen
+    document.querySelectorAll(".button__submit").forEach((button) => {
+        button.addEventListener("click", () => button.classList.toggle("clicked"));
+    });
+//
 
     const [success, setSuccess] = useState(false);
     let [error, setError] = useState(false);
@@ -83,52 +88,79 @@ const FeedbackPage = () => {
             <div className="feedback--wrapper">
                 <div>
                     <h3>Hi ! Glad to see you :) </h3>
-                    <p> If you got here  I ask you to leave a review about the site. Fill in the fields and write
+                    <p> If you got here I ask you to leave a review about the site. Fill in the fields and write
                         a review. I will definitely answer your message.</p>
                 </div>
 
                 <form className="form" ref={formRef} onSubmit={formik.handleSubmit}>
-                    <input type="text"
-                           placeholder={'Name'}
-                        //  name='to_name'
-                           {...formik.getFieldProps('userName')}
-                    />
-                    {formik.touched.userName && formik.errors.userName &&
-                        <div style={{'color': 'red'}}>{formik.errors.userName}</div>}
 
-                    <input type="email"
-                           placeholder={'E-mail'}
-                        // name='from_name'
-
-                           {...formik.getFieldProps('email')}
-                    />
-                    <div>
-
+                    <div className="singleInputWrapper">
+                        {formik.touched.userName && formik.errors.userName &&
+                            <span className="inputError">{formik.errors.userName}</span>}
+                        <input
+                            className="input"
+                            type="text"
+                            placeholder={'Name'}
+                            //  name='to_name'
+                            {...formik.getFieldProps('userName')}
+                        />
                     </div>
-                    {formik.touched.email && formik.errors.email &&
-                        <div style={{'color': 'red'}}>{formik.errors.email}</div>}
 
-                    <textarea
+                    <div className="singleInputWrapper">
+                        {formik.touched.email && formik.errors.email &&
+                            <span className="inputError">{formik.errors.email}</span>}
+                        <input
+                            className="input"
+                            type="email"
+                            placeholder={'E-mail'}
+                            // name='from_name'
 
-                        placeholder={'Enter your question'}
-                        //  name='message'
-                        {...formik.getFieldProps('textarea')}
-                    />
-                    {formik.touched.textarea && formik.errors.textarea &&
-                        <div style={{'color': 'red'}}>{formik.errors.textarea}</div>}
+                            {...formik.getFieldProps('email')}
+                        />
+                    </div>
+
+                    <div className="singleInputWrapper">
+                        {formik.touched.textarea && formik.errors.textarea &&
+                            <span className="inputError">{formik.errors.textarea}</span>}
+                        <textarea
+                            className="input"
+                            style={{height:"90px"}}
+                            placeholder={'Enter your question'}
+                            //  name='message'
+                            {...formik.getFieldProps('textarea')}
+                        />
+                    </div>
+
+
                     <div>
-                        {success ? <p>Your message is submit </p> : ''}
+                        {success ? <p className="success" >Your message is submit </p> : ''}
                         {error ? <p style={{'color': 'red'}}>Sorry, there was an error sending</p> : ''}
                     </div>
-                    <button type="submit"
 
-                    ><span>Send message</span>
-                    </button>
+                    <ButtonSubmit/>
                 </form>
+
 
             </div>
         </div>
 
+    )
+}
+
+const ButtonSubmit = () => {
+    return (
+        <div>
+            <button className="button__submit" type="submit">
+                <div className="wrapper">
+                    <div className="front">Submit</div>
+                    <div className="top"></div>
+                    <div className="right"></div>
+                    <div className="bottom"></div>
+                    <div className="left"></div>
+                    <div className="back">Thank You!</div>
+                </div>
+            </button>
+        </div>
     )
 }
 
