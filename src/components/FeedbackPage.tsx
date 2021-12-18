@@ -35,7 +35,7 @@ const FeedbackPage = () => {
                 setSuccess(true);
                 setTimeout(function () {
                     setSuccess(false);
-                }, 6000);
+                }, 6000000);
             }, () => {
                 // console.log(error.text);
                 setError(true)
@@ -88,7 +88,7 @@ const FeedbackPage = () => {
             <div className="feedback--wrapper">
                 <div>
                     <h3>Hi ! Glad to see you :) </h3>
-                    <p> If you got here I ask you to leave a review about the site. Fill in the fields and write
+                    <p> If you got here please leave a review about the site. Fill in the fields and write
                         a review. I will definitely answer your message.</p>
                 </div>
 
@@ -125,7 +125,7 @@ const FeedbackPage = () => {
                         <textarea
                             className="input"
                             style={{height:"90px"}}
-                            placeholder={'Enter your question'}
+                            placeholder={'Enter your feedback or question'}
                             //  name='message'
                             {...formik.getFieldProps('textarea')}
                         />
