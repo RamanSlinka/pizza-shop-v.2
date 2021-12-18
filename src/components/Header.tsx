@@ -23,7 +23,7 @@ const Header: FC = () => {
                     </NavLink>
                     <div>
                         <h1> Pizza Shop</h1>
-                        <p>we have the most delicious pizza in the universe :)</p>
+                        <p className="header__description">we have the most delicious pizza in the universe :)</p>
                     </div>
                 </div>
                 <div className="header__cart">
