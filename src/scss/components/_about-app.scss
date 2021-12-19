@@ -36,13 +36,37 @@
     width: 73.57%;
     background: #ffffff;
     mix-blend-mode: screen;
-
+    @media screen and(max-width: 900px){
+      padding: 15px;
+      top: 286px;
+    }
+    @media screen and(max-width: 768px){
+      top: 316px;
+    }
+    @media screen and (max-width: 700px) {
+      top: 211px;
+    }
+    @media screen and(max-width: 558px){
+      top: 200px;
+    }@media screen and(max-width: 500px){
+      top: 230px;
+    }
     h1 {
       font-family: Montserrat-Bold, sans-serif;
       font-weight: bold;
       font-size: 150px;
       width: 100%;
       text-align: center;
+      @media screen and(max-width: 900px){
+        font-size: 100px;
+        margin-top: 10px;
+      }
+      @media screen and(max-width: 610px){
+        font-size: 60px;
+      }
+      @media screen and(max-width: 470px){
+        font-size: 40px;
+      }
     }
   }
 
@@ -58,7 +82,7 @@
   //  pointer-events: none;
   //  z-index: 10000;
   //}
-
+  //
   //::selection {
   //  color: #fff;
   //  background: #2128bd;
