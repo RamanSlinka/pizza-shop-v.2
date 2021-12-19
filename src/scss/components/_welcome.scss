@@ -1,19 +1,23 @@
 
 
 .welcome__wrapper {
-  background: rgb(0, 0, 0);
+  background: rgb(19, 19, 19);
 }
 .welcome__container {
   height: 100vh;
-  width: 100vw;
-  max-height: 800px;
-  max-width: 1280px;
-  min-height: 600px;
-  min-width: 1000px;
+  width: 100%;
+  //max-height: 800px;
+  //max-width: 1280px;
+  //min-height: 600px;
+  //min-width: 1000px;
   display: flex;
   justify-content: space-around;
   align-items: center;
   margin: 0 auto;
+@media screen and (max-width: 670px) {
+  display: flex;
+  flex-direction: column;
+}
 
 }
 
@@ -21,9 +25,17 @@
   height: 369px;
   width: 290px;
   background: transparent;
-  border-radius: 15px;
+  border-radius: 20px;
   transition: border 1s ;
   position: relative;
+  @media screen and (max-width: 1000px) {
+    height: 279px;
+    width: 200px;
+  }
+  @media screen and (max-width: 670px) {
+    height: 379px;
+    width: 300px;
+  }
   &:hover {
     border: 1px solid #f16b0c;
   }
@@ -36,16 +48,25 @@
 .card {
   height: 379px;
   width: 300px;
- // background: grey;
-  border-radius: 10px;
+  background: grey;
+  border-radius: 20px;
   transition: background 0.8s;
   overflow: hidden;
   background: black;
-  box-shadow: 0 70px 63px -60px #000000;
+  box-shadow: 0 70px 63px -60px #585d64;
   display: flex;
   justify-content: center;
   align-items: center;
   position: relative;
+  @media screen and (max-width: 1000px) {
+    height: 279px;
+    width: 200px;
+  }
+  @media screen and (max-width: 670px) {
+    height: 379px;
+    width: 300px;
+    margin-bottom: 10px;
+  }
 }
 
 .card0 {
@@ -94,12 +115,15 @@
   }
 }
 
-h2 {
+h2{
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   color: white;
   margin: 20px;
   opacity: 0;
   transition: opacity 1s;
+  @media screen and (max-width: 1000px) {
+    font-size: 15px;
+  }
 }
 
 .fa {
@@ -107,6 +131,9 @@ h2 {
   transition: opacity 1s;
   font-size: 70px;
   color: white;
+  @media screen and (max-width: 1000px) {
+    font-size: 40px;
+  }
   &:hover{
     color: #000000;
   }
@@ -119,4 +146,7 @@ h2 {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  @media screen and (max-width: 1000px) {
+    right: 130px;
+  }
 }

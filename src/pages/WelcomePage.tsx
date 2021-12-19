@@ -8,15 +8,10 @@ import {FiInstagram} from 'react-icons/fi';
 const WelcomePage = () => {
 
     return (
-        <div className=" welcome__wrapper ">
-
-
-
+        <div className=" welcome__wrapper content_1">
             <div className="welcome__container">
                 <div className="card card0">
                     <div className="border">
-
-
                         <NavLink to={'/'}>
                             <h2>Home</h2>
                             <div className="icons">
