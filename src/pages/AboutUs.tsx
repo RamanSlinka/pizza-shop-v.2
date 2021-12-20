@@ -65,7 +65,7 @@ const AboutUs = () => {
                 </div>
             </section>
             <section style={{marginTop: "20px"}}>
-                <h2>We</h2>
+                <h3>We</h3>
                 <p>
                     Usually people come to Pizza just to eat. Our promoters distribute leaflets about a slice of
                     pizza
@@ -80,7 +80,7 @@ const AboutUs = () => {
                 </p>
             </section>
             <section>
-                <h2>Perfect Ingredients</h2>
+                <h3>Perfect Ingredients</h3>
                 <p>
                     Why are we so eager to get to know each other? Because then the pizza does everything by itself.
                     People see that it tastes good and come back again. The main thing for us is to show it for the
@@ -92,13 +92,13 @@ const AboutUs = () => {
                 </p>
                 <div className="ingredients__table">
                     <div className="ingredient__item">
-                        <h2 className="ingredient__title">Dough</h2>
+                        <h4 className="ingredient__title">Dough</h4>
                         <p>The most subtle thing. The main thing is to make it "alive".
                             This is a whole quest of grams, degrees, percentages and hours and minutes.
                             The process is not easy, but we succeed!</p>
                     </div>
                     <div className="ingredient__item">
-                        <h2 className="ingredient__title">Mozzarella</h2>
+                        <h4 className="ingredient__title">Mozzarella</h4>
                         <p>
                             Pizza cheese is a key ingredient.
                             We use real mozzarella from better suppliers.
@@ -106,7 +106,7 @@ const AboutUs = () => {
                         </p>
                     </div>
                     <div className="ingredient__item">
-                        <h2 className="ingredient__title">Filling</h2>
+                        <h4 className="ingredient__title">Filling</h4>
                         <p>
                             There are two main rules for a tasty filling:
                             do not skimp on the filling;
@@ -115,7 +115,7 @@ const AboutUs = () => {
                         </p>
                     </div>
                     <div className="ingredient__item">
-                        <h2 className="ingredient__title">Tomato sauce</h2>
+                        <h4 className="ingredient__title">Tomato sauce</h4>
                         <p>
                             The main thing to know about a good tomato sauce is that
                             it must be made from tomatoes.
@@ -125,7 +125,7 @@ const AboutUs = () => {
                 </div>
             </section>
             <section style={{marginTop: "20px"}}>
-                <h2>Uniform standards</h2>
+                <h3>Uniform standards</h3>
                 <p>
                     Digital technology helps us to notice in time when something goes wrong.
                     But how do you know what is right and what is wrong?
@@ -138,7 +138,7 @@ const AboutUs = () => {
                 </p>
             </section>
             <section>
-                <h2> Openness in everything</h2>
+                <h3> Openness in everything</h3>
                 <p> Anyone can write a hundred rules, but it doesn't work by itself.
                     It takes strength to keep standards upheld. For us, this force has become openness.
                     We have made everything so transparent that it is simply impossible to deviate from the standards.
