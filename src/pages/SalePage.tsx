@@ -7,7 +7,7 @@ import {BsArrowRightCircle} from "react-icons/all";
 const SalePage = () => {
     return (
         <div>
-            <h2 style={{marginLeft: "25px"}}> Promotional campaigns</h2>
+            <h3 style={{margin: " 10px 25px "}}> Promotional campaigns</h3>
             <div className="sale">
                 <div className="sale__wrapper">
                     <div>

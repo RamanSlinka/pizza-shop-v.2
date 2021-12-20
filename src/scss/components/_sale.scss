@@ -1,9 +1,13 @@
 @import '../variables';
 
 .sale {
-  margin: 20px;
+ // margin: 20px;
   display: flex;
   flex-direction: row;
+  @media screen and (max-width: 1000px) {
+    flex-direction: column;
+    align-items: center
+  }
 }
 
 .sale__wrapper {
@@ -13,6 +17,10 @@
   flex-direction: column;
   border-radius: 10px;
   box-shadow: 10px 10px 15px 7px rgba(128, 128, 128, 0.45);
+  @media screen and (max-width: 1000px) {
+    width: 70%;
+    margin: 10px;
+  }
 
   .style__img {
     width: 100%;
