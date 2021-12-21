@@ -12,7 +12,7 @@ const Footer = () => {
 
                     <div className="mini_title_item">
                        <h4>About us</h4>
-                       <p> Dodo Pizza - Our brands</p>
+                       <p>  Pizza Shop - Our brands</p>
                     </div>
                     <div className="mini_title_item">
                        <h4> We are looking for</h4>

@@ -12,7 +12,7 @@ import {newItemsType} from "../store/reducers/cart";
 import CarouselPage from '../components/CarouselPage';
 
 
-const itemsCategories = ['Meat', 'Vegetarian', 'Grill', 'spicy', 'Closed(sorry)', 'Mix']
+const itemsCategories = ['Meat', 'Vegetarian', 'Grill', 'Spicy', 'Closed(sorry)', 'Mix']
 
 
 const Home: FC = React.memo(() => {
