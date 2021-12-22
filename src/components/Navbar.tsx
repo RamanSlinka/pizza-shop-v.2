@@ -8,14 +8,6 @@ const Navbar = () => {
         <div className=" container navbar_wrapper ">
             <Nav fill variant="pills" defaultActiveKey="/home">
                 <Nav.Item className="navbar_item">
-                    <NavLink to={PATH.HOME}
-                             className="NavLink"
-                             style={(params) => {
-                                 return {color: params.isActive ? "orange" : "black"}
-                             }}
-                    >Pizza</NavLink>
-                </Nav.Item>
-                <Nav.Item className="navbar_item">
                     <NavLink to={PATH.WELCOME}
                              className="NavLink"
                              style={(params) => {
@@ -23,6 +15,16 @@ const Navbar = () => {
                              }}
                     >Start Page</NavLink>
                 </Nav.Item>
+
+                <Nav.Item className="navbar_item">
+                    <NavLink to={PATH.HOME}
+                             className="NavLink"
+                             style={(params) => {
+                                 return {color: params.isActive ? "orange" : "black"}
+                             }}
+                    >Pizza</NavLink>
+                </Nav.Item>
+
 
                 <Nav.Item className="navbar_item">
                     <NavLink to={PATH.ABOUT_US}
