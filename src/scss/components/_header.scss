@@ -25,8 +25,8 @@
     justify-content: space-between;
     @media screen and (max-width: 500px) {
       display: flex;
-      flex-direction: column;
-      align-items: flex-end;
+     // flex-direction: column;
+     // align-items: flex-end;
     }
   }
 
@@ -65,12 +65,17 @@
 
   .navbar_item {
     margin-right: 30px;
-
+    line-height: 5px;
+    margin-top: 10px;
+    @media screen and (max-width: 990px) {
+      margin-top: 5px  ;
+    }
     .NavLink {
       font-style: italic;
       font-size: 20px;
       @media screen and (max-width: 700px) {
         font-size: 15px;
+        line-height: 0;
       }
 
       &:hover {
