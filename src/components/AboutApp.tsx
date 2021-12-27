@@ -33,7 +33,6 @@ const AboutApp = () => {
                 <div className="shape shape-3"></div>
             </div>
             <div className="content__about ">
-
                 <h1 id="text" ref={Ref}>Hello there !</h1>
                 <div>
                     <ButtonAnimation/>
