@@ -1,4 +1,4 @@
-import React, {useRef, useState} from 'react';
+import React, {FC, useRef, useState} from 'react';
 import emailjs from 'emailjs-com';
 import {useFormik} from "formik";
 
@@ -35,7 +35,7 @@ const FeedbackPage = () => {
                 setSuccess(true);
                 setTimeout(function () {
                     setSuccess(false);
-                }, 6000000);
+                }, 6000);
             }, () => {
                 // console.log(error.text);
                 setError(true)
@@ -124,7 +124,7 @@ const FeedbackPage = () => {
                             <span className="inputError">{formik.errors.textarea}</span>}
                         <textarea
                             className="input"
-                            style={{height:"90px"}}
+                            style={{height: "90px"}}
                             placeholder={'Enter your feedback or question'}
                             //  name='message'
                             {...formik.getFieldProps('textarea')}
@@ -133,7 +133,7 @@ const FeedbackPage = () => {
 
 
                     <div>
-                        {success ? <p className="success" >Your message is submit </p> : ''}
+                        {success ? <p className="success">Your message is submit </p> : ''}
                         {error ? <p style={{'color': 'red'}}>Sorry, there was an error sending</p> : ''}
                     </div>
 
@@ -147,12 +147,14 @@ const FeedbackPage = () => {
     )
 }
 
-const ButtonSubmit = () => {
+
+const ButtonSubmit: FC = () => {
     return (
         <div>
             <button className="button__submit" type="submit">
                 <div className="wrapper">
                     <div className="front">Submit</div>
+
                     <div className="top"></div>
                     <div className="right"></div>
                     <div className="bottom"></div>

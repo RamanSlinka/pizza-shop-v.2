@@ -136,7 +136,7 @@
     align-items: center;
     line-height: 23px;
     padding: 12px 25px;
-    @media screen and (max-width: 770px) {
+    @media screen and (max-width: 785px) {
       padding: 5px 10px;
       line-height: 13px;
     }
@@ -149,7 +149,7 @@
     span {
       font-weight: 600;
       font-size: 16px;
-      @media screen and (max-width: 770px) {
+      @media screen and (max-width: 785px) {
         font-size: 12px;
       }
     }

@@ -1,6 +1,7 @@
 import React, {FC} from 'react';
 import CartItem from "./CartItem";
 import {useSelector} from "react-redux";
+import emptyCart from "../assets/img/emptycart.jpg"
 
 const Cart: FC = () => {
 
@@ -59,17 +60,23 @@ const Cart: FC = () => {
                         </div>
                     </div>
                     <div className="content__items">
+                        {items.length < 0
+                            ? <>
+                                <img src={emptyCart} alt="emptyCart"/>
+                            </>
+                            : <>
+                                {addedPizzas.map((obj: any) => (
+                                    <CartItem
+                                        totalAddedPizzas={addedPizzas.length}
+                                        imageUrl={obj.imageUrl}
+                                        name={obj.name}
+                                        type={obj.type}
+                                        size={obj.size}
+                                        price={obj.price}/>
+                                ))}
 
-                        {addedPizzas.map((obj: any) => (
-
-                            <CartItem
-                                totalAddedPizzas={addedPizzas.length}
-                                imageUrl={obj.imageUrl}
-                                name={obj.name}
-                                type={obj.type}
-                                size={obj.size}
-                                price={obj.price}/>
-                        ))}
+                            </>
+                        }
 
 
                     </div>

@@ -27,7 +27,7 @@ const CartItem: FC<CartItemType> = ({ name, type, price,
                 </div>
                 <div className="cart__item-info">
                     <h3>{name}</h3>
-                    <p>{type} dough, {size} см.</p>
+                    <p>{type} , {size} см.</p>
                 </div>
                 {/*<div className="cart__item-count">*/}
                 {/*    <div className="button button--outline button--circle cart__item-count-minus">*/}
