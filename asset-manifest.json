@@ -1,20 +1,21 @@
 {
   "files": {
-    "main.css": "/pizza-shop-v.2/static/css/main.13cd6106.chunk.css",
-    "main.js": "/pizza-shop-v.2/static/js/main.57a488c7.chunk.js",
-    "main.js.map": "/pizza-shop-v.2/static/js/main.57a488c7.chunk.js.map",
+    "main.css": "/pizza-shop-v.2/static/css/main.bc703ca3.chunk.css",
+    "main.js": "/pizza-shop-v.2/static/js/main.6bc7a562.chunk.js",
+    "main.js.map": "/pizza-shop-v.2/static/js/main.6bc7a562.chunk.js.map",
     "runtime-main.js": "/pizza-shop-v.2/static/js/runtime-main.b235ca35.js",
     "runtime-main.js.map": "/pizza-shop-v.2/static/js/runtime-main.b235ca35.js.map",
-    "static/js/2.6e5bd0f9.chunk.js": "/pizza-shop-v.2/static/js/2.6e5bd0f9.chunk.js",
-    "static/js/2.6e5bd0f9.chunk.js.map": "/pizza-shop-v.2/static/js/2.6e5bd0f9.chunk.js.map",
+    "static/js/2.d0f34985.chunk.js": "/pizza-shop-v.2/static/js/2.d0f34985.chunk.js",
+    "static/js/2.d0f34985.chunk.js.map": "/pizza-shop-v.2/static/js/2.d0f34985.chunk.js.map",
     "static/js/3.f2e1780c.chunk.js": "/pizza-shop-v.2/static/js/3.f2e1780c.chunk.js",
     "static/js/3.f2e1780c.chunk.js.map": "/pizza-shop-v.2/static/js/3.f2e1780c.chunk.js.map",
     "index.html": "/pizza-shop-v.2/index.html",
-    "static/css/main.13cd6106.chunk.css.map": "/pizza-shop-v.2/static/css/main.13cd6106.chunk.css.map",
-    "static/js/2.6e5bd0f9.chunk.js.LICENSE.txt": "/pizza-shop-v.2/static/js/2.6e5bd0f9.chunk.js.LICENSE.txt",
+    "static/css/main.bc703ca3.chunk.css.map": "/pizza-shop-v.2/static/css/main.bc703ca3.chunk.css.map",
+    "static/js/2.d0f34985.chunk.js.LICENSE.txt": "/pizza-shop-v.2/static/js/2.d0f34985.chunk.js.LICENSE.txt",
     "static/media/app.scss": "/pizza-shop-v.2/static/media/ProximaNova-Regular.d97f8f32.eot",
     "static/media/app-store.1b07240d.svg": "/pizza-shop-v.2/static/media/app-store.1b07240d.svg",
     "static/media/app_mobile.c1bfaf37.png": "/pizza-shop-v.2/static/media/app_mobile.c1bfaf37.png",
+    "static/media/empty-cart.db905d1f.png": "/pizza-shop-v.2/static/media/empty-cart.db905d1f.png",
     "static/media/frend_sale.56bd31c7.jpg": "/pizza-shop-v.2/static/media/frend_sale.56bd31c7.jpg",
     "static/media/google.5d92d667.png": "/pizza-shop-v.2/static/media/google.5d92d667.png",
     "static/media/pizza2.31867c99.jpg": "/pizza-shop-v.2/static/media/pizza2.31867c99.jpg",
@@ -25,8 +26,8 @@
   },
   "entrypoints": [
     "static/js/runtime-main.b235ca35.js",
-    "static/js/2.6e5bd0f9.chunk.js",
-    "static/css/main.13cd6106.chunk.css",
-    "static/js/main.57a488c7.chunk.js"
+    "static/js/2.d0f34985.chunk.js",
+    "static/css/main.bc703ca3.chunk.css",
+    "static/js/main.6bc7a562.chunk.js"
   ]
 }
