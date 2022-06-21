@@ -36,7 +36,7 @@ export const setPizzasAC = (items: itemsType) => ({
 
 export const fetchPizzas = (sortBy: string, category: any ): AppThunkType => (dispatch) => {
     dispatch(setLoaded(false));
-    axios.get(`http://localhost:3001/pizzas?${category !== null ? `category=${category}` : ""
+    axios.get(`https://pizza-shop--server.herokuapp.com/api/pizzas?${category !== null ? `category=${category}` : ""
     }&_sort=${sortBy}&_order=desc`,
         )
         .then(({data}) => {
