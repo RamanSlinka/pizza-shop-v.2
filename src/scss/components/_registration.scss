@@ -1,0 +1,86 @@
+.registration__main {
+  background: url("https://ae01.alicdn.com/kf/H22a9314fabd341b7b58136a754bb5c24G/Beibehang.jpg");
+  font-size: 14px;
+  line-height: 1.8;
+  color: #222;
+  font-weight: 400;
+  background-size: cover;
+  background-position: center center;
+  padding: 125px 0;
+
+  .registration__section {
+    display: block;
+
+    .registration__container {
+      width: 660px;
+      position: relative;
+      margin: 0 auto;
+
+      .registration__content {
+        background: rgba(255, 255, 255, 0.8);
+        border-radius: 10px;
+        padding: 50px 85px;
+
+        .signup-form {
+          display: block;
+          margin-top: 0em;
+
+          .form-title {
+            line-height: 1.66;
+            margin: 0;
+            padding: 0;
+            font-weight: 900;
+            color: #222;
+            font-family: 'Montserrat';
+            font-size: 24px;
+            text-transform: uppercase;
+            text-align: center;
+            margin-bottom: 40px;
+          }
+
+          .form-group {
+            overflow: hidden;
+            margin-bottom: 20px;
+
+            .form-input {
+              width: 100%;
+              border: 1px solid #ebebeb;
+              border-radius: 5px;
+              padding: 17px 20px;
+              box-sizing: border-box;
+              font-size: 14px;
+              font-weight: 500;
+              color: #222;
+            }
+          }
+
+          .form-submit {
+            width: 100%;
+            border-radius: 5px;
+            padding: 17px 20px;
+            box-sizing: border-box;
+            font-size: 14px;
+            font-weight: 700;
+            color: #fff;
+            text-transform: uppercase;
+            border: none;
+            background-image: linear-gradient(to left, #ebe174, #fe5f1e);
+          }
+        }
+
+        .loginhere {
+          color: #555;
+          font-weight: 500;
+          text-align: center;
+          margin-top: 91px;
+          margin-bottom: 5px;
+
+          .loginhere-link {
+            font-weight: 700;
+            color: #222;
+          }
+        }
+      }
+    }
+  }
+}
