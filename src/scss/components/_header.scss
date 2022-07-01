@@ -17,6 +17,9 @@
     @media screen and (max-width: 500px) {
       font-size: 12px;
     }
+    @media screen and (max-width: 400px) {
+     display: none;
+    }
   }
 
   .container {
@@ -83,4 +86,9 @@
       }
     }
   }
+}
+
+.header__btn-block{
+  display: flex;
+  flex-direction: row;
 }

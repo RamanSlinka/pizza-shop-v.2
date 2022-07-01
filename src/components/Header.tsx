@@ -5,30 +5,45 @@ import * as path from "path";
 import {NavLink} from "react-router-dom";
 import {useSelector} from "react-redux";
 import NavbarPage from "./NavbarPage";
+import {ButtonGroup} from "react-bootstrap";
 
 const Header: FC = () => {
 
-    const {totalPrice, totalCount} = useSelector((store:any) => ({
+    const {totalPrice, totalCount} = useSelector((store: any) => ({
         totalPrice: store.cart.totalPrice,
         totalCount: store.cart.totalCount
     }))
 
+
+    const isAuth = false;
 
     return (
         <div className="header">
             <div className="container">
                 <div className="header__logo">
                     <NavLink to={'/'}>
-                    <img width="100" src={logo} alt="Pizza logo"/>
+                        <img width="100" src={logo} alt="Pizza logo"/>
                     </NavLink>
                     <div>
                         <h1> Pizza Shop</h1>
                         <p className="header__description">we have the most delicious pizza in the universe :)</p>
                     </div>
                 </div>
+                {isAuth ?
+                    <div>
+                        <Button className="button--cart">Sign out</Button>
+                    </div>
+                    :
+                    <ButtonGroup size="lg" className="mb-xxl-1">
+                        <Button>Sign in</Button>
+                        <Button>Sign up</Button>
+                    </ButtonGroup>
+                }
+
+
                 <div className="header__cart">
                     <NavLink to={'/cart'}>
-                    <Button className="button--cart" >
+                        <Button className="button--cart">
 
                             <span>{totalPrice} $</span>
                             <div className="button__delimiter"></div>
@@ -63,13 +78,13 @@ const Header: FC = () => {
                             </svg>
                             <span>{totalCount}</span>
 
-                    </Button>
+                        </Button>
                     </NavLink>
 
                 </div>
             </div>
             <div>
-           <NavbarPage/>
+                <NavbarPage/>
             </div>
         </div>
     );

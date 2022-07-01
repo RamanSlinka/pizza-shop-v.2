@@ -39,7 +39,7 @@ const RoutesPage = () => {
                     <Route path={PATH.ABOUT_US} element={<AboutUs/>}/>
                     <Route path={PATH.ABOUT_APP} element={<AboutApp/>}/>
                     <Route path={PATH.CONTACTS} element={<Contacts/>}/>
-                    {/*<Route path={PATH.CART} element={<Cart/>}/>*/}
+                    <Route path={PATH.CART} element={<Cart/>}/>
                     <Route path={PATH.SALE} element={<SalePage/>}/>
                     <Route path={PATH.WELCOME} element={<WelcomePage/>}/>
                     <Route path={PATH.FEEDBACK} element={<FeedbackPage/>}/>
