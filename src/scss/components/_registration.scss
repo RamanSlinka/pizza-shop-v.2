@@ -7,7 +7,8 @@
   background-size: cover;
   background-position: center center;
   padding: 125px 0;
-
+  width: 100%;
+  font-family: "Proxima Nova", Roboto, system-ui;
   .registration__section {
     display: block;
 
@@ -15,11 +16,26 @@
       width: 660px;
       position: relative;
       margin: 0 auto;
+      @media screen and (max-width: 780px) {
+        width: 560px;
+      }
+      @media screen and (max-width: 620px) {
+        width: 460px;
+      }
+      @media screen and (max-width: 500px) {
+        width: 360px;
+      }
+      @media screen and (max-width: 400px) {
+        width: 300px;
+      }
 
       .registration__content {
         background: rgba(255, 255, 255, 0.8);
         border-radius: 10px;
         padding: 50px 85px;
+        @media screen and (max-width: 620px) {
+          padding: 20px 45px;
+        }
 
         .signup-form {
           display: block;
@@ -31,11 +47,14 @@
             padding: 0;
             font-weight: 900;
             color: #222;
-            font-family: 'Montserrat';
             font-size: 24px;
             text-transform: uppercase;
             text-align: center;
             margin-bottom: 40px;
+            @media screen and (max-width: 620px) {
+              font-size: 18px;
+              margin-bottom: 20px;
+            }
           }
 
           .form-group {
@@ -51,6 +70,12 @@
               font-size: 14px;
               font-weight: 500;
               color: #222;
+              @media screen and (max-width: 620px) {
+                padding: 12px 15px;
+              }
+              @media screen and (max-width: 400px) {
+                padding: 7px 10px;
+              }
             }
           }
 
@@ -65,6 +90,9 @@
             text-transform: uppercase;
             border: none;
             background-image: linear-gradient(to left, #ebe174, #fe5f1e);
+            @media screen and (max-width: 620px) {
+              padding: 12px 15px;
+            }
           }
         }
 
