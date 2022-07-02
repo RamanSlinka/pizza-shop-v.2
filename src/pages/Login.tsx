@@ -1,7 +1,22 @@
-import React from 'react';
+import React, {ChangeEvent, useState} from 'react';
 import {NavLink} from "react-router-dom";
+import {useDispatch} from "react-redux";
+import {login} from "../store/actions/auth";
 
 const Login = () => {
+
+    const [email, setEmail] = useState<any>('')
+    const [password, setPassword] = useState<any>('')
+    const dispatch = useDispatch()
+
+
+
+    const loginClickHandler  = () => {
+        dispatch(login(email, password))
+        setEmail('')
+        setPassword('')
+    }
+
     return (
         <div className="registration__main">
             <section className="registration__section">
@@ -11,13 +26,21 @@ const Login = () => {
                             <h5 className="form-title" >Log in</h5>
 
                             <div className="form-group">
-                                <input type="email" className="form-input" placeholder={'Your Email'}/>
+                                <input
+                                    value={email}
+                                    onChange={(event:ChangeEvent<HTMLInputElement>) => setEmail(event.target.value)}
+                                    type="email" className="form-input" placeholder={'Your Email'}/>
                             </div>
                             <div className="form-group">
-                                <input type="password" className="form-input" placeholder={'Password'}/>
+                                <input
+                                    value={password}
+                                    onChange={(event:ChangeEvent<HTMLInputElement>) => setPassword(event.target.value)}
+                                    type="password" className="form-input" placeholder={'Password'}/>
                             </div>
                             <div className="form-group">
-                                <input type="submit" value="Sign in" className="form-submit"/>
+                                <input
+                                    onClick={() => loginClickHandler()}
+                                    type="submit" value="Sign in" className="form-submit"/>
                             </div>
                         </form>
                         <p className="loginhere">
