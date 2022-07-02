@@ -6,9 +6,11 @@ import thunkMiddleware, {ThunkAction} from 'redux-thunk'
 import {PizzasActionsType} from "./actions/pizzas";
 import {FiltersActionsType} from "./actions/filters";
 import {AddPizzaToCartActionType} from "./actions/cart";
+import userReducer from "./reducers/userReducer";
+import {UserActionType} from "./actions/user";
 
 const rootReducer = combineReducers({
-    filters, pizzas, cart
+    filters, pizzas, cart, userReducer
 })
 
 export const store = createStore(rootReducer, applyMiddleware(thunkMiddleware))
@@ -17,7 +19,7 @@ export const store = createStore(rootReducer, applyMiddleware(thunkMiddleware))
  export type AppRootStateType = ReturnType<typeof rootReducer>
 //
 export type AppActionType =
-    PizzasActionsType | FiltersActionsType | AddPizzaToCartActionType
+    PizzasActionsType | FiltersActionsType | AddPizzaToCartActionType | UserActionType
 
 export type AppThunkType<ReturnType = void> = ThunkAction<ReturnType,
     AppRootStateType,
