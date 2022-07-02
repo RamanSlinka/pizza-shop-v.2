@@ -1,7 +1,18 @@
-import React from 'react';
+import React, {ChangeEvent, useState} from 'react';
 import {NavLink} from "react-router-dom";
+import {registration} from "../store/actions/auth";
 
 const Registration = () => {
+
+    const [email, setEmail] = useState<any>('')
+    const [password, setPassword] = useState<any>('')
+
+    const registrationClickHandler = () => {
+        registration(email, password)
+        setEmail('')
+        setPassword('')
+    }
+
     return (
         <div className="registration__main">
             <section className="registration__section">
@@ -9,17 +20,28 @@ const Registration = () => {
                     <div className="registration__content">
                         <form action="" className="signup-form">
                             <h3 className="form-title" >Create account</h3>
+
+                            {/*<div className="form-group">*/}
+                            {/*    <input                                     */}
+                            {/*        type="text" className="form-input" placeholder={'Your Name'}/>*/}
+                            {/*</div>*/}
+
                             <div className="form-group">
-                                <input type="text" className="form-input" placeholder={'Your Name'}/>
+                                <input
+                                    value={email}
+                                    onChange={(event:ChangeEvent<HTMLInputElement>) => setEmail(event.target.value)}
+                                    type="email" className="form-input" placeholder={'Your Email'}/>
                             </div>
                             <div className="form-group">
-                                <input type="email" className="form-input" placeholder={'Your Email'}/>
+                                <input
+                                    value={password}
+                                    onChange={(event: ChangeEvent<HTMLInputElement>) => setPassword(event.target.value)}
+                                    type="password" className="form-input" placeholder={'Password'}/>
                             </div>
                             <div className="form-group">
-                                <input type="password" className="form-input" placeholder={'Password'}/>
-                            </div>
-                            <div className="form-group">
-                                <input type="submit" value="Sign up" className="form-submit"/>
+                                <input
+                                    onClick={() =>registrationClickHandler()}
+                                    type="submit" value="Sign up" className="form-submit"/>
                             </div>
                         </form>
                         <p className="loginhere">

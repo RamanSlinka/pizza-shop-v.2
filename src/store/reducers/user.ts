@@ -1,4 +1,4 @@
-import {UserActionType} from "../actions/user";
+import {UserActionType} from "../actions/auth";
 
 export type userType = {
     email?: string
@@ -6,7 +6,7 @@ export type userType = {
     role?:  string
     // name: string
 }
-type initialStateType = {
+export type UserStateType = {
     currentUser?:  userType
     isAuth: boolean
 }
@@ -16,7 +16,7 @@ const initialState = {
     isAuth : false
 }
 
-export default function userReducer  (state= initialState, action: UserActionType): initialStateType {
+export default function user  (state= initialState, action: UserActionType): UserStateType {
     switch (action.type) {
         case 'SET_USER' :
             return {
