@@ -1,11 +1,14 @@
-import React, {FC} from 'react';
+import React, {FC, useEffect} from 'react';
 import logo from "../assets/img/pizza_logo.png";
 import Button from './Button';
 import * as path from "path";
 import {NavLink} from "react-router-dom";
-import {useSelector} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import NavbarPage from "./NavbarPage";
-import {ButtonGroup} from "react-bootstrap";
+import {PATH} from "./RoutesPage";
+import {AppRootStateType} from "../store";
+import {UserStateType} from "../store/reducers/user";
+import {logout} from "../store/actions/auth";
 
 const Header: FC = () => {
 
@@ -15,8 +18,16 @@ const Header: FC = () => {
     }))
 
 
-    const isAuth = false;
 
+    const user = useSelector<AppRootStateType, UserStateType>(state => state.user);
+    const isAuth = user.isAuth
+    console.log('header',isAuth)
+
+    const dispatch = useDispatch()
+    const clickHandler = () => {
+        dispatch(logout())
+        console.log('click')
+    }
     return (
         <div className="header">
             <div className="container">
@@ -29,20 +40,22 @@ const Header: FC = () => {
                         <p className="header__description">we have the most delicious pizza in the universe :)</p>
                     </div>
                 </div>
-                {isAuth ?
+                {!isAuth ?
                     <div>
-                        <Button className="button--cart">Sign out</Button>
+                        <Button
+                            onClick={clickHandler}
+                            className="button button--outline">Sign out</Button>
                     </div>
                     :
-                    <ButtonGroup size="lg" className="mb-xxl-1">
-                        <Button>Sign in</Button>
-                        <Button>Sign up</Button>
-                    </ButtonGroup>
+                    <div style={{marginLeft: '300px', marginBottom: '-10px'}}>
+                        <NavLink to={PATH.LOGIN} className="button button--outline">Sign in</NavLink>
+                        <NavLink to={PATH.REGISTRATION} className="button button--outline">Sign up</NavLink>
+                    </div>
                 }
 
 
                 <div className="header__cart">
-                    <NavLink to={'/cart'}>
+                    <NavLink to={PATH.CART}>
                         <Button className="button--cart">
 
                             <span>{totalPrice} $</span>

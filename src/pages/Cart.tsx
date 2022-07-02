@@ -1,13 +1,22 @@
-import React, {FC} from 'react';
+import React, {FC, useEffect} from 'react';
 import CartItem from "./CartItem";
 import {useSelector} from "react-redux";
 import emptyCart from "../assets/img/emptycart.jpg"
 import emptyCart2 from "../assets/img/empty-cart.png"
 import {NavLink} from "react-router-dom";
 import {PATH} from "../components/RoutesPage";
+import {AppRootStateType} from "../store";
+import {UserStateType} from "../store/reducers/user";
 
 const Cart: FC = () => {
-    const isAuth = false
+
+    const user = useSelector<AppRootStateType, UserStateType>(state => state.user)
+    const isAuth = user.isAuth
+    console.log(user)
+    console.log('cart', isAuth)
+
+
+
     const {totalPrice, totalCount, items} = useSelector((store: any) => ({
         items: store.cart.itemsCart,
         totalPrice: store.cart.totalPrice,
