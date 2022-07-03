@@ -8,7 +8,7 @@ import NavbarPage from "./NavbarPage";
 import {PATH} from "./RoutesPage";
 import {AppRootStateType} from "../store";
 import {UserStateType} from "../store/reducers/user";
-import {logout} from "../store/actions/auth";
+import {auth, logout} from "../store/actions/auth";
 
 const Header: FC = () => {
 
@@ -22,6 +22,12 @@ const Header: FC = () => {
     const user = useSelector<AppRootStateType, UserStateType>(state => state.user);
     const isAuth = user.isAuth
     console.log('header',isAuth)
+
+
+    useEffect(() => {
+        dispatch(auth())
+        console.log(isAuth, 'useEff')
+    }, [])
 
     const dispatch = useDispatch()
     const clickHandler = () => {
@@ -40,14 +46,14 @@ const Header: FC = () => {
                         <p className="header__description">we have the most delicious pizza in the universe :)</p>
                     </div>
                 </div>
-                {!isAuth ?
+                {isAuth ?
                     <div>
                         <Button
                             onClick={clickHandler}
                             className="button button--outline">Sign out</Button>
                     </div>
                     :
-                    <div style={{marginLeft: '300px', marginBottom: '-10px'}}>
+                    <div style={{marginLeft: '100px', marginBottom: '-10px'}}>
                         <NavLink to={PATH.LOGIN} className="button button--outline">Sign in</NavLink>
                         <NavLink to={PATH.REGISTRATION} className="button button--outline">Sign up</NavLink>
                     </div>
