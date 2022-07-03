@@ -4,11 +4,13 @@ import {registration} from "../store/actions/auth";
 
 const Registration = () => {
 
-    const [email, setEmail] = useState<any>('')
-    const [password, setPassword] = useState<any>('')
+    const [email, setEmail] = useState<string>('')
+    const [password, setPassword] = useState<string>('')
+
 
     const registrationClickHandler = () => {
-        registration(email, password)
+        console.log('regist')
+       registration(email, password)
         setEmail('')
         setPassword('')
     }
@@ -18,8 +20,8 @@ const Registration = () => {
             <section className="registration__section">
                 <div className="registration__container">
                     <div className="registration__content">
-                        <form action="" className="signup-form">
-                            <h3 className="form-title" >Create account</h3>
+                        <div  className="signup-form">
+                            <h3 className="form-title">Create account</h3>
 
                             {/*<div className="form-group">*/}
                             {/*    <input                                     */}
@@ -29,7 +31,7 @@ const Registration = () => {
                             <div className="form-group">
                                 <input
                                     value={email}
-                                    onChange={(event:ChangeEvent<HTMLInputElement>) => setEmail(event.target.value)}
+                                    onChange={(event: ChangeEvent<HTMLInputElement>) => setEmail(event.target.value)}
                                     type="email" className="form-input" placeholder={'Your Email'}/>
                             </div>
                             <div className="form-group">
@@ -43,7 +45,7 @@ const Registration = () => {
                                     onClick={() =>registrationClickHandler()}
                                     type="submit" value="Sign up" className="form-submit"/>
                             </div>
-                        </form>
+                        </div>
                         <p className="loginhere">
                             Have already an account ?
                             <NavLink to={'/login'} className="loginhere-link"> Login here</NavLink>

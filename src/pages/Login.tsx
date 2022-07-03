@@ -5,13 +5,12 @@ import {login} from "../store/actions/auth";
 
 const Login = () => {
 
-    const [email, setEmail] = useState<any>('')
-    const [password, setPassword] = useState<any>('')
+    const [email, setEmail] = useState<string>('')
+    const [password, setPassword] = useState<string>('')
     const dispatch = useDispatch()
 
 
-
-    const loginClickHandler  = () => {
+    const loginClickHandler = () => {
         dispatch(login(email, password))
         setEmail('')
         setPassword('')
@@ -22,19 +21,19 @@ const Login = () => {
             <section className="registration__section">
                 <div className="registration__container">
                     <div className="registration__content">
-                        <form action="" className="signup-form">
-                            <h5 className="form-title" >Log in</h5>
+                        <div  className="signup-form">
+                            <h5 className="form-title">Log in</h5>
 
                             <div className="form-group">
                                 <input
                                     value={email}
-                                    onChange={(event:ChangeEvent<HTMLInputElement>) => setEmail(event.target.value)}
+                                    onChange={(event: ChangeEvent<HTMLInputElement>) => setEmail(event.target.value)}
                                     type="email" className="form-input" placeholder={'Your Email'}/>
                             </div>
                             <div className="form-group">
                                 <input
                                     value={password}
-                                    onChange={(event:ChangeEvent<HTMLInputElement>) => setPassword(event.target.value)}
+                                    onChange={(event: ChangeEvent<HTMLInputElement>) => setPassword(event.target.value)}
                                     type="password" className="form-input" placeholder={'Password'}/>
                             </div>
                             <div className="form-group">
@@ -42,7 +41,7 @@ const Login = () => {
                                     onClick={() => loginClickHandler()}
                                     type="submit" value="Sign in" className="form-submit"/>
                             </div>
-                        </form>
+                        </div>
                         <p className="loginhere">
                             Don't have an account?
                             <NavLink to={'/registration'} className="loginhere-link"> Register here!</NavLink>
