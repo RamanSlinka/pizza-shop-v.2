@@ -5,12 +5,22 @@
   background-color: $orange;
   border-radius: 30px;
   padding: 10px 20px;
+  margin-left: 10px;
   min-width: 100px;
   text-align: center;
   cursor: pointer;
   transition: background-color $duration ease-in-out, border-color $duration ease-in-out;
   border: 1px solid transparent;
   @include noselect();
+  @media screen and (max-width: 1000px) {
+
+    min-width: 75px;
+  }
+  @media screen and (max-width: 700px) {
+    min-width: 50px;
+  } @media screen and (max-width: 540px) {
+  margin-left: 5px;
+  }
 
   &,
   span {
@@ -56,15 +66,25 @@
   &--outline {
     background-color: #fff;
     border-color: $orange;
+    @media screen and (max-width: 810px) {
+      padding: 5px;
+      //max-width: 50px;
+    }
 
     &,
     span {
       color: $orange;
+      @media screen and (max-width: 810px) {
+        font-size: 10px;
+      }
     }
 
     svg {
       path {
         fill: $orange;
+      }
+      @media screen and (max-width: 810px) {
+        width: 10px;
       }
     }
 
@@ -94,6 +114,16 @@
     background-color: rgba(255, 255, 255, 0.25);
     margin-left: 14px;
     margin-right: 14px;
+    @media screen and (max-width: 750px) {
+      height: 20px;
+      margin-left: 12px;
+      margin-right: 12px;
+    }
+    @media screen and (max-width: 500px) {
+      height: 15px;
+      margin-left: 8px;
+      margin-right: 8px;
+    }
   }
 
   &--add {
@@ -136,14 +166,21 @@
     align-items: center;
     line-height: 23px;
     padding: 12px 25px;
-    @media screen and (max-width: 785px) {
+    @media screen and (max-width: 800px) {
       padding: 5px 10px;
       line-height: 13px;
+    }
+    @media screen and (max-width: 500px) {
+      padding: 5px 5px;
+      line-height: 11px;
     }
 
     svg {
       margin-right: 8px;
       margin-bottom: 1px;
+      @media screen and (max-width: 500px) {
+        margin-right: 4px;
+      }
     }
 
     span {
@@ -151,6 +188,9 @@
       font-size: 16px;
       @media screen and (max-width: 785px) {
         font-size: 12px;
+      }
+      @media screen and (max-width: 500px) {
+        font-size: 10px;
       }
     }
   }

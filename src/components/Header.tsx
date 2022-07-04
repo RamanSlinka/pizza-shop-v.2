@@ -20,6 +20,7 @@ const Header: FC = () => {
 
 
     const user = useSelector<AppRootStateType, UserStateType>(state => state.user);
+    const userName = user.currentUser?.email
     const isAuth = user.isAuth
     console.log('header',isAuth)
 
@@ -39,7 +40,7 @@ const Header: FC = () => {
             <div className="container">
                 <div className="header__logo">
                     <NavLink to={'/'}>
-                        <img width="100" src={logo} alt="Pizza logo"/>
+                        <img className="pizza_logo" src={logo} alt="Pizza logo"/>
                     </NavLink>
                     <div>
                         <h1> Pizza Shop</h1>
@@ -47,13 +48,17 @@ const Header: FC = () => {
                     </div>
                 </div>
                 {isAuth ?
-                    <div>
+                    <div className="header__user_block">
                         <Button
                             onClick={clickHandler}
-                            className="button button--outline">Sign out</Button>
+                            className="button button--outline">Sign out
+                        </Button>
+                        <div className="userName_wrap">
+                            <h4 className="userName">{userName}</h4>
+                        </div>
                     </div>
                     :
-                    <div style={{marginLeft: '100px', marginBottom: '-10px'}}>
+                    <div className="header__registration_block">
                         <NavLink to={PATH.LOGIN} className="button button--outline">Sign in</NavLink>
                         <NavLink to={PATH.REGISTRATION} className="button button--outline">Sign up</NavLink>
                     </div>
