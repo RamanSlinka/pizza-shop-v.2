@@ -1,27 +1,35 @@
 import React, {ChangeEvent, useState} from 'react';
 import {NavLink} from "react-router-dom";
-import {useDispatch} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import {login} from "../store/actions/auth";
+import Loader from "../components/Loader";
+import {AppRootStateType} from "../store";
+import {AppInitialStateType} from "../store/reducers/loader";
 
 const Login = () => {
 
     const [email, setEmail] = useState<string>('')
     const [password, setPassword] = useState<string>('')
     const dispatch = useDispatch()
-
-
+    const loadState = useSelector<AppRootStateType, AppInitialStateType>(state => state.appReducer)
+    const loader = loadState.loader
     const loginClickHandler = () => {
         dispatch(login(email, password))
         setEmail('')
         setPassword('')
     }
 
+    if (loader) {
+        return (
+            <> <Loader/>           </>
+        )
+    }
     return (
         <div className="registration__main">
             <section className="registration__section">
                 <div className="registration__container">
                     <div className="registration__content">
-                        <div  className="signup-form">
+                        <div className="signup-form">
                             <h5 className="form-title">Log in</h5>
 
                             <div className="form-group">
