@@ -9,6 +9,7 @@
   padding: 125px 0;
   width: 100%;
   font-family: "Proxima Nova", Roboto, system-ui;
+
   .registration__section {
     display: block;
 
@@ -60,6 +61,21 @@
           .form-group {
             overflow: hidden;
             margin-bottom: 20px;
+            position: relative;
+
+            .inputError {
+              position: absolute;
+              color: red;
+              font-size: 10px;
+              right: 7px;
+              top: 7px;
+              @media screen and (max-width: 500px) {
+                font-size: 8px;
+              } @media screen and (max-width: 400px) {
+              right: 2px;
+              font-size: 6.5px;
+              }
+            }
 
             .form-input {
               width: 100%;
