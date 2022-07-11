@@ -20,20 +20,17 @@ const Header: FC = () => {
 
 
     const user = useSelector<AppRootStateType, UserStateType>(state => state.user);
-    const userName = user.currentUser?.email
+    const userName = user.currentUser?.name
     const isAuth = user.isAuth
-    console.log('header',isAuth)
 
 
     useEffect(() => {
         dispatch(auth())
-        console.log(isAuth, 'useEff')
     }, [])
 
     const dispatch = useDispatch()
     const clickHandler = () => {
         dispatch(logout())
-        console.log('click')
     }
     return (
         <div className="header">
@@ -54,7 +51,7 @@ const Header: FC = () => {
                             className="button button--outline">Sign out
                         </Button>
                         <div className="userName_wrap">
-                            <h4 className="userName">{userName}</h4>
+                            <h4 className="userName">{userName?.slice(0, 10)}</h4>
                         </div>
                     </div>
                     :

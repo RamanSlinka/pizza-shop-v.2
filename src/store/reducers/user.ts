@@ -3,20 +3,20 @@ import {UserActionType} from "../actions/auth";
 export type userType = {
     email?: string
     password?: string
-    role?:  string
-    // name: string
+    role?: string
+    name?: string
 }
 export type UserStateType = {
-    currentUser?:  userType
+    currentUser?: userType
     isAuth: boolean
 }
 
 const initialState = {
-    currentUser : {},
-    isAuth : false
+    currentUser: {},
+    isAuth: false
 }
 
-export default function user  (state= initialState, action: UserActionType): UserStateType {
+export default function user(state = initialState, action: UserActionType): UserStateType {
     switch (action.type) {
         case 'SET_USER' :
             return {

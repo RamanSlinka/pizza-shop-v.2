@@ -14,11 +14,11 @@ export const logout = () =>
     ({type: 'LOGOUT'} as const)
 
 
-export const registration = async (email: string, password: string): Promise<void> => {
+export const registration = async (name: string ,email: string, password: string): Promise<void> => {
     try {
 
         const response = await axios.post(`https://pizza-shop--server.herokuapp.com/api/registration`, {
-            email, password
+           name, email, password
         })
         console.log(response.data.message)
         alert(response.data.message)
