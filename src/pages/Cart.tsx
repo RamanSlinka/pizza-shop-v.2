@@ -8,15 +8,14 @@ import {AppRootStateType} from "../store";
 import {UserStateType} from "../store/reducers/user";
 import {auth} from "../store/actions/auth";
 import Loader from "../components/Loader";
-import {AppInitialStateType} from "../store/reducers/loader";
 
 const Cart: FC = () => {
 
     const user = useSelector<AppRootStateType, UserStateType>(state => state.user)
     const isAuth = user.isAuth
 
-    const loadState = useSelector<AppRootStateType, AppInitialStateType>(state => state.appReducer)
-    const loader = loadState.loader
+    const appLoader = useSelector<AppRootStateType, boolean>(state => state.appReducer.loader)
+
 
     const dispatch = useDispatch()
     useEffect(() => {
@@ -41,7 +40,7 @@ const Cart: FC = () => {
     //const totalAddedPizzas2 = items.length
     // console.log(totalAddedPizzas)
 
-    if (loader) {
+    if (appLoader) {
         return (
             <> <Loader/>           </>
         )

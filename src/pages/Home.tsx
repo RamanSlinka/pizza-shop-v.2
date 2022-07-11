@@ -2,7 +2,7 @@ import React, {FC, useCallback, useEffect} from 'react';
 import Categories from "../components/Categories";
 import SortPopup from "../components/SortPopup";
 import PizzaBlock from "../components/pizzaBlock/PizzaBlock";
-import {TypedUseSelectorHook, useDispatch, useSelector} from "react-redux";
+import { useDispatch, useSelector} from "react-redux";
 import {setCategory, setSortBy} from "../store/actions/filters";
 import {fetchPizzas, itemType} from "../store/actions/pizzas";
 import PizzaLoadingBlock from "../components/pizzaBlock/PizzaLoadingBlock";

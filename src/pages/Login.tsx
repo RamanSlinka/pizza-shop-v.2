@@ -4,24 +4,22 @@ import {useDispatch, useSelector} from "react-redux";
 import {login} from "../store/actions/auth";
 import Loader from "../components/Loader";
 import {AppRootStateType} from "../store";
-import {AppInitialStateType} from "../store/reducers/loader";
-
 const Login = () => {
 
     const [email, setEmail] = useState<string>('')
     const [password, setPassword] = useState<string>('')
     const dispatch = useDispatch()
-    const loadState = useSelector<AppRootStateType, AppInitialStateType>(state => state.appReducer)
-    const loader = loadState.loader
+    const appLoader = useSelector<AppRootStateType, boolean>(state => state.appReducer.loader)
+
     const loginClickHandler = () => {
         dispatch(login(email, password))
         setEmail('')
         setPassword('')
     }
 
-    if (loader) {
+    if (appLoader) {
         return (
-            <> <Loader/>           </>
+            <> <Loader/> </>
         )
     }
     return (
