@@ -10,6 +10,7 @@ import WelcomePage from "../pages/WelcomePage";
 import FeedbackPage from "./FeedbackPage";
 import Registration from "../pages/Registration";
 import Login from "../pages/Login";
+import Admin from "../pages/Admin";
 
 
 export const PATH = {
@@ -45,6 +46,7 @@ const RoutesPage = () => {
                     <Route path={PATH.FEEDBACK} element={<FeedbackPage/>}/>
                     <Route path={PATH.REGISTRATION} element={<Registration/>}/>
                     <Route path={PATH.LOGIN} element={<Login/>}/>
+                    <Route path={PATH.ADMIN} element={<Admin/>}/>
                 </Routes>
                 :
                 <Routes>
@@ -56,6 +58,7 @@ const RoutesPage = () => {
                     <Route path={PATH.SALE} element={<SalePage/>}/>
                     <Route path={PATH.WELCOME} element={<WelcomePage/>}/>
                     <Route path={PATH.FEEDBACK} element={<FeedbackPage/>}/>
+
                 </Routes>
             }
 

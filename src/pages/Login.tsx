@@ -1,5 +1,5 @@
 import React from 'react';
-import {Navigate, NavLink} from "react-router-dom";
+import {Navigate, NavLink, useNavigate} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
 import {login} from "../store/actions/auth";
 import Loader from "../components/Loader";
@@ -14,6 +14,8 @@ const Login = () => {
 
 
     const dispatch = useDispatch()
+    const navigate = useNavigate()
+
     const appLoader = useSelector<AppRootStateType, boolean>(state => state.appReducer.loader)
     const user = useSelector<AppRootStateType, UserStateType>(state => state.user)
     const isAuth = user.isAuth
@@ -40,6 +42,9 @@ const Login = () => {
         onSubmit: values => {
             dispatch(login(values.email, values.password))
             formik.resetForm();
+            if (isAuth) {
+                navigate(PATH.HOME)
+            }
         }
     })
 

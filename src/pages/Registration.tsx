@@ -1,7 +1,8 @@
 import {FC} from 'react';
-import {NavLink} from "react-router-dom";
+import {NavLink, useNavigate} from "react-router-dom";
 import {registration} from "../store/actions/auth";
 import {useFormik} from "formik";
+import {PATH} from "../components/RoutesPage";
 
 
 export type FormikErrorType = {
@@ -12,7 +13,7 @@ export type FormikErrorType = {
 
 const Registration: FC = () => {
 
-
+        const navigate = useNavigate()
         const formik = useFormik({
             initialValues: {
                 userName: '',
@@ -41,8 +42,13 @@ const Registration: FC = () => {
             },
 
             onSubmit: values => {
-                registration(values.userName, values.email, values.password)
+                registration(values.userName, values.email, values.password);
+
                 formik.resetForm();
+                setTimeout(() => {
+                    navigate(PATH.LOGIN)
+                }, 1000)
+
             },
         })
 
