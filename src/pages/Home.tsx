@@ -4,7 +4,7 @@ import SortPopup from "../components/SortPopup";
 import PizzaBlock from "../components/pizzaBlock/PizzaBlock";
 import { useDispatch, useSelector} from "react-redux";
 import {setCategory, setSortBy} from "../store/actions/filters";
-import {fetchPizzas, itemType} from "../store/actions/pizzas";
+import {fetchPizzas, itemsType, itemType} from "../store/actions/pizzas";
 import PizzaLoadingBlock from "../components/pizzaBlock/PizzaLoadingBlock";
 import {AppRootStateType} from "../store";
 import {addPizzaToCart} from "../store/actions/cart";
@@ -18,8 +18,8 @@ const itemsCategories = ['Meat', 'Vegetarian', 'Grill', 'Spicy', 'Closed(sorry)'
 const Home: FC = React.memo(() => {
 
 
-    const items = useSelector((store: any) =>
-        store.pizzas.items)
+    const items = useSelector<AppRootStateType, any>(state =>
+        state.pizzas.items)
 
     const isLoaded = useSelector<AppRootStateType>((store) =>
         store.pizzas.isLoaded)
@@ -34,8 +34,8 @@ const Home: FC = React.memo(() => {
     const dispatch = useDispatch();
 
     useEffect(() => {
-        dispatch(fetchPizzas(sortBy, category))
-    }, [category, sortBy,]);
+        dispatch(fetchPizzas())
+    }, []);
 
 
     const onSelectCategory = useCallback((index: number | null) => {

@@ -9,7 +9,7 @@ export type itemType = {
     types: Array<number>
     sizes: Array<number>
     price: number
-    category: number
+    category:  number | null
     rating: number
 
 }
@@ -20,24 +20,27 @@ export type itemsType = {
 
 export type SetPizzasActionType = ReturnType<typeof setPizzasAC>
 export type SetLoadedActionType = ReturnType<typeof setLoaded>
+export type SetFilterCategoryActionType = ReturnType<typeof setFilterCategory>
 
-export type PizzasActionsType = SetPizzasActionType | SetLoadedActionType
+export type PizzasActionsType = SetPizzasActionType | SetLoadedActionType | SetFilterCategoryActionType
 
 export const setLoaded = (payload: boolean) => ({
-    type: 'SET_LOADED',
-    payload
-} as const);
+    type: 'SET_LOADED', payload} as const);
 
 export const setPizzasAC = (items: itemsType) => ({
-    type: 'SET_PIZZAS',
-    payload: items
+    type: 'SET_PIZZAS', payload: items} as const);
+
+
+export const setFilterCategory = (category: number | null ) => ({
+    type: 'PIZZAS_FILTER_CATEGORY',
+    payload: category
 } as const);
 
 
-export const fetchPizzas = (sortBy: string, category: any ): AppThunkType => (dispatch) => {
+
+export const fetchPizzas = (): AppThunkType => (dispatch) => {
     dispatch(setLoaded(false));
-    axios.get(`https://pizza-shop--server.herokuapp.com/api/pizzas?${category !== null ? `category=${category}` : ""
-    }&_sort=${sortBy}&_order=desc`,
+    axios.get(`https://pizza-shop--server.herokuapp.com/api/pizzas`
         )
         .then(({data}) => {
             dispatch(setPizzasAC(data));
