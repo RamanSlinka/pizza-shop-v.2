@@ -14,18 +14,16 @@ export const logout = () =>
     ({type: 'LOGOUT'} as const)
 
 
-export const registration = async (name: string ,email: string, password: string): Promise<void> => {
+export const registration = async (name: string, email: string, password: string): Promise<void> => {
     try {
-
         const response = await axios.post(`https://pizza-shop--server.herokuapp.com/api/registration`, {
-           name, email, password
+            name, email, password
         })
         console.log(response.data.message)
         alert(response.data.message)
     } catch (e) {
         console.log(e)
         alert(e)
-
     }
 }
 
@@ -53,7 +51,7 @@ export const auth = (): AppThunkType => {
         try {
             dispatch(showLoader())
             const response = await axios.get(`https://pizza-shop--server.herokuapp.com/api/auth`,
-                {headers: {Authorisation: `Bearer ${localStorage.getItem('token')}`}})
+                {headers: {Authorization: `Bearer ${localStorage.getItem('token')}`}})
             dispatch(setUser(response.data.user))
             localStorage.setItem('token', response.data.token)
 
