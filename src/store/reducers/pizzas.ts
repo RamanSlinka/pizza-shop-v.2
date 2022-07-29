@@ -1,13 +1,17 @@
-import {itemsType, itemType, PizzasActionsType} from "../actions/pizzas";
+import {itemType, PizzasActionsType} from "../actions/pizzas";
 
 type initialStateType = {
-    items: [] | itemsType
+    items: Array<itemType> | []
     isLoaded: boolean
+    category: string | number | null
+    sortBy: string
 }
 
 const initialState: initialStateType = {
     items: [],
-    isLoaded: false
+    isLoaded: false,
+    category: null,
+    sortBy: 'popular'
 }
 
 export default function pizzas(state = initialState, action: PizzasActionsType): initialStateType {
@@ -17,16 +21,21 @@ export default function pizzas(state = initialState, action: PizzasActionsType):
                 ...state, items: action.payload,
                 isLoaded: true
             };
-        // case 'PIZZAS_FILTER_CATEGORY':
-        //     return {
-        //         items.map((i: itemType) => i.category === action.payload ? {...i, filter: action.payload} : i)
-        //     }
-        //     debugger
-        case  'SET_LOADED':
-            return {
-                ...state, isLoaded: action.payload,
 
+        case 'PIZZAS_FILTER_CATEGORY':
+            return {
+                ...state, items: state.items.filter((item: itemType) => item.category !== action.payload),
+                category: action.payload
             };
+
+        case "PIZZAS_FILTER_SORT_BY":
+            return {
+                ...state, items: state.items.filter((item: itemType) => item.name !== action.payload),
+                sortBy: action.payload
+            }
+
+        case  'SET_LOADED':
+            return {...state, isLoaded: action.payload};
 
 
         default:

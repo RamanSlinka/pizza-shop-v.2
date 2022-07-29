@@ -12,16 +12,19 @@ import loader from "./reducers/loader";
 import {LoaderActionType} from "./actions/loader";
 
 const rootReducer = combineReducers({
-    filters, pizzas, cart, user, appReducer: loader
+    pizzas, cart, user, appReducer: loader
 })
 
 export const store = createStore(rootReducer, applyMiddleware(thunkMiddleware))
 
 //
- export type AppRootStateType = ReturnType<typeof rootReducer>
+export type AppRootStateType = ReturnType<typeof rootReducer>
 //
 export type AppActionType =
-    PizzasActionsType | FiltersActionsType | AddPizzaToCartActionType | UserActionType | LoaderActionType
+    PizzasActionsType
+    | AddPizzaToCartActionType
+    | UserActionType |
+    LoaderActionType
 
 export type AppThunkType<ReturnType = void> = ThunkAction<ReturnType,
     AppRootStateType,

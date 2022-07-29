@@ -1,29 +1,41 @@
-import React, {FC, useEffect, useRef, useState} from 'react';
+import React, {FC, useCallback, useEffect, useRef, useState} from 'react';
+import {setFilterSortBy} from "../store/actions/pizzas";
+import {useDispatch, useSelector} from "react-redux";
+import {AppRootStateType} from "../store";
 
 type SortPopupPropsType = {
     itemsSort: Array<{ name: string, type: string, order: string }>
-    onClickSortPopup: (type: any) => void
-    activeSortType: string
+
 }
 
-const SortPopup: FC<SortPopupPropsType> = React.memo(({itemsSort, activeSortType, onClickSortPopup,}) => {
-
+const SortPopup: FC = React.memo(() => {
+    const itemsSort = [
+        {name: 'popular', type: 'popular', order: 'desc'},
+        {name: 'price', type: 'price', order: 'desc'},
+        {name: 'name', type: 'name', order: 'asc'}
+    ]
     const [visiblePopup, setVisiblePopup] = useState(false);
 
     const sortRef = useRef() as React.MutableRefObject<HTMLInputElement>;
+    const sortBy = useSelector<AppRootStateType, any>((store) =>
+        store.pizzas.sortBy)
+    const dispatch = useDispatch();
+
+    const onSelectSortType = useCallback((type: string) => {
+        dispatch(setFilterSortBy(type))
+    }, [])
 
     const toggleVisiblePopup = () => {
         setVisiblePopup(!visiblePopup)
     }
 
-    const onSelectItem = (type: any) => {
-        if (onClickSortPopup) {
-            onClickSortPopup(type);
-        }
-
+    const onSelectItem = (type: string) => {
+        onSelectSortType(type)
         setVisiblePopup(false);
+        // debugger
     }
-    const activeLabel = itemsSort?.find(obj => obj.type === activeSortType)?.name;
+
+    const activeLabel = itemsSort?.find(obj => obj.type === sortBy)?.name;
 
     const handleOutsideClick = (e: any) => {
         if (!e.path.includes(sortRef.current)) {
@@ -40,10 +52,7 @@ const SortPopup: FC<SortPopupPropsType> = React.memo(({itemsSort, activeSortType
             <div className="sort__label">
                 <svg
                     className={visiblePopup ? 'rotated' : ''}
-                    width="10"
-                    height="6"
-                    viewBox="0 0 10 6"
-                    fill="none"
+                    width="10" height="6" viewBox="0 0 10 6" fill="none"
                     xmlns="http://www.w3.org/2000/svg"
                 >
                     <path
@@ -59,10 +68,15 @@ const SortPopup: FC<SortPopupPropsType> = React.memo(({itemsSort, activeSortType
                     <ul>
                         {itemsSort && itemsSort.map((obj, index) =>
                             <li
-                                className={activeSortType === obj.type ? "active" : ""}
+                                className={sortBy === obj.type ? "active" : ""}
                                 key={index}
-                                onClick={() => onSelectItem(obj.type)}
-                            >{obj.name}</li>)}
+                                onClick={() => {
+                                    onSelectItem(obj.type)
+                                    {
+                                        console.log(obj.type)
+                                    }
+                                }}
+                            >{obj.type}</li>)}
 
                     </ul>
                 </div>
