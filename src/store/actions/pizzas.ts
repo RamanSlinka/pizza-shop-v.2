@@ -40,9 +40,9 @@ export const setFilterCategory = (category: number | null) => ({
 } as const);
 
 
-export const setFilterSortBy = (name: string) => ({
+export const setFilterSortBy = (price: string) => ({
     type: 'PIZZAS_FILTER_SORT_BY',
-    payload: name
+    payload: price
 } as const);
 
 

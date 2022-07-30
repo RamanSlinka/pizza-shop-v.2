@@ -1,7 +1,7 @@
 import React, {FC, useCallback} from 'react';
 import {useDispatch, useSelector} from "react-redux";
 import {AppRootStateType} from "../store";
-import {setFilterCategory} from "../store/actions/pizzas";
+import {fetchPizzas, setFilterCategory} from "../store/actions/pizzas";
 
 type CategoriesPropsType = {
     // items:  string []
@@ -12,31 +12,40 @@ type CategoriesPropsType = {
 
 const Categories: FC = React.memo(() => {
 
-    const itemsCategories = ['Meat', 'Vegetarian', 'Grill', 'Spicy', 'Closed(sorry)', 'Mix']
+    const itemsCategories = ['Meat', 'Vegetarian',  'Spicy']
+
     const activeCategory = useSelector<AppRootStateType, any>((store) =>
         store.pizzas.category)
     console.log({activeCategory})
+
     const dispatch = useDispatch();
+
     const onSelectCategory = useCallback((index: number | null) => {
-        dispatch(setFilterCategory(index))
+        dispatch(fetchPizzas())
+        setTimeout(() =>{
+            dispatch(setFilterCategory(index))
+        },100 )
+
     }, []);
 
-    const onSelectItem = (index: number | null) => {
-        onSelectCategory(index)
-    }
+
+    const onResetFilter = useCallback(() => {
+        dispatch(fetchPizzas())
+        dispatch(setFilterCategory(null))
+    }, [])
 
     return (
         <div className="categories">
             <ul>
                 <li className={activeCategory === null ? "active" : ""}
-                    // onClick={() => onClickItem(null)}
+                     onClick={() => onResetFilter()}
                 >
                     All
                 </li>
                 {itemsCategories && itemsCategories.map((name, index) =>
                     <li
                         className={ activeCategory === index ? "active" : ""}
-                        onClick={() => onSelectItem(index)}
+                        onClick={() => onSelectCategory(index)}
                         key={index}
                     >{name}
                     </li>

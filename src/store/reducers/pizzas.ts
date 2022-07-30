@@ -3,7 +3,7 @@ import {itemType, PizzasActionsType} from "../actions/pizzas";
 type initialStateType = {
     items: Array<itemType> | []
     isLoaded: boolean
-    category: string | number | null
+    category:  number | null
     sortBy: string
 }
 
@@ -24,12 +24,18 @@ export default function pizzas(state = initialState, action: PizzasActionsType):
 
         case 'PIZZAS_FILTER_CATEGORY':
             return {
-                ...state, items: state.items.filter((item: itemType) => item.category !== action.payload),
+                // state.items.map((item: itemType) =>
+                //     item.category === action.payload ? {...item, category: action.payload} : item)
+
+                ...state, items: state.items.filter((item: itemType) => item.category === action.payload),
                 category: action.payload
             };
 
         case "PIZZAS_FILTER_SORT_BY":
             return {
+                // ...state, items: state.items.map((item) => item.name=== action.payload).sort()
+
+
                 ...state, items: state.items.filter((item: itemType) => item.name !== action.payload),
                 sortBy: action.payload
             }
