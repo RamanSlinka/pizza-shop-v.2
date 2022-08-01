@@ -1,9 +1,9 @@
-import React, {FC, useCallback, useEffect} from 'react';
+import React, {FC, useEffect} from 'react';
 import Categories from "../components/Categories";
 import SortPopup from "../components/SortPopup";
 import PizzaBlock from "../components/pizzaBlock/PizzaBlock";
 import {useDispatch, useSelector} from "react-redux";
-import {fetchPizzas, itemType, setFilterCategory, setFilterSortBy} from "../store/actions/pizzas";
+import {fetchPizzas, itemType} from "../store/actions/pizzas";
 import PizzaLoadingBlock from "../components/pizzaBlock/PizzaLoadingBlock";
 import {AppRootStateType} from "../store";
 import {addPizzaToCart} from "../store/actions/cart";
@@ -13,15 +13,14 @@ import CarouselPage from '../components/CarouselPage';
 
 const Home: FC = React.memo(() => {
 
-
-    const items = useSelector<AppRootStateType, any>(state => state.pizzas.items)
+    const items = useSelector<AppRootStateType, Array<itemType>>((store) =>
+        store.pizzas.items)
 
     const isLoaded = useSelector<AppRootStateType, boolean>((store) =>
         store.pizzas.isLoaded)
 
 
-    const cartItems = useSelector((store: any) =>
-        store.cart.itemsCart)
+    const cartItems = useSelector((store: any) => store.cart.itemsCart)
 
     //  console.log(cartItems)
 
@@ -30,8 +29,6 @@ const Home: FC = React.memo(() => {
     useEffect(() => {
         dispatch(fetchPizzas())
     }, []);
-
-
 
 
     const handleAddPizzaToCart = (obj: newItemsType) => {

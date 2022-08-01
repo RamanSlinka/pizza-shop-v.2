@@ -1,36 +1,29 @@
 import React, {FC, useCallback} from 'react';
 import {useDispatch, useSelector} from "react-redux";
 import {AppRootStateType} from "../store";
-import {fetchPizzas, setFilterCategory} from "../store/actions/pizzas";
-
-type CategoriesPropsType = {
-    // items:  string []
-    // onClickItem: (index: number | null) => void
-    // activeCategory: number
-}
+import {fetchPizzas, filterPizzas, setFilterCategory} from "../store/actions/pizzas";
 
 
 const Categories: FC = React.memo(() => {
 
-    const itemsCategories = ['Meat', 'Vegetarian',  'Spicy']
+    const itemsCategories = ['Meat', 'Vegetarian', 'Spicy']
 
     const activeCategory = useSelector<AppRootStateType, any>((store) =>
         store.pizzas.category)
-    console.log({activeCategory})
+
 
     const dispatch = useDispatch();
 
-    const onSelectCategory = useCallback((index: number | null) => {
-        dispatch(fetchPizzas())
-        setTimeout(() =>{
-            dispatch(setFilterCategory(index))
-        },100 )
+    const onSelectCategory = useCallback((index: string | null) => {
+
+        dispatch(setFilterCategory(index))
+        dispatch(filterPizzas(index))
 
     }, []);
 
 
     const onResetFilter = useCallback(() => {
-        dispatch(fetchPizzas())
+         dispatch(fetchPizzas())
         dispatch(setFilterCategory(null))
     }, [])
 
@@ -38,14 +31,17 @@ const Categories: FC = React.memo(() => {
         <div className="categories">
             <ul>
                 <li className={activeCategory === null ? "active" : ""}
-                     onClick={() => onResetFilter()}
+                    onClick={() => onResetFilter()}
                 >
                     All
                 </li>
                 {itemsCategories && itemsCategories.map((name, index) =>
                     <li
-                        className={ activeCategory === index ? "active" : ""}
-                        onClick={() => onSelectCategory(index)}
+                        className={activeCategory == index ? "active" : ""}
+                        onClick={() => {
+                            const indexToString = index.toString()
+                            onSelectCategory(indexToString)
+                        }}
                         key={index}
                     >{name}
                     </li>
