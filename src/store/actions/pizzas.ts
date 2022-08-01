@@ -9,7 +9,7 @@ export type itemType = {
     types: Array<number>
     sizes: Array<number>
     price: number
-    category: number | null
+    category: string | null
     rating: number
 }
 
@@ -34,15 +34,15 @@ export const setPizzasAC = (items: Array<itemType>) => ({
     type: 'SET_PIZZAS', payload: items
 } as const);
 
-export const setFilterCategory = (category: number | null) => ({
+export const setFilterCategory = (category: string | null) => ({
     type: 'PIZZAS_FILTER_CATEGORY',
     payload: category
 } as const);
 
 
-export const setFilterSortBy = (price: string) => ({
+export const setFilterSortBy = (name: string) => ({
     type: 'PIZZAS_FILTER_SORT_BY',
-    payload: price
+    payload: name
 } as const);
 
 
@@ -53,11 +53,31 @@ export const setFilterSortBy = (price: string) => ({
 
 export const fetchPizzas = (): AppThunkType => (dispatch) => {
     dispatch(setLoaded(false));
+    // axios.get(`https://localhost:5000/api/pizzas`
     axios.get(`https://pizza-shop--server.herokuapp.com/api/pizzas`
     )
         .then(({data}) => {
             dispatch(setPizzasAC(data));
             dispatch(setLoaded(true));
         })
+
+}
+
+
+export const filterPizzas = (filter: string | null): AppThunkType => (dispatch) => {
+    dispatch(setLoaded(false));
+    axios.get(`https://pizza-shop--server.herokuapp.com/api/search?search=${filter}`
+    )
+        .then(({data}) => {
+            dispatch(setPizzasAC(data));
+        })
+        .catch((e) => {
+            alert(`'searchFiles' ${e?.response?.data?.message}`)
+        })
+        .finally(() => {
+            dispatch(setLoaded(true));
+        })
+
+
 
 }
