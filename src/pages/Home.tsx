@@ -15,6 +15,8 @@ const Home: FC = React.memo(() => {
 
     const items = useSelector<AppRootStateType, Array<itemType>>((store) =>
         store.pizzas.items)
+    const rating = useSelector<AppRootStateType, any>((store) =>
+        store.pizzas.sortBy)
 
     const isLoaded = useSelector<AppRootStateType, boolean>((store) =>
         store.pizzas.isLoaded)
@@ -27,8 +29,8 @@ const Home: FC = React.memo(() => {
     const dispatch = useDispatch();
 
     useEffect(() => {
-        dispatch(fetchPizzas())
-    }, []);
+        dispatch(fetchPizzas(rating))
+    }, [rating]);
 
 
     const handleAddPizzaToCart = (obj: newItemsType) => {

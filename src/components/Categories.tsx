@@ -10,6 +10,8 @@ const Categories: FC = React.memo(() => {
 
     const activeCategory = useSelector<AppRootStateType, any>((store) =>
         store.pizzas.category)
+    const rating = useSelector<AppRootStateType, any>((store) =>
+        store.pizzas.sortBy)
 
 
     const dispatch = useDispatch();
@@ -23,7 +25,7 @@ const Categories: FC = React.memo(() => {
 
 
     const onResetFilter = useCallback(() => {
-         dispatch(fetchPizzas())
+         dispatch(fetchPizzas(rating))
         dispatch(setFilterCategory(null))
     }, [])
 

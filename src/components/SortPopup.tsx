@@ -10,7 +10,7 @@ type SortPopupPropsType = {
 
 const SortPopup: FC = React.memo(() => {
     const itemsSort = [
-        {name: 'popular', type: 'popular', order: 'desc'},
+        {name: 'rating', type: 'rating', order: 'desc'},
         {name: 'price', type: 'price', order: 'desc'},
         {name: 'name', type: 'name', order: 'asc'}
     ]
@@ -21,7 +21,7 @@ const SortPopup: FC = React.memo(() => {
         store.pizzas.sortBy)
     const dispatch = useDispatch();
 
-    const onSelectSortType = useCallback((type: string) => {
+    const onSelectSortType = useCallback((type: string ) => {
         dispatch(setFilterSortBy(type))
     }, [])
 
@@ -29,11 +29,10 @@ const SortPopup: FC = React.memo(() => {
         setVisiblePopup(!visiblePopup)
     }
 
-    const onSelectItem = (type: string) => {
+    const onSelectItem = (type: string ) => {
         onSelectSortType(type)
         setVisiblePopup(false);
-        // debugger
-    }
+            }
 
     const activeLabel = itemsSort?.find(obj => obj.type === sortBy)?.name;
 
@@ -60,7 +59,7 @@ const SortPopup: FC = React.memo(() => {
                         fill="#2C2C2C"
                     />
                 </svg>
-                <b>Sort by:</b>
+                <b>Sort all by:</b>
                 <span onClick={toggleVisiblePopup}>{activeLabel}</span>
             </div>
             {visiblePopup &&
