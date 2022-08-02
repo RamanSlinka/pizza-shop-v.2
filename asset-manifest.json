@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/pizza-shop-v.2/static/css/main.857c63f7.chunk.css",
-    "main.js": "/pizza-shop-v.2/static/js/main.67801f9a.chunk.js",
-    "main.js.map": "/pizza-shop-v.2/static/js/main.67801f9a.chunk.js.map",
+    "main.js": "/pizza-shop-v.2/static/js/main.6f921f60.chunk.js",
+    "main.js.map": "/pizza-shop-v.2/static/js/main.6f921f60.chunk.js.map",
     "runtime-main.js": "/pizza-shop-v.2/static/js/runtime-main.9cedccee.js",
     "runtime-main.js.map": "/pizza-shop-v.2/static/js/runtime-main.9cedccee.js.map",
     "static/js/2.e97f1a58.chunk.js": "/pizza-shop-v.2/static/js/2.e97f1a58.chunk.js",
@@ -28,6 +28,6 @@
     "static/js/runtime-main.9cedccee.js",
     "static/js/2.e97f1a58.chunk.js",
     "static/css/main.857c63f7.chunk.css",
-    "static/js/main.67801f9a.chunk.js"
+    "static/js/main.6f921f60.chunk.js"
   ]
 }
