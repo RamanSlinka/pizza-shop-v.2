@@ -51,10 +51,15 @@ export const setFilterSortBy = (name: string) => ({
 
 
 
-export const fetchPizzas = (): AppThunkType => (dispatch) => {
+export const fetchPizzas = (sort: string | null): AppThunkType => (dispatch) => {
     dispatch(setLoaded(false));
-    // axios.get(`https://localhost:5000/api/pizzas`
-    axios.get(`https://pizza-shop--server.herokuapp.com/api/pizzas`
+    let URL = `https://pizza-shop--server.herokuapp.com/api/pizzas`
+    if(sort) {
+        URL = `https://pizza-shop--server.herokuapp.com/api/pizzas?sort=${sort}`
+    } else{URL= `https://pizza-shop--server.herokuapp.com/api/pizzas`}
+
+    axios.get(URL
+    // axios.get(`https://pizza-shop--server.herokuapp.com/api/pizzas`
     )
         .then(({data}) => {
             dispatch(setPizzasAC(data));

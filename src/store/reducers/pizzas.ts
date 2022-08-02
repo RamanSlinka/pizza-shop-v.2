@@ -11,7 +11,7 @@ const initialState: initialStateType = {
     items: [],
     isLoaded: false,
     category: null,
-    sortBy: 'popular'
+    sortBy: 'rating'
 }
 
 export default function pizzas(state = initialState, action: PizzasActionsType): initialStateType {
@@ -29,11 +29,7 @@ export default function pizzas(state = initialState, action: PizzasActionsType):
 
         case "PIZZAS_FILTER_SORT_BY":
             return {
-                // ...state, items: state.items.map((item: itemType) => item.name === action.payload).sort(),
-
-
-                 ...state, items: state.items.filter((item: itemType) => item.name !== action.payload),
-                sortBy: action.payload
+                ...state, sortBy: action.payload
             }
 
         case  'SET_LOADED':
