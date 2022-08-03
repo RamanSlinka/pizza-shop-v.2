@@ -3,7 +3,7 @@ import {AppThunkType} from "../index";
 
 
 export type itemType = {
-    id: number
+    _id: number
     imageUrl: string
     name: string
     types: Array<number>
@@ -56,7 +56,9 @@ export const fetchPizzas = (sort: string | null): AppThunkType => (dispatch) => 
     let URL = `https://pizza-shop--server.herokuapp.com/api/pizzas`
     if(sort) {
         URL = `https://pizza-shop--server.herokuapp.com/api/pizzas?sort=${sort}`
-    } else{URL= `https://pizza-shop--server.herokuapp.com/api/pizzas`}
+    } else {
+        URL= `https://pizza-shop--server.herokuapp.com/api/pizzas`
+    }
 
     axios.get(URL
     // axios.get(`https://pizza-shop--server.herokuapp.com/api/pizzas`

@@ -15,6 +15,9 @@ const Home: FC = React.memo(() => {
 
     const items = useSelector<AppRootStateType, Array<itemType>>((store) =>
         store.pizzas.items)
+
+    console.log(items)
+
     const rating = useSelector<AppRootStateType, any>((store) =>
         store.pizzas.sortBy)
 
@@ -22,9 +25,9 @@ const Home: FC = React.memo(() => {
         store.pizzas.isLoaded)
 
 
-    const cartItems = useSelector((store: any) => store.cart.itemsCart)
+    const cartItems = useSelector<AppRootStateType, any>(store => store.cart.itemsCart)
 
-    //  console.log(cartItems)
+      console.log(cartItems)
 
     const dispatch = useDispatch();
 
@@ -56,8 +59,8 @@ const Home: FC = React.memo(() => {
 
                             <PizzaBlock
                                 onClickAddPizza={handleAddPizzaToCart}
-                                addedCount={cartItems[item.id] && cartItems[item.id].length}
-                                key={item.id}
+                                addedCount={cartItems[item._id] && cartItems[item._id].length}
+                                key={item._id}
                                 {...item}  />)
 
                         : Array(12).fill(0).map((_, index: number) =>

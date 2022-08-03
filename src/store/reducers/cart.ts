@@ -2,7 +2,7 @@ import { itemType} from "../actions/pizzas";
 import {AddPizzaToCartActionType} from "../actions/cart";
 
 export type newItemsType = {
-    id: number
+    _id: number
     item:  itemType
 }
 
@@ -26,9 +26,9 @@ export default function cart(state: initialStateType = initialState, action: Add
         case  'ADD_PIZZA_CART':
             const newItems = {
                     ...state.itemsCart,
-                    [action.payload.id]: (!state.itemsCart[action.payload.id]
+                    [action.payload._id]: (!state.itemsCart[action.payload._id]
                         ? [action.payload]
-                        : [...state.itemsCart[action.payload.id], action.payload]),
+                        : [...state.itemsCart[action.payload._id], action.payload]),
                 };
 
             const allPizzas = [].concat.apply([], Object.values(newItems));

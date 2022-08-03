@@ -3,7 +3,7 @@ import classNames from "classnames";
 import Button from "../Button";
 
 type PizzaBlockPropsType = {
-    id: number
+    _id: number
     name: string
     imageUrl: string
     price: number
@@ -14,7 +14,7 @@ type PizzaBlockPropsType = {
 }
 
 const PizzaBlock: FC<PizzaBlockPropsType> = ({
-                                                 id, name, imageUrl,
+                                                 _id, name, imageUrl,
                                                  price,
                                                  types,
                                                  sizes,
@@ -38,7 +38,7 @@ const PizzaBlock: FC<PizzaBlockPropsType> = ({
 
     const onAddPizza = () => {
         const obj = {
-            id, name, imageUrl, price,
+            _id, name, imageUrl, price,
             size: availableSizes[activeSize],
             type: availableTypes[activeType]
         }

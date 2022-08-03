@@ -3,10 +3,7 @@ import {setFilterSortBy} from "../store/actions/pizzas";
 import {useDispatch, useSelector} from "react-redux";
 import {AppRootStateType} from "../store";
 
-type SortPopupPropsType = {
-    itemsSort: Array<{ name: string, type: string, order: string }>
 
-}
 
 const SortPopup: FC = React.memo(() => {
     const itemsSort = [

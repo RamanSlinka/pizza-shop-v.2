@@ -14,7 +14,7 @@ const CartItem: FC<CartItemType> = ({ name, type, price,
                                         imageUrl,
                                         totalAddedPizzas}) => {
 
-    console.log(totalAddedPizzas)
+    // console.log(totalAddedPizzas)
     return (
 
             <div className="cart__item">

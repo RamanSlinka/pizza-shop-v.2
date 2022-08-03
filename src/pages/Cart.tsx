@@ -9,15 +9,15 @@ import {UserStateType} from "../store/reducers/user";
 import {auth} from "../store/actions/auth";
 import Loader from "../components/Loader";
 
-const Cart: FC = () => {
+const Cart:FC = () => {
 
     const user = useSelector<AppRootStateType, UserStateType>(state => state.user)
     const isAuth = user.isAuth
 
     const appLoader = useSelector<AppRootStateType, boolean>(state => state.appReducer.loader)
 
-
     const dispatch = useDispatch()
+
     useEffect(() => {
         dispatch(auth())
     }, [])
