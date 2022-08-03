@@ -22,6 +22,7 @@ const Cart:FC = () => {
         dispatch(auth())
     }, [])
 
+    const cartItems = useSelector<AppRootStateType, any>(store => store.cart.itemsCart)
     const {totalPrice, totalCount, items} = useSelector((store: any) => ({
         items: store.cart.itemsCart,
         totalPrice: store.cart.totalPrice,
@@ -104,7 +105,9 @@ const Cart:FC = () => {
                                                 name={obj.name}
                                                 type={obj.type}
                                                 size={obj.size}
-                                                price={obj.price}/>
+                                                price={obj.price}
+                                                addedCount={cartItems[obj._id] && cartItems[obj._id].length}
+                                            />
                                         ))}
 
                                     </>
