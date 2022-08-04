@@ -1,5 +1,5 @@
 import { itemType} from "../actions/pizzas";
-import {AddPizzaToCartActionType} from "../actions/cart";
+import { PizzasActionType} from "../actions/cart";
 
 export type newItemsType = {
     _id: number
@@ -21,7 +21,7 @@ const initialState: initialStateType = {
 
 
 
-export default function cart(state: initialStateType = initialState, action: AddPizzaToCartActionType): initialStateType {
+export default function cart(state: initialStateType = initialState, action: PizzasActionType): initialStateType {
     switch (action.type) {
         case  'ADD_PIZZA_CART':
             const newItems = {
@@ -43,6 +43,11 @@ export default function cart(state: initialStateType = initialState, action: Add
                 totalCount: allPizzas.length,
                 totalPrice: totalPrice
             };
+
+
+        case 'CLEAR_CART':
+            return { totalPrice: 0, totalCount: 0, itemsCart: {} };
+
 
         default:
             return state;

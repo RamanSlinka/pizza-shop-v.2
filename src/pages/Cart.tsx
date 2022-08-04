@@ -8,8 +8,9 @@ import {AppRootStateType} from "../store";
 import {UserStateType} from "../store/reducers/user";
 import {auth} from "../store/actions/auth";
 import Loader from "../components/Loader";
+import {clearCart} from "../store/actions/cart";
 
-const Cart:FC = () => {
+const Cart: FC = () => {
 
     const user = useSelector<AppRootStateType, UserStateType>(state => state.user)
     const isAuth = user.isAuth
@@ -43,7 +44,7 @@ const Cart:FC = () => {
 
     if (appLoader) {
         return (
-            <> <Loader/>           </>
+            <> <Loader/> </>
         )
     }
 
@@ -73,9 +74,12 @@ const Cart:FC = () => {
                                                 stroke="white" strokeWidth="1.8" strokeLinecap="round"
                                                 strokeLinejoin="round"/>
                                         </svg>
+
                                         Cart
                                     </h3>
-                                    <div className="cart__clear">
+                                    <div className="cart__clear"
+
+                                    >
                                         <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
                                              xmlns="http://www.w3.org/2000/svg">
                                             <path d="M2.5 5H4.16667H17.5" stroke="#B6B6B6" strokeWidth="1.2"
@@ -91,7 +95,9 @@ const Cart:FC = () => {
                                                   strokeLinecap="round" strokeLinejoin="round"/>
                                         </svg>
 
-                                        <span>Clear cart</span>
+                                        <span
+                                            onClick={() => dispatch(clearCart())}
+                                        >Clear cart</span>
                                     </div>
                                 </div>
                                 <div className="content__items">
