@@ -29,7 +29,7 @@ const Cart: FC = () => {
         totalPrice: store.cart.totalPrice,
         totalCount: store.cart.totalCount
     }))
-    console.log(items)
+    // console.log(items)
     // console.log(items[0][0].name)
 
     const addedPizzas = Object.keys(items).map(key => {
@@ -106,6 +106,7 @@ const Cart: FC = () => {
                                     <>
                                         {addedPizzas.map((obj: any) => (
                                             <CartItem
+                                                id={obj._id}
                                                 totalAddedPizzas={addedPizzas.length}
                                                 imageUrl={obj.imageUrl}
                                                 name={obj.name}

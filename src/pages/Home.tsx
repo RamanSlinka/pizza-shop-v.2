@@ -27,7 +27,6 @@ const Home: FC = React.memo(() => {
 
     const cartItems = useSelector<AppRootStateType, any>(store => store.cart.itemsCart)
 
-      console.log(cartItems)
 
     const dispatch = useDispatch();
 
