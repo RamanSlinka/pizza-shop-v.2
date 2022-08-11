@@ -1,4 +1,5 @@
-import {itemType, PizzasActionsType} from "../actions/pizzas";
+import { PizzasActionsType} from "../actions/pizzas";
+import {itemType} from "./cart";
 
 type initialStateType = {
     items: Array<itemType> | []

@@ -1,7 +1,7 @@
 import React, {FC, useEffect} from 'react';
 import CartItem from "./CartItem";
 import {useDispatch, useSelector} from "react-redux";
-import emptyCart2 from "../assets/img/empty-cart.png"
+import emptyCart2 from "../assets/img/emptycart.jpg"
 import {NavLink} from "react-router-dom";
 import {PATH} from "../components/RoutesPage";
 import {AppRootStateType} from "../store";
@@ -23,8 +23,8 @@ const Cart: FC = () => {
         dispatch(auth())
     }, [])
 
-    const cartItems = useSelector<AppRootStateType, any>(store => store.cart.itemsCart)
-    const {totalPrice, totalCount, items} = useSelector((store: any) => ({
+    // const cartItems = useSelector<AppRootStateType, any>(store => store.cart.itemsCart)
+    const {totalPrice, totalCount, items} = useSelector<AppRootStateType, any>(store => ({
         items: store.cart.itemsCart,
         totalPrice: store.cart.totalPrice,
         totalCount: store.cart.totalCount
@@ -33,8 +33,15 @@ const Cart: FC = () => {
     // console.log(items[0][0].name)
 
     const addedPizzas = Object.keys(items).map(key => {
-        return items[key][0];
+        if (Array.isArray(items[key])){
+
+            return items[key][0];
+        } else {
+
+            return items[key].itemsCart[0]
+        }
     })
+
     // const totalAddedPizzas = Object.keys(items).map(key => {
     //     return items[key].length;
     // })
@@ -113,7 +120,7 @@ const Cart: FC = () => {
                                                 type={obj.type}
                                                 size={obj.size}
                                                 price={obj.price}
-                                                addedCount={cartItems[obj._id] && cartItems[obj._id].length}
+                                                addedCount={items[obj._id] && items[obj._id].length}
                                             />
                                         ))}
 
@@ -149,7 +156,7 @@ const Cart: FC = () => {
                                     <p>You probably haven't ordered pizza yet.
                                         <br/>
                                         To order pizza, go to the main page.</p>
-                                    <img src={emptyCart2} alt="emptyCart"/>
+                                    <img src={emptyCart2} style={{borderRadius: '20px'}} alt="emptyCart"/>
 
                                 </div>
                                 <NavLink to={PATH.HOME}

@@ -3,11 +3,11 @@ import Categories from "../components/Categories";
 import SortPopup from "../components/SortPopup";
 import PizzaBlock from "../components/pizzaBlock/PizzaBlock";
 import {useDispatch, useSelector} from "react-redux";
-import {fetchPizzas, itemType} from "../store/actions/pizzas";
+import {fetchPizzas} from "../store/actions/pizzas";
 import PizzaLoadingBlock from "../components/pizzaBlock/PizzaLoadingBlock";
 import {AppRootStateType} from "../store";
 import {addPizzaToCart} from "../store/actions/cart";
-import {newItemsType} from "../store/reducers/cart";
+import {itemType, newItemsType} from "../store/reducers/cart";
 import CarouselPage from '../components/CarouselPage';
 
 

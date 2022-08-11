@@ -1,19 +1,6 @@
 import axios from "axios";
 import {AppThunkType} from "../index";
-
-
-export type itemType = {
-    _id: number
-    imageUrl: string
-    name: string
-    types: Array<number>
-    sizes: Array<number>
-    price: number
-    category: string | null
-    rating: number
-}
-
-
+import {itemType} from "../reducers/cart";
 
 export type SetPizzasActionType = ReturnType<typeof setPizzasAC>
 export type SetLoadedActionType = ReturnType<typeof setLoaded>
@@ -46,22 +33,17 @@ export const setFilterSortBy = (name: string) => ({
 } as const);
 
 
-
-
-
-
-
 export const fetchPizzas = (sort: string | null): AppThunkType => (dispatch) => {
     dispatch(setLoaded(false));
     let URL = `https://pizza-shop--server.herokuapp.com/api/pizzas`
-    if(sort) {
+    if (sort) {
         URL = `https://pizza-shop--server.herokuapp.com/api/pizzas?sort=${sort}`
     } else {
-        URL= `https://pizza-shop--server.herokuapp.com/api/pizzas`
+        URL = `https://pizza-shop--server.herokuapp.com/api/pizzas`
     }
 
     axios.get(URL
-    // axios.get(`https://pizza-shop--server.herokuapp.com/api/pizzas`
+        // axios.get(`https://pizza-shop--server.herokuapp.com/api/pizzas`
     )
         .then(({data}) => {
             dispatch(setPizzasAC(data));
@@ -84,7 +66,6 @@ export const filterPizzas = (filter: string | null): AppThunkType => (dispatch) 
         .finally(() => {
             dispatch(setLoaded(true));
         })
-
 
 
 }

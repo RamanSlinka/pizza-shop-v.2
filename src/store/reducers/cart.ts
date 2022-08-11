@@ -1,4 +1,3 @@
-
 import {PizzasActionType} from "../actions/cart";
 
 export type itemType = {
@@ -91,12 +90,12 @@ export default function cart(state: initialStateType = initialState, action: Piz
 
 
         case "INCREMENT_CART_ITEM": {
-
+    console.log('state', state)
+            console.log('action', action)
             const newObjItems = [
                 ...state.itemsCart[action.payload],
                 state.itemsCart[action.payload][0]
             ];
-            console.log(newObjItems)
 
 
             const newItems = {
@@ -104,18 +103,19 @@ export default function cart(state: initialStateType = initialState, action: Piz
 
                 [action.payload]: {
                     itemsCart: newObjItems,
-                    totalPrice: getTotalPrice(newObjItems)
+                    totalPrice: getTotalPrice(newObjItems),
 
-                    //     newObjItems.reduce((sum: number, obj: any) => {
+                    // newObjItems.reduce((sum: number, obj: any) => {
                     //     return obj.price + sum
                     // }, 0)
                 }
+                // newObjItems
+
+
             };
 
             const totalCount = newObjItems.length
-            const totalPrice = getTotalSum(newItems, 'totalPrice')
-
-            debugger
+            const totalPrice = getTotalSum(newItems, 'totalPrice');
 
             return {
                 ...state,

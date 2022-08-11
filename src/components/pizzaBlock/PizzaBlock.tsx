@@ -3,7 +3,7 @@ import classNames from "classnames";
 import Button from "../Button";
 
 type PizzaBlockPropsType = {
-    _id: number
+    _id: string
     name: string
     imageUrl: string
     price: number
