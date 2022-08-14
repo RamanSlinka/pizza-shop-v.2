@@ -1,62 +1,80 @@
 import React, {useState} from 'react';
 import {Button, Container} from "react-bootstrap";
-import CreateCategory from "../components/modals/CreateCategory";
-import CreateName from "../components/modals/CreateName";
-import CreateImage from "../components/modals/CreateImage";
-import CreatePrice from "../components/modals/CreatePrice";
-import CreateRating from "../components/modals/CreateRating";
-import CreateSize from "../components/modals/CreateSize";
-import CreateType from "../components/modals/CreateType";
+import CreatePizza from "../components/modals/CreatePizza";
+
 
 const Admin = () => {
 
-    const [nameVisible, setNameVisible] = useState(false)
-    const [typeVisible, setTypeVisible] = useState(false)
-    const [sizeVisible, setSizeVisible] = useState(false)
-    const [priceVisible, setPriceVisible] = useState(false)
-    const [categoryVisible, setCategoryVisible] = useState(false)
-    const [ratingVisible, setRatingVisible] = useState(false)
-    const [imageUrlVisible, setImageUrlVisible] = useState(false)
+    const [name, setName] = useState('')
+    console.log(name)
+
+    const [category, setCategory] = useState('enter category')
+    console.log(category)
+
+    const [price, setPrice] = useState(0)
+    console.log(price)
+
+    const [rating, setRating] = useState(10)
+    console.log(rating)
+    const [imageUrl, setImageUrl] = useState(false)
+
+    const [visible, setVisible] = useState(false)
 
     return (
         <Container className={'m-xxl-5'}>
-            <Button onClick={() => setNameVisible(true)} > Add name</Button>
-            <Button onClick={() => setTypeVisible(true)}> Add types</Button>
-            <Button onClick={() => setSizeVisible(true)}> Add size</Button>
-            <Button onClick={() => setPriceVisible(true)}> Add price</Button>
-            <Button onClick={() => setCategoryVisible(true)}> Add category</Button>
-            <Button onClick={() => setRatingVisible(true)}> Add rating</Button>
-            <Button onClick={() => setImageUrlVisible(true)}> Add imageUrl</Button>
+            {/*<Button onClick={() => setNameVisible(true)} > Add name</Button>*/}
+            {/*<Button onClick={() => setTypeVisible(true)}> Add types</Button>*/}
+            {/*<Button onClick={() => setSizeVisible(true)}> Add size</Button>*/}
+            {/*<Button onClick={() => setPriceVisible(true)}> Add price</Button>*/}
+            {/*<Button onClick={() => setRatingVisible(true)}> Add rating</Button>*/}
+            {/*<Button onClick={() => setImageUrlVisible(true)}> Add imageUrl</Button>*/}
+
+            <Button onClick={() => setVisible(true)}> Create new pizza</Button>
 
 
-            <CreateCategory
-                show={categoryVisible}
-                onHide={() =>setCategoryVisible(false)}
+
+
+            <CreatePizza
+                name={name}
+                addName={setName}
+
+                category={category}
+                addCategory={setCategory}
+
+                addPrice={setPrice}
+                addRating={setRating}
+                addImageUrl={setImageUrl}
+
+                show={visible}
+                onHide={() =>setVisible(false)}
             />
-            <CreateName
-                show={nameVisible}
-                onHide={() => setNameVisible(false)}
-            />
-            <CreateImage
-                show={imageUrlVisible}
-                onHide={() => setImageUrlVisible(false)}
-            />
-            <CreatePrice
-                show={priceVisible}
-                onHide={() => setPriceVisible(false)}
-            />
-            <CreateRating
-                show={ratingVisible}
-                onHide={() => setRatingVisible(false)}
-            />
-            <CreateSize
-                show={sizeVisible}
-                onHide={() => setSizeVisible(false)}
-            />
-            <CreateType
-                show={typeVisible}
-                onHide={() => setTypeVisible(false)}
-            />
+
+
+            {/*<CreateName*/}
+            {/*    show={nameVisible}*/}
+            {/*    onHide={() => setNameVisible(false)}*/}
+            {/*/>*/}
+            {/*<CreateImage*/}
+            {/*    show={imageUrlVisible}*/}
+            {/*    onHide={() => setImageUrlVisible(false)}*/}
+            {/*/>*/}
+            {/*<CreatePrice*/}
+            {/*    show={priceVisible}*/}
+            {/*    onHide={() => setPriceVisible(false)}*/}
+            {/*/>*/}
+            {/*<CreateRating*/}
+            {/*    show={ratingVisible}*/}
+            {/*    onHide={() => setRatingVisible(false)}*/}
+            {/*/>*/}
+            {/*<CreateSize*/}
+            {/*    show={sizeVisible}*/}
+            {/*    onHide={() => setSizeVisible(false)}*/}
+            {/*/>*/}
+            {/*<CreateType*/}
+            {/*    show={typeVisible}*/}
+            {/*    onHide={() => setTypeVisible(false)}*/}
+            {/*/>*/}
+
         </Container>
     );
 };

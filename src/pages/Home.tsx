@@ -16,7 +16,7 @@ const Home: FC = React.memo(() => {
     const items = useSelector<AppRootStateType, Array<itemType>>((store) =>
         store.pizzas.items)
 
-    // console.log(items)
+     console.log(items)
 
     const rating = useSelector<AppRootStateType, any>((store) =>
         store.pizzas.sortBy)
