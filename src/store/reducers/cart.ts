@@ -30,21 +30,21 @@ const initialState: initialStateType = {
 }
 
 
-const getTotalPrice = (arr: Array<any>) => arr.reduce((sum: number, obj: itemType) => obj.price + sum, 0);
-
-const _get = (obj: any, path: any) => {
-    const [firstKey, ...keys] = path.split('.');
-    return keys.reduce((val: any, key: number) => {
-        return val[key];
-    }, obj[firstKey]);
-};
-
-const getTotalSum = (obj: any, path: any) => {
-    return Object.values(obj).reduce((sum, obj) => {
-        const value = _get(obj, path);
-        return sum + value;
-    }, 0);
-};
+// const getTotalPrice = (arr: Array<any>) => arr.reduce((sum: number, obj: itemType) => obj.price + sum, 0);
+//
+// const _get = (obj: any, path: any) => {
+//     const [firstKey, ...keys] = path.split('.');
+//     return keys.reduce((val: any, key: number) => {
+//         return val[key];
+//     }, obj[firstKey]);
+// };
+//
+// const getTotalSum = (obj: any, path: any) => {
+//     return Object.values(obj).reduce((sum, obj) => {
+//         const value = _get(obj, path);
+//         return sum + value;
+//     }, 0);
+// };
 
 
 export default function cart(state: initialStateType = initialState, action: PizzasActionType): initialStateType {
@@ -89,43 +89,45 @@ export default function cart(state: initialStateType = initialState, action: Piz
         }
 
 
-        case "INCREMENT_CART_ITEM": {
-    console.log('state', state)
-            console.log('action', action)
-            const newObjItems = [
-                ...state.itemsCart[action.payload],
-                state.itemsCart[action.payload][0]
-            ];
+        // case "INCREMENT_CART_ITEM": {
+        //     console.log('state', state)
+        //     console.log('action', action)
+        //     const newObjItems = [
+        //         ...state.itemsCart[action.payload],
+        //         state.itemsCart[action.payload][0]
+        //     ];
+        //
+        //
+        //     const newItems = {
+        //         ...state.itemsCart,
+        //
+        //         [action.payload]: newObjItems
+        //         // itemsCart: newObjItems
+        //         // totalPrice: getTotalPrice(newObjItems),
+        //
+        //         // newObjItems.reduce((sum: number, obj: any) => {
+        //         //     return obj.price + sum
+        //         // }, 0)
+        //
+        //         // newObjItems
+        //
+        //
+        //     };
+        //
+        //     const totalCount = newObjItems.length
+        //     // const totalPrice = getTotalSum(newItems, 'totalPrice');
+        //     const totalPrice = newObjItems.reduce((sum: number, obj: any) => {
+        //         return obj.price + sum
+        //     }, 0)
+        //
+        //     return {
+        //         ...state,
+        //         itemsCart: newItems,
+        //         totalPrice,
+        //         totalCount
+        //     }
+        // }
 
-
-            const newItems = {
-                ...state.itemsCart,
-
-                [action.payload]: {
-                    itemsCart: newObjItems,
-                    totalPrice: getTotalPrice(newObjItems),
-
-                    // newObjItems.reduce((sum: number, obj: any) => {
-                    //     return obj.price + sum
-                    // }, 0)
-                }
-                // newObjItems
-
-
-            };
-
-            const totalCount = newObjItems.length
-            const totalPrice = getTotalSum(newItems, 'totalPrice');
-
-            return {
-                ...state,
-                // @ts-ignore
-                itemsCart: newItems,
-                // @ts-ignore
-                totalPrice,
-                totalCount
-            }
-        }
         case 'CLEAR_CART':
             return {totalPrice: 0, totalCount: 0, itemsCart: {}};
 

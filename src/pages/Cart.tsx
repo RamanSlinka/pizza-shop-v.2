@@ -23,14 +23,12 @@ const Cart: FC = () => {
         dispatch(auth())
     }, [])
 
-    // const cartItems = useSelector<AppRootStateType, any>(store => store.cart.itemsCart)
     const {totalPrice, totalCount, items} = useSelector<AppRootStateType, any>(store => ({
         items: store.cart.itemsCart,
         totalPrice: store.cart.totalPrice,
         totalCount: store.cart.totalCount
     }))
-    // console.log(items)
-    // console.log(items[0][0].name)
+
 
     const addedPizzas = Object.keys(items).map(key => {
         if (Array.isArray(items[key])){
@@ -42,12 +40,7 @@ const Cart: FC = () => {
         }
     })
 
-    // const totalAddedPizzas = Object.keys(items).map(key => {
-    //     return items[key].length;
-    // })
 
-    //const totalAddedPizzas2 = items.length
-    // console.log(totalAddedPizzas)
 
     if (appLoader) {
         return (
