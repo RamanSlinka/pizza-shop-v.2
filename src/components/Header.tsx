@@ -12,7 +12,7 @@ import {auth, logout} from "../store/actions/auth";
 
 const Header: FC = () => {
 
-    const {totalPrice, totalCount} = useSelector((store: any) => ({
+    const {totalPrice, totalCount} = useSelector<AppRootStateType, any>((store) => ({
         totalPrice: store.cart.totalPrice,
         totalCount: store.cart.totalCount
     }))

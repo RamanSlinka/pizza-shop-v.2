@@ -7,7 +7,7 @@ export type userType = {
     name?: string
 }
 export type UserStateType = {
-    currentUser?: userType
+    currentUser: userType
     isAuth: boolean
 }
 

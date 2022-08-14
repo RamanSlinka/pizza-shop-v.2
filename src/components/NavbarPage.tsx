@@ -2,8 +2,16 @@ import React from 'react';
 import {Container, Nav, Navbar} from "react-bootstrap";
 import {NavLink} from "react-router-dom";
 import {PATH} from "./RoutesPage";
+import {useSelector} from "react-redux";
+import {AppRootStateType} from "../store";
+
 
 const NavbarPage = () => {
+
+    const user = useSelector<AppRootStateType, string | undefined>(store => store.user.currentUser.email)
+
+    console.log(user)
+
     return (
         <div className=" container navbar_wrapper ">
 
@@ -65,6 +73,19 @@ const NavbarPage = () => {
                                          }}
                                 >Cart</NavLink>
                             </Nav.Link>
+                            { user === "admin@admin.com"
+                                ?
+                                <Nav.Link className="navbar_item">
+                                <NavLink to={PATH.ADMIN}
+                                         className="NavLink"
+                                         style={(params) => {
+                                             return {color: params.isActive ? "orange" : "black"}
+                                         }}
+                                >Admin Panel</NavLink>
+                            </Nav.Link>
+                            : ""
+                            }
+
                         </Nav>
 
 
