@@ -66,6 +66,33 @@ export const filterPizzas = (filter: string | null): AppThunkType => (dispatch) 
         .finally(() => {
             dispatch(setLoaded(true));
         })
+}
+
+export const createNewPizza = async (    imageUrl: string,
+               name: string,
+              types: Array<number>,
+              sizes: Array<number>,
+                 price: number,
+              category: number,
+             rating: number)  => {
+    try {
+        const response = await axios.post(`https://pizza-shop--server.herokuapp.com/api/pizza`, {
+
+            imageUrl,
+            name,
+            types,
+            sizes,
+            price,
+            category,
+            rating
 
 
+        },{headers: {Authorization: `Bearer ${localStorage.getItem('token')}`}} )
+
+        console.log(response.data.message)
+        alert(response.data.message)
+    } catch (e) {
+        console.log(e)
+        alert(e)
+    }
 }
