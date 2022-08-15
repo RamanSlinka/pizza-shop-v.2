@@ -19,7 +19,7 @@ const PizzaBlock: FC<PizzaBlockPropsType> = ({
                                                  types,
                                                  sizes,
                                                  onClickAddPizza,
-                                                addedCount
+                                                 addedCount
                                              }) => {
 
     const [activeType, setActiveType] = useState(types[0]);

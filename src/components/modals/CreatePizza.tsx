@@ -1,19 +1,30 @@
-import React, {FC, useState} from 'react';
+import React, {ChangeEvent, FC, useState} from 'react';
 import {Button, Dropdown, Form, Modal} from "react-bootstrap";
+import {createNewPizza} from "../../store/actions/pizzas";
 
-const CreatePizza:FC<any> = ({show, onHide, addName, category, addCategory}) => {
+const CreatePizza: FC<any> = ({show, onHide,name,  addName,
+                                  category, addCategory, rating, addRating,
+                                  price, addPrice, imageUrl, addImageUrl, submit
+                              }) => {
 
 
-// const [value, setValue] = useState('')
+    // const [valueRating, setValueRating] = useState<any>('')
+
+    const ratingHandler = (e: ChangeEvent<HTMLInputElement>) => {
+        addRating(+e.target.value)
+    }
+
+
 
     return (
         <div>
             <Modal
                 show={show}
                 onHide={onHide}
-                size="lg"
+                size="sm"
                 aria-labelledby="contained-modal-title-vcenter"
                 centered
+
             >
                 <Modal.Header closeButton>
                     <Modal.Title id="contained-modal-title-vcenter">
@@ -23,35 +34,45 @@ const CreatePizza:FC<any> = ({show, onHide, addName, category, addCategory}) => 
                 <Modal.Body>
                     <Form>
                         <Dropdown>
-                            <Dropdown.Toggle variant="outline-success" id="dropdown-basic">
+                            <Dropdown.Toggle variant="outline-success" id="dropdown-basic" className='mb-2'>
                                 Enter category
                             </Dropdown.Toggle>
 
                             <Dropdown.Menu>
-                                <Dropdown.Item onClick={addCategory('0')}>Meat (0)</Dropdown.Item>
-                                <Dropdown.Item onClick={addCategory('1')}>Vegetarian (1)</Dropdown.Item>
-                                <Dropdown.Item onClick={addCategory('2')}>Spicy (2)</Dropdown.Item>
+                                <Dropdown.Item onClick={() =>addCategory(0)}>Meat </Dropdown.Item>
+                                <Dropdown.Item onClick={()=>addCategory(1)}>Vegetarian </Dropdown.Item>
+                                <Dropdown.Item onClick={()=>addCategory(2)}>Spicy </Dropdown.Item>
                             </Dropdown.Menu>
                         </Dropdown>
 
-                        <Form.Control className="Control"
-                                       onChange={(e) => addName(e.target.value)}
-                              placeholder={'Enter name of pizza'}
+                        <Form.Control className="Control mb-2"
+                                      value={name}
+                                      onChange={(e) => addName(e.target.value)}
+                                      placeholder={'Enter name of pizza'}
                         />
 
-                        <Form.Control className="Control"
-                              placeholder={'Enter URL image of pizza'}
+                        <Form.Control className="Control mb-2"
+                                      value={imageUrl}
+                                      onChange={(e) => addImageUrl(e.target.value)}
+                                      placeholder={'Enter URL image of pizza'}
                         />
-                        <Form.Control className="Control"
-                              placeholder={'Enter price of pizza'}
+                        <Form.Control className="Control mb-2"
+                                      value={price}
+                                      onChange={(e) => addPrice(+e.target.value)}
+                                      placeholder={'Enter price of pizza'}
                         />
-                        <Form.Control className="Control"
-                              placeholder={'Enter rating of pizza'}
-                        />
+                        <>
+                            <Form.Label>Enter rating: {rating}</Form.Label>
+                            <Form.Range
+                                value={rating}
+                                onChange={ratingHandler}
+
+                            />
+                        </>
                     </Form>
                 </Modal.Body>
                 <Modal.Footer>
-                    <Button variant={"outline-success"} onClick={onHide}>Add</Button>
+                    <Button variant={"outline-success"} onClick={submit}>Add</Button>
                     <Button variant={"outline-danger"} onClick={onHide}>Close</Button>
                 </Modal.Footer>
             </Modal>

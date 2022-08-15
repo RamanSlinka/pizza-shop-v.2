@@ -1,37 +1,95 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {Button, Container} from "react-bootstrap";
 import CreatePizza from "../components/modals/CreatePizza";
+import {createNewPizza} from "../store/actions/pizzas";
+import {auth} from "../store/actions/auth";
+import {useDispatch} from "react-redux";
 
 
 const Admin = () => {
-
-    const [name, setName] = useState('')
+    const dispatch = useDispatch()
+    // const availableTypes = ["thin dough", "traditional dough"];
+    // const availableSizes = [26, 30, 40];
+    // const [activeType, setActiveType] = useState<any>(0);
+    // const [activeSize, setActiveSize] = useState(0);
+    useEffect(() => {
+        dispatch(auth())
+    }, [])
+    const [name, setName] = useState<string>('enter name')
     console.log(name)
 
-    const [category, setCategory] = useState('enter category')
-    console.log(category)
+    const [category, setCategory] = useState(0)
+    // console.log(category)
 
-    const [price, setPrice] = useState(0)
-    console.log(price)
+    const [price, setPrice] = useState< number>(0)
+    // console.log(price)
 
-    const [rating, setRating] = useState(10)
+    const [rating, setRating] = useState(0)
     console.log(rating)
-    const [imageUrl, setImageUrl] = useState(false)
+    const [imageUrl, setImageUrl] = useState("https://dodopizza.azureedge.net/static/Img/Products/Pizza/ru-RU/d48003cd-902c-420d-9f28-92d9dc5f73b4.jpg")
 
     const [visible, setVisible] = useState(false)
 
+    const newPizza = new Object({
+        name, category,
+        imageUrl, price, rating,
+        sizes: [26, 30, 40],
+        types: [0, 1]
+    })
+
+
+    console.log(newPizza)
+
+    const categoryHandler = (category: any) => {
+        if (category === 0 ) {
+        return 'Meet'
+        } else if(category === 1) {
+            return 'Vegetarian'
+        } else {
+            return 'Spicy'
+        }
+    }
+
+    const submitNewPizza = () => {
+      const  sizes = [26, 30, 40]
+        const     types=  [0, 1]
+        createNewPizza(  imageUrl,
+            name,
+            types,
+            sizes,
+            price,
+            category,
+            rating
+           )
+        setTimeout( () => {
+            setVisible(false)
+        }, 1000)
+    }
+
     return (
         <Container className={'m-xxl-5'}>
-            {/*<Button onClick={() => setNameVisible(true)} > Add name</Button>*/}
-            {/*<Button onClick={() => setTypeVisible(true)}> Add types</Button>*/}
-            {/*<Button onClick={() => setSizeVisible(true)}> Add size</Button>*/}
-            {/*<Button onClick={() => setPriceVisible(true)}> Add price</Button>*/}
-            {/*<Button onClick={() => setRatingVisible(true)}> Add rating</Button>*/}
-            {/*<Button onClick={() => setImageUrlVisible(true)}> Add imageUrl</Button>*/}
-
-            <Button onClick={() => setVisible(true)}> Create new pizza</Button>
 
 
+            <div style={{display: "flex", flexDirection: "column", padding: "20px"}}>
+                <Button onClick={() => setVisible(true)} variant="outline-primary"> Create new pizza</Button>
+                <div className="pizza-block mt-4 border-success">
+                    <img
+                        className="pizza-block__image"
+                        src={imageUrl}
+                        alt="Pizza"
+                    />
+
+                    <div>
+                        <h4 className="pizza-block__title">Name: {name}</h4>
+                        <h4>Category: {categoryHandler(category)}</h4>
+                        <h4>Rating: {rating}</h4>
+                        <h4 className="pizza-block__price">Price: {price} $</h4>
+
+                    </div>
+
+
+                </div>
+            </div>
 
 
             <CreatePizza
@@ -41,39 +99,21 @@ const Admin = () => {
                 category={category}
                 addCategory={setCategory}
 
+                price={price}
                 addPrice={setPrice}
-                addRating={setRating}
+
+                imageUrl={imageUrl}
                 addImageUrl={setImageUrl}
 
+                rating={rating}
+                addRating={setRating}
+
+
                 show={visible}
-                onHide={() =>setVisible(false)}
+                onHide={() => setVisible(false)}
+                submit={submitNewPizza}
             />
 
-
-            {/*<CreateName*/}
-            {/*    show={nameVisible}*/}
-            {/*    onHide={() => setNameVisible(false)}*/}
-            {/*/>*/}
-            {/*<CreateImage*/}
-            {/*    show={imageUrlVisible}*/}
-            {/*    onHide={() => setImageUrlVisible(false)}*/}
-            {/*/>*/}
-            {/*<CreatePrice*/}
-            {/*    show={priceVisible}*/}
-            {/*    onHide={() => setPriceVisible(false)}*/}
-            {/*/>*/}
-            {/*<CreateRating*/}
-            {/*    show={ratingVisible}*/}
-            {/*    onHide={() => setRatingVisible(false)}*/}
-            {/*/>*/}
-            {/*<CreateSize*/}
-            {/*    show={sizeVisible}*/}
-            {/*    onHide={() => setSizeVisible(false)}*/}
-            {/*/>*/}
-            {/*<CreateType*/}
-            {/*    show={typeVisible}*/}
-            {/*    onHide={() => setTypeVisible(false)}*/}
-            {/*/>*/}
 
         </Container>
     );
