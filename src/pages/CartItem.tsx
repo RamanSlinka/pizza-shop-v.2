@@ -1,6 +1,6 @@
 import React, {FC} from 'react';
 import {useDispatch} from "react-redux";
-import {incrementCartItem, removeCartItem} from "../store/actions/cart";
+import {removeCartItem} from "../store/actions/cart";
 
 
 type CartItemType = {
@@ -18,7 +18,6 @@ const CartItem: FC<CartItemType> = ({
                                         name, type, price,
                                         size,
                                         imageUrl,
-                                        totalAddedPizzas,
                                         addedCount, id
                                     }) => {
 
@@ -63,7 +62,7 @@ const CartItem: FC<CartItemType> = ({
                 {/*<b>{totalAddedPizzas}</b>*/}
 
 
-                <b>{addedCount} pc.</b>
+                <p className="count1">{addedCount} pc.</p>
 
                 {/*<div*/}
                 {/*    onClick={() => {*/}

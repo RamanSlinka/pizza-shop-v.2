@@ -123,8 +123,8 @@ const Cart: FC = () => {
                                 </div>
                                 <div className="cart__bottom">
                                     <div className="cart__bottom-details">
-                                        <span> Total pizzas: <b>{totalCount} pc.</b> </span>
-                                        <span> Order price: <b>{totalPrice} $</b> </span>
+                                        <span className="description"> Total pizzas: <b>{totalCount} pc.</b> </span>
+                                        <span className="description"> Order price: <b>{totalPrice} $</b> </span>
                                     </div>
                                     <div className="cart__bottom-buttons">
                                         <NavLink to={PATH.HOME}
@@ -138,7 +138,7 @@ const Cart: FC = () => {
                                             <span>Come back</span>
                                         </NavLink>
                                         <div className="button pay-btn">
-                                            <span>Pay now</span>
+                                            <>Pay now</>
                                         </div>
                                     </div>
                                 </div>
