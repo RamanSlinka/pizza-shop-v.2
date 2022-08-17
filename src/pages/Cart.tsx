@@ -1,4 +1,4 @@
-import React, {FC, useEffect} from 'react';
+import React, {FC, useEffect, useState} from 'react';
 import CartItem from "./CartItem";
 import {useDispatch, useSelector} from "react-redux";
 import emptyCart2 from "../assets/img/emptycart.jpg"
@@ -9,6 +9,7 @@ import {UserStateType} from "../store/reducers/user";
 import {auth} from "../store/actions/auth";
 import Loader from "../components/Loader";
 import {clearCart} from "../store/actions/cart";
+import PaymentCart from "../components/modals/PaymentCart";
 
 const Cart: FC = () => {
 
@@ -28,6 +29,14 @@ const Cart: FC = () => {
         totalPrice: store.cart.totalPrice,
         totalCount: store.cart.totalCount
     }))
+
+    const [show, setShow] = useState(false);
+
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
+
+
+
 
 
     const addedPizzas = Object.keys(items).map(key => {
@@ -137,7 +146,9 @@ const Cart: FC = () => {
 
                                             <span>Come back</span>
                                         </NavLink>
-                                        <div className="button pay-btn">
+                                        <div className="button pay-btn"
+                                             onClick={handleShow}
+                                        >
                                             <>Pay now</>
                                         </div>
                                     </div>
@@ -184,7 +195,13 @@ const Cart: FC = () => {
                         </div>
                     </div>
                 </div>
-            } </>
+            }
+            <PaymentCart
+                 show={show}
+                         handleClose={handleClose}
+
+            />
+            </>
     );
 };
 

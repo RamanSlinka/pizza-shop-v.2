@@ -1,6 +1,5 @@
-import React, {ChangeEvent, FC, useState} from 'react';
+import React, {ChangeEvent, FC} from 'react';
 import {Button, Dropdown, Form, Modal} from "react-bootstrap";
-import {createNewPizza} from "../../store/actions/pizzas";
 
 const CreatePizza: FC<any> = ({show, onHide,name,  addName,
                                   category, addCategory, rating, addRating,
@@ -8,7 +7,6 @@ const CreatePizza: FC<any> = ({show, onHide,name,  addName,
                               }) => {
 
 
-    // const [valueRating, setValueRating] = useState<any>('')
 
     const ratingHandler = (e: ChangeEvent<HTMLInputElement>) => {
         addRating(+e.target.value)
