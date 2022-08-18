@@ -10,6 +10,7 @@ import {auth} from "../store/actions/auth";
 import Loader from "../components/Loader";
 import {clearCart} from "../store/actions/cart";
 import PaymentCart from "../components/modals/PaymentCart";
+import PaymentSuccess from "../components/modals/PaymentSuccess";
 
 const Cart: FC = () => {
 
@@ -31,16 +32,17 @@ const Cart: FC = () => {
     }))
 
     const [show, setShow] = useState(false);
+    const [showSuccess, setShowSuccess] = useState(false);
 
     const handleClose = () => setShow(false);
+    const handleCloseSuccess = () => setShowSuccess(false);
+
     const handleShow = () => setShow(true);
-
-
-
+    const handleShowSuccess = () => setShowSuccess(true);
 
 
     const addedPizzas = Object.keys(items).map(key => {
-        if (Array.isArray(items[key])){
+        if (Array.isArray(items[key])) {
 
             return items[key][0];
         } else {
@@ -48,7 +50,6 @@ const Cart: FC = () => {
             return items[key].itemsCart[0]
         }
     })
-
 
 
     if (appLoader) {
@@ -197,11 +198,15 @@ const Cart: FC = () => {
                 </div>
             }
             <PaymentCart
-                 show={show}
-                         handleClose={handleClose}
+                show={show}
+                handleClose={handleClose}
+                handleShowSuccess={handleShowSuccess}
 
             />
-            </>
+            <PaymentSuccess
+                show={showSuccess}
+                handleClose={handleCloseSuccess}/>
+        </>
     );
 };
 
