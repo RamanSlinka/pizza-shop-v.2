@@ -21,7 +21,7 @@ const PaymentCart: FC<PaymentCartPropsType> = ({show, handleClose, handleShowSuc
         setTimeout(() => {
             handleShowSuccess()
             dispatch(clearCart())
-        }, 2000)
+        }, 1000)
     }
 
     const handleSubmit = async (e: any) => {
@@ -30,7 +30,7 @@ const PaymentCart: FC<PaymentCartPropsType> = ({show, handleClose, handleShowSuc
         if (!stripe || !elements) {
             return;
         }
-        alert('Creating payment intent...');
+        // alert('Creating payment intent...');
 
         // Create payment intend on the server
         const {error: backendError, clientSecret}: any = await fetch('create-payment-intent', {
@@ -81,7 +81,7 @@ const PaymentCart: FC<PaymentCartPropsType> = ({show, handleClose, handleShowSuc
 
                         <label htmlFor="card-element">Card</label>
 
-                        <CardElement id="card-element"/>
+                        <CardElement id="card-element" />
 
 
                     </Modal.Body>
