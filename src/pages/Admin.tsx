@@ -8,26 +8,16 @@ import {useDispatch} from "react-redux";
 
 const Admin = () => {
     const dispatch = useDispatch()
-    // const availableTypes = ["thin dough", "traditional dough"];
-    // const availableSizes = [26, 30, 40];
-    // const [activeType, setActiveType] = useState<any>(0);
-    // const [activeSize, setActiveSize] = useState(0);
+
     useEffect(() => {
         dispatch(auth())
     }, [])
+
     const [name, setName] = useState<string>('enter name')
-    console.log(name)
-
     const [category, setCategory] = useState(0)
-    // console.log(category)
-
     const [price, setPrice] = useState< number>(0)
-    // console.log(price)
-
     const [rating, setRating] = useState(0)
-    console.log(rating)
-    const [imageUrl, setImageUrl] = useState("https://dodopizza.azureedge.net/static/Img/Products/Pizza/ru-RU/d48003cd-902c-420d-9f28-92d9dc5f73b4.jpg")
-
+    const [imageUrl, setImageUrl] = useState("https://cdn-icons-png.flaticon.com/512/99/99954.png")
     const [visible, setVisible] = useState(false)
 
     const newPizza = new Object({
@@ -36,9 +26,6 @@ const Admin = () => {
         sizes: [26, 30, 40],
         types: [0, 1]
     })
-
-
-    console.log(newPizza)
 
     const categoryHandler = (category: any) => {
         if (category === 0 ) {
