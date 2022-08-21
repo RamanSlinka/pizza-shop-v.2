@@ -12,7 +12,7 @@ type FormikErrorType = {
 
 const FeedbackPage = () => {
 
-//added from codePen
+//added from codePen to handle  submit button
     document.querySelectorAll(".button__submit").forEach((button) => {
         button.addEventListener("click", () => button.classList.toggle("clicked"));
     });
@@ -24,7 +24,7 @@ const FeedbackPage = () => {
 
     const formRef = useRef(null)
     let sendEmail = () => {
-        emailjs.send('service_4e1ddah', 'template_9x2ipjy',
+        emailjs.send('service_eppp92p', 'template_9x2ipjy',
             {
                 to_name: formik.values.userName,
                 from_name: formik.values.email,
