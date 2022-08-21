@@ -40,8 +40,10 @@ const Header: FC = () => {
                         <img className="pizza_logo" src={logo} alt="Pizza logo"/>
                     </NavLink>
                     <div>
-                        <h1> Pizza Shop</h1>
-                        <p className="header__description">we have the most delicious pizza in the universe :)</p>
+                        <h1 className="logoName"> Pizza Shop</h1>
+                        <p className="header__description">
+                            {/*we have the most delicious pizza in the universe :)*/}
+                        </p>
                     </div>
                 </div>
                 {isAuth ?

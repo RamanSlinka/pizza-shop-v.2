@@ -23,7 +23,7 @@ const Footer = () => {
                         <div>
                             call me <br/>
                             <a href="tel:+18 90 321-00-01"> +18 90 321-00-01</a><br/>
-                            <a href="feedback@pizza.com" target="_blank">feedback@pizza.com</a>
+                            <a href={PATH.FEEDBACK} target="_blank">feedback@pizza.com</a>
                         </div>
                         <p>or </p>
                         <NavLink to={PATH.FEEDBACK}>
@@ -53,7 +53,7 @@ const Footer = () => {
             <hr style={{color: "grey"}}/>
             <div className="down__row">
              <p className="name__shop">   PIZZA SHOP </p>
-                 <p>&#169; 2021  Campaign and promotion regulations
+                 <p>&#169; 2022  Campaign and promotion regulations
                  </p>
                 <p>Allergens and Nutritional Information
                 privacy policy </p>

@@ -53,9 +53,10 @@
 
     h1 {
       color: #181818;
-      font-size: 24px;
+      font-size: 38px;
       //letter-spacing: 1%;
-      text-transform: uppercase;
+      font-family: 'DynaPuff', cursive;
+      //text-transform: uppercase;
       font-weight: 800;
       @media screen and(max-width: 1000px) {
         font-size: 20px;
