@@ -68,9 +68,6 @@ const SortPopup: FC = React.memo(() => {
                                 key={index}
                                 onClick={() => {
                                     onSelectItem(obj.type)
-                                    {
-                                        console.log(obj.type)
-                                    }
                                 }}
                             >{obj.type}</li>)}
 

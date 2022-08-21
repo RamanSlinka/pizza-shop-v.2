@@ -9,9 +9,8 @@ import {AppRootStateType} from "../store";
 const NavbarPage = () => {
 
     const user = useSelector<AppRootStateType, string | undefined>(store => store.user.currentUser.email)
-    const user2 = useSelector<AppRootStateType, any>(store => store.user)
 
-    console.log(user2)
+
 
     return (
         <div className=" container navbar_wrapper ">

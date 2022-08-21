@@ -9,11 +9,7 @@ import {Elements} from "@stripe/react-stripe-js";
 import {loadStripe} from "@stripe/stripe-js";
 
 
-
 const stripPromise = loadStripe('pk_test_51LXsh5IugZRUmYNQj6Rp8s2ItpOwUUaGbE5q0TyHzkRfv3FTEHBscrPYgxmyv8swhgeGgWYWEHhefDKDoI5QiqdM00qiSPBiGE');
-// const options = {
-//     clientSecret: '{{CLIENT_SECRET}}',
-// }
 
 
 ReactDOM.render(
@@ -21,9 +17,8 @@ ReactDOM.render(
         <BrowserRouter>
             <Elements
                 stripe={stripPromise}
-                // options={options}
             >
-            <App/>
+                <App/>
             </Elements>
         </BrowserRouter>
     </Provider>

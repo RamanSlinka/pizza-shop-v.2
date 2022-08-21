@@ -16,17 +16,13 @@ const Home: FC = React.memo(() => {
     const items = useSelector<AppRootStateType, Array<itemType>>((store) =>
         store.pizzas.items)
 
-     console.log(items)
-
     const rating = useSelector<AppRootStateType, any>((store) =>
         store.pizzas.sortBy)
 
     const isLoaded = useSelector<AppRootStateType, boolean>((store) =>
         store.pizzas.isLoaded)
 
-
     const cartItems = useSelector<AppRootStateType, any>(store => store.cart.itemsCart)
-
 
     const dispatch = useDispatch();
 
@@ -46,7 +42,6 @@ const Home: FC = React.memo(() => {
                 <div className="content__top">
 
                     <Categories/>
-
                     <SortPopup/>
 
 
@@ -64,11 +59,8 @@ const Home: FC = React.memo(() => {
 
                         : Array(12).fill(0).map((_, index: number) =>
                             <PizzaLoadingBlock key={index}/>)}
-
-
                 </div>
             </div>
-
         </div>
     )
 });

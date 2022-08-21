@@ -93,11 +93,8 @@ const CartItem: FC<CartItemType> = ({
                 <div
                     onClick={() => {
                         dispatch(removeCartItem(id))
-                        console.log('remove', id)
                     }}
-
                     className="button button--outline button--circle"
-
                 >
                     <svg
 

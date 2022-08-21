@@ -2,7 +2,12 @@ import React, {FC} from 'react';
 import {Button, Modal} from "react-bootstrap";
 import imageSuccess  from '../../assets/img/payment-success.png'
 
-const PaymentSuccess:FC<any> = ({show, handleClose}) => {
+type PaymentSuccessPropsType ={
+    show: boolean,
+    handleClose: ()=> void
+}
+
+const PaymentSuccess:FC<PaymentSuccessPropsType> = ({show, handleClose}) => {
     return (
         <div>
             <Modal show={show} onHide={handleClose} size='lg'>
