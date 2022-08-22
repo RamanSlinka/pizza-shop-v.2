@@ -1,6 +1,8 @@
 import React, {FC} from 'react';
 import {Button, Modal} from "react-bootstrap";
 import imageSuccess  from '../../assets/img/payment-success.png'
+import {NavLink} from "react-router-dom";
+import {PATH} from "../RoutesPage";
 
 type PaymentSuccessPropsType ={
     show: boolean,
@@ -19,7 +21,10 @@ const PaymentSuccess:FC<PaymentSuccessPropsType> = ({show, handleClose}) => {
                          style={{marginLeft: 'auto', marginRight:'auto', display:'block'}}
                          src={imageSuccess} alt="Success"/>
                     </Modal.Body>
-                <Modal.Footer>
+                <Modal.Footer style={{display:"flex", justifyContent: 'space-between'}}>
+                    <NavLink to={PATH.FEEDBACK} style={{color: 'red', fontSize: '13px'}}> Put comments or suggestions
+                        <span style={{fontSize:'20px', paddingLeft: '10px'}}>&#8592;</span>
+                    </NavLink>
                     <Button variant="outline-success" onClick={handleClose}>
                         Ok
                     </Button>
