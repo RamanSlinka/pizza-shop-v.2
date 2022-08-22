@@ -39,12 +39,12 @@
     @media screen and(max-width: 1600px) {
       width: 90.7%;
     }
-    @media screen and(max-width: 990px){
+    @media screen and(max-width: 990px) {
       width: 89.7%;
       padding: 15px;
       top: 262px;
     }
-    @media screen and(max-width: 768px){
+    @media screen and(max-width: 768px) {
       width: 86.4%;
       top: 262px;
     }
@@ -52,44 +52,66 @@
       width: 94.4%;
       top: 212px;
     }
-    @media screen and(max-width: 558px){
+    @media screen and(max-width: 558px) {
       width: 96%;
       top: 212px;
     }
-    @media screen and(max-width: 550px){
+    @media screen and(max-width: 550px) {
       width: 96%;
       top: 202px;
-    }@media screen and(max-width: 500px){
+    }
+    @media screen and(max-width: 500px) {
       top: 190px;
-    }@media screen and(max-width: 415px){
+    }
+    @media screen and(max-width: 415px) {
       top: 238px;
     }
+
     h1 {
       font-family: Montserrat-Bold, sans-serif;
       font-weight: bold;
-      font-size: 150px;
+      font-size: 120px;
       width: 100%;
       text-align: center;
-      @media screen and(max-width: 1200px){
+      @media screen and(max-width: 1200px) {
         font-size: 140px;
         margin-top: 10px;
       }
-      @media screen and(max-width: 870px){
+      @media screen and(max-width: 870px) {
         font-size: 100px;
         margin-top: 10px;
       }
-      @media screen and(max-width: 610px){
+      @media screen and(max-width: 610px) {
         font-size: 60px;
       }
-      @media screen and(max-width: 470px){
+      @media screen and(max-width: 470px) {
         font-size: 40px;
       }
     }
-    h3{
+
+    h3 {
       @media screen and (max-width: 400px) {
         font-size: 18px;
       }
     }
+
+    .about__app_description {
+      display: flex;
+      flex-direction: row;
+      margin-top: 20px;
+      @media screen and(max-width: 800px) {
+       font-size: 12px;
+      } @media screen and(max-width: 600px) {
+        flex-direction: column;
+      }
+h4{
+  @media screen and(max-width: 800px) {
+    font-size: 14px;
+    margin-left: 15px;
+  }
+}
+    }
+
   }
 
   //.cursor {
@@ -140,7 +162,7 @@
     letter-spacing: 2px;
     @media screen and (max-width: 500px) {
       border: 2px solid #2128bd;
-     // padding: 0.8rem 2rem;
+      // padding: 0.8rem 2rem;
       font: 18px "Margarine", sans-serif;
     }
   }
