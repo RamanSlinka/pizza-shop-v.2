@@ -1,6 +1,7 @@
 {
   "name": "online-pizza-shop",
-  "version": "0.1.0",
+  "author": "Raman Slinka",
+  "version": "2.0.42.0",
   "private": true,
   "dependencies": {
     "@stripe/react-stripe-js": "^1.10.0",
@@ -45,8 +46,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build",
-    "server": "npx json-server --watch public/db.json --port=3001"
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
