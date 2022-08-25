@@ -1,7 +1,7 @@
 import { PizzasActionsType} from "../actions/pizzas";
 import {itemType} from "./cart";
 
-type initialStateType = {
+export type initialStateType = {
     items: Array<itemType> | []
     isLoaded: boolean
     category: string | null
